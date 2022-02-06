@@ -1,5 +1,5 @@
 # DATA-STRUCTURES
- DS [SEMESTER III] 
+ DS & DS Lab [SEMESTER III] 
  
  - [X] **[Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**
  - [x] **DS - [Reference Books](https://github.com/Amey-Thakur/DATA-STRUCTURES/tree/main/Reference%20Books)**
