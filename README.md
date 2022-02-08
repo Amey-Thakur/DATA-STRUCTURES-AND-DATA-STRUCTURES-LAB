@@ -17,3 +17,6 @@
 ## Question Papers
  - [Previous Question Papers](https://github.com/Amey-Thakur/DATA-STRUCTURES/tree/main/Quesion%20Papers/Previous%20Quesion%20Papers)
  - [Solved Papers](https://github.com/Amey-Thakur/DATA-STRUCTURES/tree/main/Quesion%20Papers/DS%20Solved%20Papers)
+
+## Data Structures Lab
+ - DSL [Experiments](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/DSL%20Experiments.pdf) **JOURNAL** 
