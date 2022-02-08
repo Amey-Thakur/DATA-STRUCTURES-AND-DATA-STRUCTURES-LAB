@@ -19,4 +19,4 @@
  - [Solved Papers](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Quesion%20Papers/DS%20Solved%20Papers)
 
 ## Data Structures Lab
- - DS Lab [Experiments](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/DSL%20Experiments.pdf) **JOURNAL** 
+ - DS Lab [Experiments](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/DSL%20Experiments.pdf) - **JOURNAL** 
