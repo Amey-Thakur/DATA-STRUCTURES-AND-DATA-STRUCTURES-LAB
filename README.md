@@ -9,7 +9,7 @@
 ---
 
 ## My Preparation
- - [Sem-III Syallbus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_13_54_38_159.png)
+ - [Sem-III Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_13_54_38_159.png)
  - [Sem-III Modules](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_10_59_854.png)
  - [Sem-III Timetable](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_17_40_056.png)
  - [Blueprint](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Blueprint%20(DS).png)
