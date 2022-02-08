@@ -1,8 +1,12 @@
-# DATA-STRUCTURES
- DS & DS Lab [SEMESTER III] 
+# DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
+ DS & DSL [SEMESTER III] 
+ 
+ ---
  
  - [X] **[Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**
  - [x] **DS - [Reference Books](https://github.com/Amey-Thakur/DATA-STRUCTURES/tree/main/Reference%20Books)**
+
+---
 
 ## My Preparation
  - [Sem-III Syallbus](https://github.com/Amey-Thakur/DATA-STRUCTURES/blob/main/My%20Preparation/Note_2019-09-26_13_54_38_159.png)
