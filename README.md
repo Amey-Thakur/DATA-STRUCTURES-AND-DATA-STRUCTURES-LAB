@@ -4,7 +4,7 @@
  ---
  
  - [X] **[Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**
- - [x] **DS - [Reference Books](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Reference%20Books)**
+ - [X] **DS - [Reference Books](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Reference%20Books)**
 
 ---
 
