@@ -1,5 +1,5 @@
 # DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
- CSC305: DS & CSL303: DS LAB [SEMESTER III] 
+ 👍🏻 CSC305: DS & CSL303: DS LAB [SEMESTER III] 
  
  ---
  
@@ -43,3 +43,8 @@
  
  - [Solved Papers](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Quesion%20Papers/DS%20Solved%20Papers)
 
+---
+
+<p align="center"> <b> 👉🏻 Subject as a part of the 3rd Semester of Engineering @ University of Mumbai 👈🏻 <b> </p>
+ 
+<p align="center"><a href='https://github.com/Amey-Thakur/ACHIEVEMENTS#engineering', style='color: greenyellow;'> ✌🏻 Back To Engineering ✌🏻</p>
