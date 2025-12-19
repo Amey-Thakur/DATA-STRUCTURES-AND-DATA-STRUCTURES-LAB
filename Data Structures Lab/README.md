@@ -15,15 +15,11 @@
 
 ---
 
-<!-- NAVIGATION -->
-## 📚 Quick Navigation
+<div align="center">
 
-- [Arrays](#arrays-4-programs)
-- [Strings](#strings-3-programs)
-- [Linked Lists](#linked-lists-7-programs)
-- [Stacks](#stacks-8-programs)
-- [Queues](#queues-5-programs)
-- [Searching & Sorting](#searching--sorting-7-programs)
+  [📊 Arrays](#arrays-4-programs) &nbsp;·&nbsp; [🔤 Strings](#strings-3-programs) &nbsp;·&nbsp; [🔗 Linked Lists](#linked-lists-7-programs) &nbsp;·&nbsp; [📚 Stacks](#stacks-8-programs) &nbsp;·&nbsp; [📋 Queues](#queues-5-programs) &nbsp;·&nbsp; [🔍 Searching & Sorting](#searching--sorting-7-programs) &nbsp;·&nbsp; [🚀 How to Use](#-how-to-use) &nbsp;·&nbsp; [📖 Learning Path](#-learning-path)
+
+</div>
 
 ---
 
@@ -163,9 +159,7 @@ gcc matrix_addition.c -o matrix_addition
 <!-- FOOTER -->
 <div align="center">
 
-  ### Quick Navigation
-
-  **[⬆ Back to Top](#data-structures-lab)** · **[📚 Arrays](#arrays-4-programs)** · **[🔤 Strings](#strings-3-programs)** · **[🔗 Linked Lists](#linked-lists-7-programs)** · **[📊 Stacks](#stacks-8-programs)** · **[📋 Queues](#queues-5-programs)** · **[🔍 Searching & Sorting](#searching--sorting-7-programs)**
+  **[⬆ Back to Top](#data-structures-lab)** &nbsp;·&nbsp; **[📊 Arrays](#arrays-4-programs)** &nbsp;·&nbsp; **[🔤 Strings](#strings-3-programs)** &nbsp;·&nbsp; **[🔗 Linked Lists](#linked-lists-7-programs)** &nbsp;·&nbsp; **[📚 Stacks](#stacks-8-programs)** &nbsp;·&nbsp; **[📋 Queues](#queues-5-programs)** &nbsp;·&nbsp; **[🔍 Searching & Sorting](#searching--sorting-7-programs)** &nbsp;·&nbsp; **[🚀 How to Use](#-how-to-use)** &nbsp;·&nbsp; **[📖 Learning Path](#-learning-path)**
 
   <br>
 
