@@ -162,10 +162,10 @@ gcc matrix_addition.c -o matrix_addition
 
 <div align="center">
 
-### 🎓 [Main Repository](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
+### [Data Structures and Data Structures Lab](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
 
-**Data Structures and Data Structures Lab - University of Mumbai**
+**CSC305 & CSL303 · Semester III · Computer Engineering**
 
-*CSC305 & CSL303 · Semester III · Computer Engineering*
+*University of Mumbai · Curated by [Amey Thakur](https://github.com/Amey-Thakur)*
 
 </div>
