@@ -2,9 +2,7 @@
  * Program: Evaluate Prefix Expression
  * Description: Evaluates prefix (Polish Notation) expression using stack
  * Author: Amey Thakur
- * Purpose: Demonstrates prefix evaluation by scanning right to left
- * Note: Works with single-digit numbers and basic operators
- * Example: *+593 means (5+9)*3 = 42
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

@@ -2,7 +2,7 @@
  * Program: Double-Ended Queue (Deque)
  * Description: Queue with insertion and deletion at both ends using doubly linked list
  * Author: Amey Thakur
- * Purpose: Demonstrates deque operations with sentinel nodes
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

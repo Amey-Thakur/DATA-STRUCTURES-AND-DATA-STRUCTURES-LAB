@@ -2,8 +2,7 @@
  * Program: Pair Sum Finder
  * Description: Finds all pairs of numbers in an array that sum to 50
  * Author: Amey Thakur
- * Purpose: Demonstrates array traversal and pair finding algorithm
- * Note: Counts each pair once (a,b) and (b,a) are counted as different pairs
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

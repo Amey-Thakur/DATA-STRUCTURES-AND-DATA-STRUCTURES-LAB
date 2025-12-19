@@ -2,9 +2,7 @@
  * Program: Bubble Sort Algorithm
  * Description: Sorts an array using bubble sort technique
  * Author: Amey Thakur
- * Purpose: Demonstrates comparison-based sorting algorithm
- * Time Complexity: O(n²) worst and average case, O(n) best case
- * Space Complexity: O(1)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

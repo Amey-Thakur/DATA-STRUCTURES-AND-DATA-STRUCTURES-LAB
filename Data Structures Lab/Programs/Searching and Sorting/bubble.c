@@ -2,9 +2,7 @@
  * Program: Bubble Sort (Alternative Implementation)
  * Description: Sorts an array using bubble sort with reverse iteration
  * Author: Amey Thakur
- * Purpose: Demonstrates bubble sort using descending outer loop
- * Time Complexity: O(n²) in all cases
- * Space Complexity: O(1)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

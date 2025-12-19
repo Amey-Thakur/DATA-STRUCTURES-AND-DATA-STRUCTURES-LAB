@@ -2,7 +2,7 @@
  * Program: Priority Queue Implementation
  * Description: Linked list-based priority queue where lower priority number = higher priority
  * Author: Amey Thakur
- * Purpose: Demonstrates priority-based insertion and deletion
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

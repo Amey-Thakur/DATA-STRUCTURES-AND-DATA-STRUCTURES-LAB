@@ -2,7 +2,7 @@
  * Program: Circular Linked List Operations
  * Description: Implementation of circular linked list with insert, delete, and display
  * Author: Amey Thakur
- * Purpose: Demonstrates circular linked list where last node points to first node
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

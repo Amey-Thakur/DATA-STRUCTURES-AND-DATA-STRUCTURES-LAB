@@ -2,7 +2,7 @@
  * Program: Character Replacement
  * Description: Replaces all occurrences of a character with another in a string
  * Author: Amey Thakur
- * Purpose: Demonstrates string manipulation and character replacement
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

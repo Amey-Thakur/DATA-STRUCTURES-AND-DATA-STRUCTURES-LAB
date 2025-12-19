@@ -2,7 +2,7 @@
  * Program: Stack Implementation Using Linked List
  * Description: Implements stack operations using linked list (dynamic memory)
  * Author: Amey Thakur
- * Purpose: Demonstrates stack with dynamic allocation (no size limit)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

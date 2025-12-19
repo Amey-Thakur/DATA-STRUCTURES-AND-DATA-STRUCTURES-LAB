@@ -2,7 +2,7 @@
  * Program: Reverse Queue Using Stack
  * Description: Reverses the order of elements in a queue using an auxiliary stack
  * Author: Amey Thakur
- * Purpose: Demonstrates queue reversal algorithm using LIFO property of stack
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

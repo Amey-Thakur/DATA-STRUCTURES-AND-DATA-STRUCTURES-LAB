@@ -1,9 +1,8 @@
 /*
  * Program: Postfix Expression Evaluation
  * Description: Evaluates postfix (Reverse Polish Notation) expressions using stack
- * Example: 5 3 + 2 * → (5+3)*2 = 16
  * Author: Amey Thakur
- * Time Complexity: O(n) where n is length of expression
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

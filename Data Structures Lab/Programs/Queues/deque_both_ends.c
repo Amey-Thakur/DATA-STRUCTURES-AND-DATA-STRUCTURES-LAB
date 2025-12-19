@@ -2,7 +2,7 @@
  * Program: Deque with Operations at Both Ends (Array Implementation)
  * Description: Array-based deque supporting insert/delete at both front and rear
  * Author: Amey Thakur
- * Purpose: Demonstrates deque using array with both-end operations
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

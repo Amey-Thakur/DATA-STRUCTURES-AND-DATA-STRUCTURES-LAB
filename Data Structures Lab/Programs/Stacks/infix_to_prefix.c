@@ -2,9 +2,7 @@
  * Program: Infix to Prefix Conversion
  * Description: Converts infix expression to prefix notation using stack
  * Author: Amey Thakur
- * Purpose: Demonstrates conversion by reversing and using postfix logic
- * Note: Works with alphanumeric operands and basic operators
- * Example: A+B*C converts to +A*BC
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

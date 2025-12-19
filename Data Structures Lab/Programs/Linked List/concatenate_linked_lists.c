@@ -2,7 +2,7 @@
  * Program: Concatenate Two Linked Lists
  * Description: Merges two linked lists into a single list
  * Author: Amey Thakur
- * Purpose: Demonstrates list concatenation and traversal
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

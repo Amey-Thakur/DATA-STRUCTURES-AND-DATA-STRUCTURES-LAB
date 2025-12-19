@@ -1,11 +1,8 @@
 /*
  * Program: Student Marks Analysis
  * Description: Analyzes marks of students across multiple subjects
- *              - Calculates average marks per subject
- *              - Calculates average marks per student
- *              - Counts students scoring below 50
  * Author: Amey Thakur
- * Purpose: Demonstrates 2D arrays and statistical analysis
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

@@ -2,10 +2,7 @@
  * Program: Binary Search (Alternative Implementation)
  * Description: Searches for an element in sorted array using binary search
  * Author: Amey Thakur
- * Purpose: Demonstrates binary search with position-based output
- * Time Complexity: O(log n)
- * Space Complexity: O(1)
- * Note: Array must be sorted in ascending order
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>
