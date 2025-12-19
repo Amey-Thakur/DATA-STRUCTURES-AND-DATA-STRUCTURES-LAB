@@ -1,6 +1,16 @@
+<div align="center">
+
 # Data Structures Lab Programs
 
-This folder contains **34 comprehensive C programs** covering fundamental data structures and algorithms. All programs include detailed comments, proper documentation, and follow standard coding practices.
+### CSL303 · Semester III · Computer Engineering
+
+[![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
+[![Programs](https://img.shields.io/badge/Programs-34-green.svg)](#quick-navigation)
+[![Language](https://img.shields.io/badge/Language-C-orange.svg)](Programs/)
+
+**A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
+
+</div>
 
 ---
 
