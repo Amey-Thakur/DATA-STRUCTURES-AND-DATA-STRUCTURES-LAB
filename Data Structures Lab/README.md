@@ -168,9 +168,6 @@ gcc matrix_addition.c -o matrix_addition
 
 ## 📬 Contact
 
-**Author**: Amey Thakur  
+**Author**: [Amey Thakur](https://github.com/Amey-Thakur)  
 **Repository**: [DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
 
----
-
-*Last Updated: December 2024*
