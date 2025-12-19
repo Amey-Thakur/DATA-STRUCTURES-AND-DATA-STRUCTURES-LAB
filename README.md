@@ -125,7 +125,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 | 📋 **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
 | 🔍 **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
 
-### Featured Implementations
+### Program Details
 
 <details>
 <summary><strong>📊 Array Operations (4 Programs)</strong></summary>
