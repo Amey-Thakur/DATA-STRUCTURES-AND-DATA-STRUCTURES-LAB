@@ -130,82 +130,82 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 <details>
 <summary><strong>📊 Array Operations (4 Programs)</strong></summary>
 
-| Program | Description |
-|---------|-------------|
-| `matrix_addition.c` | Adds two 3x3 matrices using pointer arithmetic |
-| `student_marks_analysis.c` | Analyzes student marks with subject/student averages |
-| `find_pairs_sum.c` | Finds all pairs that sum to target value (50) |
-| `array_sum_mean.c` | Calculates sum and mean of 2D array elements |
+| Program | Description | Code |
+|---------|-------------|------|
+| `matrix_addition.c` | Adds two 3x3 matrices using pointer arithmetic | [View](Data%20Structures%20Lab/Programs/Array/matrix_addition.c) |
+| `student_marks_analysis.c` | Analyzes student marks with subject/student averages | [View](Data%20Structures%20Lab/Programs/Array/student_marks_analysis.c) |
+| `find_pairs_sum.c` | Finds all pairs that sum to target value (50) | [View](Data%20Structures%20Lab/Programs/Array/find_pairs_sum.c) |
+| `array_sum_mean.c` | Calculates sum and mean of 2D array elements | [View](Data%20Structures%20Lab/Programs/Array/array_sum_mean.c) |
 
 </details>
 
 <details>
 <summary><strong>🔤 String Operations (3 Programs)</strong></summary>
 
-| Program | Description |
-|---------|-------------|
-| `reverse_words.c` | Reverses word order in a sentence |
-| `count_characters.c` | Counts numbers, uppercase, lowercase, special chars |
-| `replace_character.c` | Replaces all occurrences of a character |
+| Program | Description | Code |
+|---------|-------------|------|
+| `reverse_words.c` | Reverses word order in a sentence | [View](Data%20Structures%20Lab/Programs/String/reverse_words.c) |
+| `count_characters.c` | Counts numbers, uppercase, lowercase, special chars | [View](Data%20Structures%20Lab/Programs/String/count_characters.c) |
+| `replace_character.c` | Replaces all occurrences of a character | [View](Data%20Structures%20Lab/Programs/String/replace_character.c) |
 
 </details>
 
 <details>
 <summary><strong>🔗 Linked List Operations (7 Programs)</strong></summary>
 
-| Program | Description |
-|---------|-------------|
-| `singly_linked_list.c` | Basic operations: insert, delete, display |
-| `doubly_linked_list.c` | Bidirectional traversal and operations |
-| `circular_linked_list.c` | Circular list with wrap-around |
-| `concatenate_linked_lists.c` | Merges two linked lists |
-| `count_nonzero_nodes.c` | Counts nodes with non-zero values |
-| `count_occurrences.c` | Counts occurrences of a value |
-| `find_max_min.c` | Finds maximum and minimum values |
+| Program | Description | Code |
+|---------|-------------|------|
+| `singly_linked_list.c` | Basic operations: insert, delete, display | [View](Data%20Structures%20Lab/Programs/Linked%20List/singly_linked_list.c) |
+| `doubly_linked_list.c` | Bidirectional traversal and operations | [View](Data%20Structures%20Lab/Programs/Linked%20List/doubly_linked_list.c) |
+| `circular_linked_list.c` | Circular list with wrap-around | [View](Data%20Structures%20Lab/Programs/Linked%20List/circular_linked_list.c) |
+| `concatenate_linked_lists.c` | Merges two linked lists | [View](Data%20Structures%20Lab/Programs/Linked%20List/concatenate_linked_lists.c) |
+| `count_nonzero_nodes.c` | Counts nodes with non-zero values | [View](Data%20Structures%20Lab/Programs/Linked%20List/count_nonzero_nodes.c) |
+| `count_occurrences.c` | Counts occurrences of a value | [View](Data%20Structures%20Lab/Programs/Linked%20List/count_occurrences.c) |
+| `find_max_min.c` | Finds maximum and minimum values | [View](Data%20Structures%20Lab/Programs/Linked%20List/find_max_min.c) |
 
 </details>
 
 <details>
 <summary><strong>📚 Stack Operations (8 Programs)</strong></summary>
 
-| Program | Description |
-|---------|-------------|
-| `evaluate_postfix_expression.c` | Evaluates postfix expressions using stack |
-| `evaluate_postfix_simple.c` | Simple postfix evaluation (single digits) |
-| `evaluate_prefix.c` | Evaluates prefix (Polish notation) expressions |
-| `infix_to_postfix.c` | Converts infix to postfix with operator precedence |
-| `infix_to_prefix.c` | Converts infix to prefix notation |
-| `postfix_to_infix.c` | Converts postfix back to infix |
-| `prefix_to_infix.c` | Converts prefix back to infix |
-| `stack_using_linked_list.c` | Dynamic stack implementation |
+| Program | Description | Code |
+|---------|-------------|------|
+| `evaluate_postfix_expression.c` | Evaluates postfix expressions using stack | [View](Data%20Structures%20Lab/Programs/Stacks/evaluate_postfix_expression.c) |
+| `evaluate_postfix_simple.c` | Simple postfix evaluation (single digits) | [View](Data%20Structures%20Lab/Programs/Stacks/evaluate_postfix_simple.c) |
+| `evaluate_prefix.c` | Evaluates prefix (Polish notation) expressions | [View](Data%20Structures%20Lab/Programs/Stacks/evaluate_prefix.c) |
+| `infix_to_postfix.c` | Converts infix to postfix with operator precedence | [View](Data%20Structures%20Lab/Programs/Stacks/infix_to_postfix.c) |
+| `infix_to_prefix.c` | Converts infix to prefix notation | [View](Data%20Structures%20Lab/Programs/Stacks/infix_to_prefix.c) |
+| `postfix_to_infix.c` | Converts postfix back to infix | [View](Data%20Structures%20Lab/Programs/Stacks/postfix_to_infix.c) |
+| `prefix_to_infix.c` | Converts prefix back to infix | [View](Data%20Structures%20Lab/Programs/Stacks/prefix_to_infix.c) |
+| `stack_using_linked_list.c` | Dynamic stack implementation | [View](Data%20Structures%20Lab/Programs/Stacks/stack_using_linked_list.c) |
 
 </details>
 
 <details>
 <summary><strong>📋 Queue Operations (5 Programs)</strong></summary>
 
-| Program | Description |
-|---------|-------------|
-| `circular_queue.c` | Circular queue with wrap-around logic |
-| `priority_queue.c` | Priority-based queue using linked list |
-| `double_ended_queue.c` | Deque with sentinel nodes |
-| `deque_both_ends.c` | Array-based deque operations |
-| `reverse_queue.c` | Reverses queue using stack |
+| Program | Description | Code |
+|---------|-------------|------|
+| `circular_queue.c` | Circular queue with wrap-around logic | [View](Data%20Structures%20Lab/Programs/Queues/circular_queue.c) |
+| `priority_queue.c` | Priority-based queue using linked list | [View](Data%20Structures%20Lab/Programs/Queues/priority_queue.c) |
+| `double_ended_queue.c` | Deque with sentinel nodes | [View](Data%20Structures%20Lab/Programs/Queues/double_ended_queue.c) |
+| `deque_both_ends.c` | Array-based deque operations | [View](Data%20Structures%20Lab/Programs/Queues/deque_both_ends.c) |
+| `reverse_queue.c` | Reverses queue using stack | [View](Data%20Structures%20Lab/Programs/Queues/reverse_queue.c) |
 
 </details>
 
 <details>
 <summary><strong>🔍 Searching & Sorting (7 Programs)</strong></summary>
 
-| Program | Algorithm | Time Complexity |
-|---------|-----------|-----------------|
-| `binary_search.c` | Binary Search | O(log n) |
-| `binary.c` | Binary Search (alt) | O(log n) |
-| `bubble_sort.c` | Bubble Sort | O(n²) |
-| `bubble.c` | Bubble Sort (alt) | O(n²) |
-| `insertion.c` | Insertion Sort | O(n²) |
-| `merge.c` | Merge Sort | O(n log n) |
-| `quick.c` | Quick Sort | O(n log n) avg |
+| Program | Algorithm | Time Complexity | Code |
+|---------|-----------|-----------------|------|
+| `binary_search.c` | Binary Search | O(log n) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/binary_search.c) |
+| `binary.c` | Binary Search (alt) | O(log n) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/binary.c) |
+| `bubble_sort.c` | Bubble Sort | O(n²) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/bubble_sort.c) |
+| `bubble.c` | Bubble Sort (alt) | O(n²) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/bubble.c) |
+| `insertion.c` | Insertion Sort | O(n²) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/insertion.c) |
+| `merge.c` | Merge Sort | O(n log n) | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/merge.c) |
+| `quick.c` | Quick Sort | O(n log n) avg | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/quick.c) |
 
 </details>
 
