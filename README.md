@@ -128,7 +128,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 ### Featured Implementations
 
 <details>
-<summary><strong>� Array Operations (4 Programs)</strong></summary>
+<summary><strong>📊 Array Operations (4 Programs)</strong></summary>
 
 | Program | Description |
 |---------|-------------|
@@ -166,7 +166,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>� Stack Operations (8 Programs)</strong></summary>
+<summary><strong>📚 Stack Operations (8 Programs)</strong></summary>
 
 | Program | Description |
 |---------|-------------|
