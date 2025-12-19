@@ -1,19 +1,21 @@
+<!-- HEADER -->
 <div align="center">
 
-# Data Structures Lab
+  # Data Structures Lab
 
-### CSL303 · Semester III · Computer Engineering
+  ### CSL303 · Semester III · Computer Engineering
 
-[![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
-[![Programs](https://img.shields.io/badge/Programs-34-green.svg)](#quick-navigation)
-[![Language](https://img.shields.io/badge/Language-C-orange.svg)](Programs/)
+  [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
+  [![Programs](https://img.shields.io/badge/Programs-34-green.svg)](#quick-navigation)
+  [![Language](https://img.shields.io/badge/Language-C-orange.svg)](Programs/)
 
-**A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
+  **A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
 
 </div>
 
 ---
 
+<!-- NAVIGATION -->
 ## 📚 Quick Navigation
 
 - [Arrays](#arrays-4-programs)
@@ -25,10 +27,11 @@
 
 ---
 
+<!-- ARRAYS -->
 ## 📊 Arrays (4 Programs)
 
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 1 | [matrix_addition.c](Programs/Array/matrix_addition.c) | Adds two 3x3 matrices using pointer arithmetic |
 | 2 | [student_marks_analysis.c](Programs/Array/student_marks_analysis.c) | Analyzes student marks with subject/student averages |
 | 3 | [find_pairs_sum.c](Programs/Array/find_pairs_sum.c) | Finds all pairs that sum to target value (50) |
@@ -36,20 +39,22 @@
 
 ---
 
+<!-- STRINGS -->
 ## 🔤 Strings (3 Programs)
 
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 1 | [reverse_words.c](Programs/String/reverse_words.c) | Reverses word order in a sentence |
 | 2 | [count_characters.c](Programs/String/count_characters.c) | Counts numbers, uppercase, lowercase, special chars |
 | 3 | [replace_character.c](Programs/String/replace_character.c) | Replaces all occurrences of a character |
 
 ---
 
+<!-- LINKED LISTS -->
 ## 🔗 Linked Lists (7 Programs)
 
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 1 | [singly_linked_list.c](Programs/Linked%20List/singly_linked_list.c) | Basic singly linked list operations |
 | 2 | [circular_linked_list.c](Programs/Linked%20List/circular_linked_list.c) | Circular linked list (last→first) |
 | 3 | [doubly_linked_list.c](Programs/Linked%20List/doubly_linked_list.c) | Doubly linked list with bidirectional traversal |
@@ -60,18 +65,19 @@
 
 ---
 
+<!-- STACKS -->
 ## 📚 Stacks (8 Programs)
 
 ### Expression Evaluation
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 1 | [evaluate_postfix_simple.c](Programs/Stacks/evaluate_postfix_simple.c) | Evaluates postfix expressions (simple) |
 | 2 | [evaluate_postfix_expression.c](Programs/Stacks/evaluate_postfix_expression.c) | Evaluates postfix expressions (advanced) |
 | 3 | [evaluate_prefix.c](Programs/Stacks/evaluate_prefix.c) | Evaluates prefix expressions |
 
 ### Expression Conversion
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 4 | [infix_to_postfix.c](Programs/Stacks/infix_to_postfix.c) | Converts infix → postfix |
 | 5 | [infix_to_prefix.c](Programs/Stacks/infix_to_prefix.c) | Converts infix → prefix |
 | 6 | [postfix_to_infix.c](Programs/Stacks/postfix_to_infix.c) | Converts postfix → infix |
@@ -79,15 +85,16 @@
 
 ### Stack Implementation
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 8 | [stack_using_linked_list.c](Programs/Stacks/stack_using_linked_list.c) | Dynamic stack using linked list |
 
 ---
 
+<!-- QUEUES -->
 ## 📋 Queues (5 Programs)
 
 | # | Program | Description |
-|---|---------|-------------|
+|:---|:---|:---|
 | 1 | [circular_queue.c](Programs/Queues/circular_queue.c) | Circular queue with wrap-around |
 | 2 | [priority_queue.c](Programs/Queues/priority_queue.c) | Priority-based queue (linked list) |
 | 3 | [reverse_queue.c](Programs/Queues/reverse_queue.c) | Reverses queue using stack |
@@ -96,17 +103,18 @@
 
 ---
 
+<!-- SEARCHING & SORTING -->
 ## 🔍 Searching & Sorting (7 Programs)
 
 ### Searching Algorithms
 | # | Program | Description | Time Complexity |
-|---|---------|-------------|-----------------|
+|:---|:---|:---|:---|
 | 1 | [binary_search.c](Programs/Searching%20and%20Sorting/binary_search.c) | Binary search (advanced) | O(log n) |
 | 2 | [binary.c](Programs/Searching%20and%20Sorting/binary.c) | Binary search (alternative) | O(log n) |
 
 ### Sorting Algorithms
 | # | Program | Description | Time Complexity |
-|---|---------|-------------|-----------------|
+|:---|:---|:---|:---|
 | 3 | [bubble_sort.c](Programs/Searching%20and%20Sorting/bubble_sort.c) | Bubble sort (optimized) | O(n²) |
 | 4 | [bubble.c](Programs/Searching%20and%20Sorting/bubble.c) | Bubble sort (alternative) | O(n²) |
 | 5 | [insertion.c](Programs/Searching%20and%20Sorting/insertion.c) | Insertion sort | O(n²) |
@@ -115,6 +123,7 @@
 
 ---
 
+<!-- HOW TO USE -->
 ## 🚀 How to Use
 
 1. **Navigate** to the desired program folder
@@ -131,6 +140,7 @@ gcc matrix_addition.c -o matrix_addition
 
 ---
 
+<!-- LEARNING PATH -->
 ## 📖 Learning Path
 
 **Beginner Level:**
@@ -150,15 +160,16 @@ gcc matrix_addition.c -o matrix_addition
 
 ---
 
+<!-- FOOTER -->
 <div align="center">
 
-### Quick Navigation
+  ### Quick Navigation
 
-**[⬆ Back to Top](#data-structures-lab)** · **[📚 Arrays](#arrays-4-programs)** · **[🔤 Strings](#strings-3-programs)** · **[🔗 Linked Lists](#linked-lists-7-programs)** · **[📊 Stacks](#stacks-8-programs)** · **[📋 Queues](#queues-5-programs)** · **[🔍 Searching & Sorting](#searching--sorting-7-programs)**
+  **[⬆ Back to Top](#data-structures-lab)** · **[📚 Arrays](#arrays-4-programs)** · **[🔤 Strings](#strings-3-programs)** · **[🔗 Linked Lists](#linked-lists-7-programs)** · **[📊 Stacks](#stacks-8-programs)** · **[📋 Queues](#queues-5-programs)** · **[🔍 Searching & Sorting](#searching--sorting-7-programs)**
 
-<br>
+  <br>
 
-**[🏠 Back to Main Repository](../)**
+  **[🏠 Back to Main Repository](../)**
 
 </div>
 
@@ -166,10 +177,10 @@ gcc matrix_addition.c -o matrix_addition
 
 <div align="center">
 
-### [Data Structures and Data Structures Lab](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
+  ### [Data Structures and Data Structures Lab](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
 
-**CSC305 & CSL303 · Semester III · Computer Engineering**
+  **CSC305 & CSL303 · Semester III · Computer Engineering**
 
-*University of Mumbai · Curated by [Amey Thakur](https://github.com/Amey-Thakur)*
+  *University of Mumbai · Curated by [Amey Thakur](https://github.com/Amey-Thakur)*
 
 </div>
