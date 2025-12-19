@@ -25,7 +25,7 @@
 
 ---
 
-## Arrays (4 Programs)
+## 📊 Arrays (4 Programs)
 
 | # | Program | Description |
 |---|---------|-------------|
@@ -36,7 +36,7 @@
 
 ---
 
-## Strings (3 Programs)
+## 🔤 Strings (3 Programs)
 
 | # | Program | Description |
 |---|---------|-------------|
@@ -46,7 +46,7 @@
 
 ---
 
-## Linked Lists (7 Programs)
+## 🔗 Linked Lists (7 Programs)
 
 | # | Program | Description |
 |---|---------|-------------|
@@ -60,7 +60,7 @@
 
 ---
 
-## Stacks (8 Programs)
+## 📚 Stacks (8 Programs)
 
 ### Expression Evaluation
 | # | Program | Description |
@@ -84,7 +84,7 @@
 
 ---
 
-## Queues (5 Programs)
+## 📋 Queues (5 Programs)
 
 | # | Program | Description |
 |---|---------|-------------|
@@ -96,7 +96,7 @@
 
 ---
 
-## Searching & Sorting (7 Programs)
+## 🔍 Searching & Sorting (7 Programs)
 
 ### Searching Algorithms
 | # | Program | Description | Time Complexity |
@@ -115,7 +115,7 @@
 
 ---
 
-##  How to Use
+## 🚀 How to Use
 
 1. **Navigate** to the desired program folder
 2. **Open** the `.c` file
