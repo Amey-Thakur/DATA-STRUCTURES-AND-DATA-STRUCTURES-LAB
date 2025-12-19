@@ -128,17 +128,25 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 ### Featured Implementations
 
 <details>
-<summary><strong>📚 Stack Operations (8 Programs)</strong></summary>
+<summary><strong>� Array Operations (4 Programs)</strong></summary>
 
 | Program | Description |
 |---------|-------------|
-| `evaluate_postfix_expression.c` | Evaluates postfix expressions using stack |
-| `evaluate_prefix.c` | Evaluates prefix (Polish notation) expressions |
-| `infix_to_postfix.c` | Converts infix to postfix with operator precedence |
-| `infix_to_prefix.c` | Converts infix to prefix notation |
-| `postfix_to_infix.c` | Converts postfix back to infix |
-| `prefix_to_infix.c` | Converts prefix back to infix |
-| `stack_using_linked_list.c` | Dynamic stack implementation |
+| `matrix_addition.c` | Adds two 3x3 matrices using pointer arithmetic |
+| `student_marks_analysis.c` | Analyzes student marks with subject/student averages |
+| `find_pairs_sum.c` | Finds all pairs that sum to target value (50) |
+| `array_sum_mean.c` | Calculates sum and mean of 2D array elements |
+
+</details>
+
+<details>
+<summary><strong>🔤 String Operations (3 Programs)</strong></summary>
+
+| Program | Description |
+|---------|-------------|
+| `reverse_words.c` | Reverses word order in a sentence |
+| `count_characters.c` | Counts numbers, uppercase, lowercase, special chars |
+| `replace_character.c` | Replaces all occurrences of a character |
 
 </details>
 
@@ -158,15 +166,46 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>🔍 Sorting Algorithms (5 Programs)</strong></summary>
+<summary><strong>� Stack Operations (8 Programs)</strong></summary>
+
+| Program | Description |
+|---------|-------------|
+| `evaluate_postfix_expression.c` | Evaluates postfix expressions using stack |
+| `evaluate_postfix_simple.c` | Simple postfix evaluation (single digits) |
+| `evaluate_prefix.c` | Evaluates prefix (Polish notation) expressions |
+| `infix_to_postfix.c` | Converts infix to postfix with operator precedence |
+| `infix_to_prefix.c` | Converts infix to prefix notation |
+| `postfix_to_infix.c` | Converts postfix back to infix |
+| `prefix_to_infix.c` | Converts prefix back to infix |
+| `stack_using_linked_list.c` | Dynamic stack implementation |
+
+</details>
+
+<details>
+<summary><strong>📋 Queue Operations (5 Programs)</strong></summary>
+
+| Program | Description |
+|---------|-------------|
+| `circular_queue.c` | Circular queue with wrap-around logic |
+| `priority_queue.c` | Priority-based queue using linked list |
+| `double_ended_queue.c` | Deque with sentinel nodes |
+| `deque_both_ends.c` | Array-based deque operations |
+| `reverse_queue.c` | Reverses queue using stack |
+
+</details>
+
+<details>
+<summary><strong>🔍 Searching & Sorting (7 Programs)</strong></summary>
 
 | Program | Algorithm | Time Complexity |
 |---------|-----------|-----------------|
+| `binary_search.c` | Binary Search | O(log n) |
+| `binary.c` | Binary Search (alt) | O(log n) |
 | `bubble_sort.c` | Bubble Sort | O(n²) |
+| `bubble.c` | Bubble Sort (alt) | O(n²) |
 | `insertion.c` | Insertion Sort | O(n²) |
 | `merge.c` | Merge Sort | O(n log n) |
 | `quick.c` | Quick Sort | O(n log n) avg |
-| `binary_search.c` | Binary Search | O(log n) |
 
 </details>
 
