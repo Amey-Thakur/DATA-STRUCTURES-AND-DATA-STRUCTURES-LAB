@@ -156,6 +156,10 @@ gcc matrix_addition.c -o matrix_addition
 
 **[⬆ Back to Top](#data-structures-lab)** · **[📚 Arrays](#arrays-4-programs)** · **[🔤 Strings](#strings-3-programs)** · **[🔗 Linked Lists](#linked-lists-7-programs)** · **[📊 Stacks](#stacks-8-programs)** · **[📋 Queues](#queues-5-programs)** · **[🔍 Searching & Sorting](#searching--sorting-7-programs)**
 
+<br>
+
+**[🏠 Back to Main Repository](../)**
+
 </div>
 
 ---
