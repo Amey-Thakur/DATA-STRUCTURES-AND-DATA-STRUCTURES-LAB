@@ -150,20 +150,22 @@ gcc matrix_addition.c -o matrix_addition
 
 ---
 
-## 💡 Key Concepts Covered
+<div align="center">
 
-- **Arrays**: Matrix operations, statistical analysis
-- **Strings**: Manipulation, character analysis
-- **Linked Lists**: Dynamic memory, pointer manipulation
-- **Stacks**: LIFO principle, expression evaluation
-- **Queues**: FIFO principle, priority handling
-- **Searching**: Binary search efficiency
-- **Sorting**: Comparison of algorithms
+### Quick Navigation
+
+**[⬆ Back to Top](#data-structures-lab)** · **[📚 Arrays](#arrays-4-programs)** · **[🔤 Strings](#strings-3-programs)** · **[🔗 Linked Lists](#linked-lists-7-programs)** · **[📊 Stacks](#stacks-8-programs)** · **[📋 Queues](#queues-5-programs)** · **[🔍 Searching & Sorting](#searching--sorting-7-programs)**
+
+</div>
 
 ---
 
-## 📬 Contact
+<div align="center">
 
-**Author**: [Amey Thakur](https://github.com/Amey-Thakur)  
-**Repository**: [DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
+### 🎓 [Main Repository](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
 
+**Data Structures and Data Structures Lab - University of Mumbai**
+
+*CSC305 & CSL303 · Semester III · Computer Engineering*
+
+</div>
