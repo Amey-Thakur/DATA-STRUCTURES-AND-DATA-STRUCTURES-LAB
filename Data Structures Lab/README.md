@@ -1,6 +1,6 @@
 <div align="center">
 
-# Data Structures Lab Programs
+# Data Structures Lab
 
 ### CSL303 · Semester III · Computer Engineering
 
