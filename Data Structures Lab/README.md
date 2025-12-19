@@ -105,21 +105,7 @@ This folder contains **34 comprehensive C programs** covering fundamental data s
 
 ---
 
-## 📝 Program Features
-
-All programs include:
-
-- ✅ **Comprehensive Comments** - Detailed explanations for easy understanding
-- ✅ **Author Attribution** - Amey Thakur
-- ✅ **Function Documentation** - Purpose, parameters, and return values explained
-- ✅ **Algorithm Explanations** - Step-by-step logic clarification
-- ✅ **Error Handling** - Input validation and edge case management
-- ✅ **Standard Practices** - Follows C coding conventions
-- ✅ **Modular Design** - Separate functions for clarity
-
----
-
-## 🚀 How to Use
+##  How to Use
 
 1. **Navigate** to the desired program folder
 2. **Open** the `.c` file
