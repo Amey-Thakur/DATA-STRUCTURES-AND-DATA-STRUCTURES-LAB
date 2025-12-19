@@ -2,10 +2,7 @@
  * Program: Binary Search Algorithm
  * Description: Searches for an element in sorted array using binary search
  * Author: Amey Thakur
- * Purpose: Demonstrates efficient searching in sorted arrays
- * Time Complexity: O(log n)
- * Space Complexity: O(1)
- * Prerequisite: Array must be sorted
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

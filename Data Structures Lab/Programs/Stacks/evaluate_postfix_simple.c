@@ -2,9 +2,7 @@
  * Program: Evaluate Postfix Expression (Simple Version)
  * Description: Evaluates postfix expression with single-digit operands
  * Author: Amey Thakur
- * Purpose: Demonstrates postfix evaluation using stack with simple implementation
- * Note: Works with single-digit numbers and basic operators (+, -, *, /, %)
- * Example: 59+3* means (5+9)*3 = 42
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

@@ -2,9 +2,7 @@
  * Program: Insertion Sort Algorithm
  * Description: Sorts an array using insertion sort technique
  * Author: Amey Thakur
- * Purpose: Demonstrates insertion sort by inserting each element in its correct position
- * Time Complexity: O(n²) worst case, O(n) best case
- * Space Complexity: O(1)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

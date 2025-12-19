@@ -2,8 +2,7 @@
  * Program: Postfix to Infix Conversion
  * Description: Converts postfix expression to infix notation using stack
  * Author: Amey Thakur
- * Purpose: Demonstrates conversion using string stack
- * Example: AB+C* converts to (A+B)*C
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

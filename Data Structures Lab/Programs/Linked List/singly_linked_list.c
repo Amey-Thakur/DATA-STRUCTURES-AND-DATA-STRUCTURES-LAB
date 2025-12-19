@@ -2,7 +2,7 @@
  * Program: Singly Linked List Operations
  * Description: Implementation of singly linked list with insert, delete, and display operations
  * Author: Amey Thakur
- * Purpose: Demonstrates dynamic memory allocation and linked list manipulation
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

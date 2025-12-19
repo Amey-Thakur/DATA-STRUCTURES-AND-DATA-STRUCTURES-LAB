@@ -2,9 +2,7 @@
  * Program: Quick Sort Algorithm
  * Description: Sorts an array using quick sort (partition-exchange) technique
  * Author: Amey Thakur
- * Purpose: Demonstrates efficient divide-and-conquer sorting with pivot
- * Time Complexity: O(n log n) average case, O(n²) worst case
- * Space Complexity: O(log n) for recursion stack
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

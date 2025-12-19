@@ -2,7 +2,7 @@
  * Program: Find Maximum and Minimum in Linked List
  * Description: Finds the maximum and minimum values in a linked list
  * Author: Amey Thakur
- * Purpose: Demonstrates traversal and comparison operations
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

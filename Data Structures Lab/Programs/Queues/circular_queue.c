@@ -2,7 +2,7 @@
  * Program: Circular Queue Implementation
  * Description: Array-based circular queue with insert, delete, and display operations
  * Author: Amey Thakur
- * Purpose: Demonstrates circular queue where rear wraps around to front
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

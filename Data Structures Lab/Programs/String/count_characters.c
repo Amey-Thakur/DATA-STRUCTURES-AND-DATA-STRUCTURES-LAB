@@ -1,12 +1,8 @@
 /*
  * Program: Character Type Counter
  * Description: Counts different types of characters in a string:
- *              - Numbers (0-9)
- *              - Uppercase letters (A-Z)
- *              - Lowercase letters (a-z)
- *              - Special characters (all others)
  * Author: Amey Thakur
- * Purpose: Demonstrates character classification using ASCII values
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

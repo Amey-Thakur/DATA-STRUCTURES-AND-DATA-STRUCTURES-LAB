@@ -2,9 +2,7 @@
  * Program: Merge Sort Algorithm
  * Description: Sorts an array using divide-and-conquer merge sort technique
  * Author: Amey Thakur
- * Purpose: Demonstrates efficient recursive sorting algorithm
- * Time Complexity: O(n log n) in all cases
- * Space Complexity: O(n)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

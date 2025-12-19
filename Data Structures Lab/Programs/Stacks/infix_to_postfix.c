@@ -2,9 +2,7 @@
  * Program: Infix to Postfix Conversion
  * Description: Converts infix expression to postfix notation using stack
  * Author: Amey Thakur
- * Purpose: Demonstrates operator precedence and expression conversion
- * Note: Works with single-letter variables and single-digit constants
- * Example: A+B*C converts to ABC*+
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

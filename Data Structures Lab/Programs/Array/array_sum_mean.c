@@ -2,7 +2,7 @@
  * Program: 2D Array Sum and Mean Calculator
  * Description: Calculates the sum and mean of all elements in a 2D array
  * Author: Amey Thakur
- * Purpose: Demonstrates 2D array manipulation and basic statistics
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

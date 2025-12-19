@@ -2,7 +2,7 @@
  * Program: Count Occurrences in Linked List
  * Description: Counts how many times a specific value appears in the list
  * Author: Amey Thakur
- * Purpose: Demonstrates linked list traversal and counting
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

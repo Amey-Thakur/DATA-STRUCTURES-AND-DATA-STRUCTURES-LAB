@@ -2,7 +2,7 @@
  * Program: 3x3 Matrix Addition
  * Description: Adds two 3x3 matrices and displays the result using pointer arithmetic
  * Author: Amey Thakur
- * Purpose: Demonstrates 2D array manipulation using pointers
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

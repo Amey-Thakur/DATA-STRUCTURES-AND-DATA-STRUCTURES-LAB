@@ -2,7 +2,7 @@
  * Program: Count Non-Zero Nodes in Linked List
  * Description: Counts the number of nodes with non-zero data values
  * Author: Amey Thakur
- * Purpose: Demonstrates traversal and conditional counting
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

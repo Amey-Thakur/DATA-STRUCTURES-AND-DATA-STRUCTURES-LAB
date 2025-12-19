@@ -1,9 +1,8 @@
 /*
  * Program: Reverse Words in String
  * Description: Reverses the order of words in a sentence
- *              Example: "Hello World" becomes "World Hello"
  * Author: Amey Thakur
- * Purpose: Demonstrates string manipulation and word reversal algorithm
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

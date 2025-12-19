@@ -2,8 +2,7 @@
  * Program: Prefix to Infix Conversion
  * Description: Converts prefix expression to infix notation using string stack
  * Author: Amey Thakur
- * Purpose: Demonstrates prefix conversion by scanning right to left
- * Example: +A*BCD converts to A+(B*C-D)
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>

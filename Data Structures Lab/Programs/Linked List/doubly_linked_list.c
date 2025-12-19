@@ -2,7 +2,7 @@
  * Program: Doubly Linked List Operations
  * Description: Implementation of doubly linked list with bidirectional traversal
  * Author: Amey Thakur
- * Purpose: Demonstrates doubly linked list with forward and backward pointers
+ * Reference: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
  */
 
 #include <stdio.h>
