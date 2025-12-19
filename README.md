@@ -102,24 +102,80 @@ Study materials and planning resources for effective exam preparation:
 
 ## Data Structures Laboratory
 
-The laboratory component (CSL303) focuses on the implementation of various data structures and algorithms using C/C++, providing hands-on experience in solving complex problems.
+The laboratory component (CSL303) focuses on hands-on implementation of various data structures and algorithms using C, providing practical experience in solving complex computational problems.
 
-### Core Implementation Areas
+<div align="center">
 
-| Component | Repository Link |
-|-----------|-----------------|
-| 📊 **Arrays** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/Array) |
-| 🔗 **Linked Lists** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/Linked%20List) |
-| 📝 **Queues** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/Queues) |
-| 🔍 **Searching and Sorting** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/Searching%20and%20Sorting) |
-| 🥞 **Stacks** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/Stacks) |
-| 🔠 **String Operations** | [Explore Programs](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Programs/String) |
+[![Total Programs](https://img.shields.io/badge/Total%20Programs-34-brightgreen.svg)](Data%20Structures%20Lab/)
+[![Language](https://img.shields.io/badge/Language-C-blue.svg)](Data%20Structures%20Lab/Programs/)
+[![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-orange.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
+
+**[📂 Browse All Programs](Data%20Structures%20Lab/)**
+
+</div>
+
+### Program Categories
+
+| Category | Programs | Topics Covered | Repository |
+|----------|:--------:|----------------|------------|
+| 📊 **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Programs](Data%20Structures%20Lab/Programs/Array/) |
+| 🔤 **Strings** | 3 | Word reversal, character counting, replacement | [View Programs](Data%20Structures%20Lab/Programs/String/) |
+| 🔗 **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Programs](Data%20Structures%20Lab/Programs/Linked%20List/) |
+| 📚 **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Programs](Data%20Structures%20Lab/Programs/Stacks/) |
+| 📋 **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
+| 🔍 **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
+
+### Featured Implementations
+
+<details>
+<summary><strong>📚 Stack Operations (8 Programs)</strong></summary>
+
+| Program | Description |
+|---------|-------------|
+| `evaluate_postfix_expression.c` | Evaluates postfix expressions using stack |
+| `evaluate_prefix.c` | Evaluates prefix (Polish notation) expressions |
+| `infix_to_postfix.c` | Converts infix to postfix with operator precedence |
+| `infix_to_prefix.c` | Converts infix to prefix notation |
+| `postfix_to_infix.c` | Converts postfix back to infix |
+| `prefix_to_infix.c` | Converts prefix back to infix |
+| `stack_using_linked_list.c` | Dynamic stack implementation |
+
+</details>
+
+<details>
+<summary><strong>🔗 Linked List Operations (7 Programs)</strong></summary>
+
+| Program | Description |
+|---------|-------------|
+| `singly_linked_list.c` | Basic operations: insert, delete, display |
+| `doubly_linked_list.c` | Bidirectional traversal and operations |
+| `circular_linked_list.c` | Circular list with wrap-around |
+| `concatenate_linked_lists.c` | Merges two linked lists |
+| `count_nonzero_nodes.c` | Counts nodes with non-zero values |
+| `count_occurrences.c` | Counts occurrences of a value |
+| `find_max_min.c` | Finds maximum and minimum values |
+
+</details>
+
+<details>
+<summary><strong>🔍 Sorting Algorithms (5 Programs)</strong></summary>
+
+| Program | Algorithm | Time Complexity |
+|---------|-----------|-----------------|
+| `bubble_sort.c` | Bubble Sort | O(n²) |
+| `insertion.c` | Insertion Sort | O(n²) |
+| `merge.c` | Merge Sort | O(n log n) |
+| `quick.c` | Quick Sort | O(n log n) avg |
+| `binary_search.c` | Binary Search | O(log n) |
+
+</details>
 
 ### Laboratory Documentation
 
 | Resource | Description |
 |----------|-------------|
-| 🧪 [Laboratory Journal](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments conducted, including code, outputs, and analysis. |
+| 🧪 [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
+| 📖 [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with program descriptions |
 
 ---
 
