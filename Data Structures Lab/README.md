@@ -9,12 +9,6 @@
   <!-- Subtitle -->
   ### CSL303 · Semester III · Computer Engineering
 
-  > [!TIP]
-  > **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
-
-  > [!WARNING]
-  > **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.
-
   <!-- Badges -->
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
   [![Programs](https://img.shields.io/badge/Programs-34-yellowgreen.svg)](#quick-navigation)
@@ -30,6 +24,14 @@
   [📊 Arrays](#arrays-4-programs) &nbsp;·&nbsp; [🔤 Strings](#strings-3-programs) &nbsp;·&nbsp; [🔗 Linked Lists](#linked-lists-7-programs) &nbsp;·&nbsp; [📚 Stacks](#stacks-8-programs) &nbsp;·&nbsp; [📋 Queues](#queues-5-programs) &nbsp;·&nbsp; [🔍 Searching & Sorting](#searching--sorting-7-programs) &nbsp;·&nbsp; [🚀 How to Use](#-how-to-use) &nbsp;·&nbsp; [📖 Learning Path](#-learning-path)
 
 </div>
+
+---
+
+> [!TIP]
+> **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
+
+> [!WARNING]
+> **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.
 
 ---
 
