@@ -317,8 +317,6 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
 
   **[🧪 Data Structures Laboratory](Data%20Structures%20Lab/)**
 
-  <br>
-
   ---
 
   ### 🎓 [Computer Engineering Repository](https://github.com/Amey-Thakur/COMPUTER-ENGINEERING)
