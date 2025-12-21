@@ -11,7 +11,7 @@
 
   <!-- Badges -->
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
-  [![Programs](https://img.shields.io/badge/Programs-34-blue.svg)](#quick-navigation)
+  [![Programs](https://img.shields.io/badge/Programs-34-informational.svg)](#quick-navigation)
   [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Programs/)
 
   <!-- Short Description -->
