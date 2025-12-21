@@ -9,6 +9,12 @@
   <!-- Subtitle -->
   ### CSL303 · Semester III · Computer Engineering
 
+  > [!TIP]
+  > **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
+
+  > [!WARNING]
+  > **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.
+
   <!-- Badges -->
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
   [![Programs](https://img.shields.io/badge/Programs-34-yellowgreen.svg)](#quick-navigation)
@@ -152,13 +158,8 @@ gcc matrix_addition.c -o matrix_addition
 ./matrix_addition
 ```
 
-> [!TIP]
-> **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
-
-> [!WARNING]
-> **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.
-
 ---
+
 
 <!-- =========================================================================================
                                      LEARNING PATH SECTION
