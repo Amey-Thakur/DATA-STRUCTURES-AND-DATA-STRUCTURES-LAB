@@ -1,29 +1,34 @@
-<!-- HEADER -->
+<!-- =========================================================================================
+                                     HEADER SECTION
+     ========================================================================================= -->
 <div align="center">
 
+  <!-- Title -->
   # Data Structures Lab
 
+  <!-- Subtitle -->
   ### CSL303 · Semester III · Computer Engineering
 
+  <!-- Badges -->
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
-  [![Programs](https://img.shields.io/badge/Programs-34-green.svg)](#quick-navigation)
-  [![Language](https://img.shields.io/badge/Language-C-orange.svg)](Programs/)
+  [![Programs](https://img.shields.io/badge/Programs-34-blue.svg)](#quick-navigation)
+  [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Programs/)
 
+  <!-- Short Description -->
   **A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
 
-</div>
+  ---
 
----
-
-<div align="center">
-
+  <!-- Navigation Links -->
   [📊 Arrays](#arrays-4-programs) &nbsp;·&nbsp; [🔤 Strings](#strings-3-programs) &nbsp;·&nbsp; [🔗 Linked Lists](#linked-lists-7-programs) &nbsp;·&nbsp; [📚 Stacks](#stacks-8-programs) &nbsp;·&nbsp; [📋 Queues](#queues-5-programs) &nbsp;·&nbsp; [🔍 Searching & Sorting](#searching--sorting-7-programs) &nbsp;·&nbsp; [🚀 How to Use](#-how-to-use) &nbsp;·&nbsp; [📖 Learning Path](#-learning-path)
 
 </div>
 
 ---
 
-<!-- ARRAYS -->
+<!-- =========================================================================================
+                                     ARRAYS SECTION
+     ========================================================================================= -->
 ## 📊 Arrays (4 Programs)
 
 | # | Program | Description |
@@ -35,7 +40,9 @@
 
 ---
 
-<!-- STRINGS -->
+<!-- =========================================================================================
+                                     STRINGS SECTION
+     ========================================================================================= -->
 ## 🔤 Strings (3 Programs)
 
 | # | Program | Description |
@@ -46,7 +53,9 @@
 
 ---
 
-<!-- LINKED LISTS -->
+<!-- =========================================================================================
+                                     LINKED LISTS SECTION
+     ========================================================================================= -->
 ## 🔗 Linked Lists (7 Programs)
 
 | # | Program | Description |
@@ -61,7 +70,9 @@
 
 ---
 
-<!-- STACKS -->
+<!-- =========================================================================================
+                                     STACKS SECTION
+     ========================================================================================= -->
 ## 📚 Stacks (8 Programs)
 
 ### Expression Evaluation
@@ -86,7 +97,9 @@
 
 ---
 
-<!-- QUEUES -->
+<!-- =========================================================================================
+                                     QUEUES SECTION
+     ========================================================================================= -->
 ## 📋 Queues (5 Programs)
 
 | # | Program | Description |
@@ -99,7 +112,9 @@
 
 ---
 
-<!-- SEARCHING & SORTING -->
+<!-- =========================================================================================
+                               SEARCHING & SORTING SECTION
+     ========================================================================================= -->
 ## 🔍 Searching & Sorting (7 Programs)
 
 ### Searching Algorithms
@@ -119,13 +134,15 @@
 
 ---
 
-<!-- HOW TO USE -->
+<!-- =========================================================================================
+                                     HOW TO USE SECTION
+     ========================================================================================= -->
 ## 🚀 How to Use
 
-1. **Navigate** to the desired program folder
-2. **Open** the `.c` file
-3. **Compile** using: `gcc filename.c -o output`
-4. **Run** using: `./output` (Linux/Mac) or `output.exe` (Windows)
+1. **Navigate** to the desired program folder.
+2. **Open** the `.c` file.
+3. **Compile** using: `gcc filename.c -o output`.
+4. **Run** using: `./output` (Linux/Mac) or `output.exe` (Windows).
 
 Example:
 ```bash
@@ -134,9 +151,14 @@ gcc matrix_addition.c -o matrix_addition
 ./matrix_addition
 ```
 
+> [!TIP]
+> **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
+
 ---
 
-<!-- LEARNING PATH -->
+<!-- =========================================================================================
+                                     LEARNING PATH SECTION
+     ========================================================================================= -->
 ## 📖 Learning Path
 
 **Beginner Level:**
@@ -156,10 +178,15 @@ gcc matrix_addition.c -o matrix_addition
 
 ---
 
-<!-- FOOTER -->
+<!-- =========================================================================================
+                                     FOOTER SECTION
+     ========================================================================================= -->
 <div align="center">
 
-  **[⬆ Back to Top](#data-structures-lab)** &nbsp;·&nbsp; **[📊 Arrays](#arrays-4-programs)** &nbsp;·&nbsp; **[🔤 Strings](#strings-3-programs)** &nbsp;·&nbsp; **[🔗 Linked Lists](#linked-lists-7-programs)** &nbsp;·&nbsp; **[📚 Stacks](#stacks-8-programs)** &nbsp;·&nbsp; **[📋 Queues](#queues-5-programs)** &nbsp;·&nbsp; **[🔍 Searching & Sorting](#searching--sorting-7-programs)** &nbsp;·&nbsp; **[🚀 How to Use](#-how-to-use)** &nbsp;·&nbsp; **[📖 Learning Path](#-learning-path)**
+  <!-- Footer Navigation -->
+  **[⬆ Back to Top](#data-structures-lab)**
+
+  **[📊 Arrays](#arrays-4-programs)** &nbsp;·&nbsp; [🔤 Strings](#strings-3-programs) &nbsp;·&nbsp; [🔗 Linked Lists](#linked-lists-7-programs) &nbsp;·&nbsp; [📚 Stacks](#stacks-8-programs) &nbsp;·&nbsp; [📋 Queues](#queues-5-programs) &nbsp;·&nbsp; [🔍 Searching & Sorting](#searching--sorting-7-programs) &nbsp;·&nbsp; [🚀 How to Use](#-how-to-use) &nbsp;·&nbsp; [📖 Learning Path](#-learning-path)
 
   <br>
 
