@@ -13,6 +13,7 @@
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
   [![Programs](https://img.shields.io/badge/Programs-34-yellowgreen.svg)](#quick-navigation)
   [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Programs/)
+  [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](DSL%20Experiments.pdf)
 
   <!-- Short Description -->
   **A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
