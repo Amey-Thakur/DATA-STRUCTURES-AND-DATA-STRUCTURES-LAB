@@ -199,8 +199,6 @@ gcc matrix_addition.c -o matrix_addition
 
   **[🏠 Back to Main Repository](../)**
 
-  <br>
-
   ---
 
   ### [Data Structures and Data Structures Lab](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
