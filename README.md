@@ -225,7 +225,6 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 | `quick.c` | Quick Sort | O(n log n) avg | [View](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/quick.c) |
 
 </details>
-<br>
 
 ### Laboratory Documentation
 
