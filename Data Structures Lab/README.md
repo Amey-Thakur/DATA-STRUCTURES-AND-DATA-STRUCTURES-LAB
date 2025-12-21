@@ -155,6 +155,9 @@ gcc matrix_addition.c -o matrix_addition
 > [!TIP]
 > **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
 
+> [!WARNING]
+> **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.
+
 ---
 
 <!-- =========================================================================================
