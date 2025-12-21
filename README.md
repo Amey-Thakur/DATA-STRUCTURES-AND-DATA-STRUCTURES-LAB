@@ -1,28 +1,38 @@
-<!-- HEADER -->
+<!-- =========================================================================================
+                                     HEADER SECTION
+     ========================================================================================= -->
 <div align="center">
 
+  <!-- Logo -->
   <img src="https://raw.githubusercontent.com/Amey-Thakur/COMPUTER-ENGINEERING/main/university-of-mumbai-logo.png" alt="University of Mumbai" width="200"/>
 
+  <!-- Title -->
   # Data Structures and Data Structures Lab
 
+  <!-- Subtitle -->
   ### CSC305 & CSL303 · Semester III · Computer Engineering
 
+  <!-- Badges -->
   [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
-  [![University](https://img.shields.io/badge/University-Mumbai-orange.svg)](https://mu.ac.in/)
-  [![Institution](https://img.shields.io/badge/Institution-Terna%20Engineering%20College-green.svg)](https://ternaengg.ac.in/)
+  [![University](https://img.shields.io/badge/University-Mumbai-A6192E.svg)](https://mu.ac.in/)
+  [![Institution](https://img.shields.io/badge/Institution-Terna%20Engineering%20College-orange.svg)](https://ternaengg.ac.in/)
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
 
+  <!-- Short Description -->
   **A comprehensive academic resource for Data Structures (DS) and Data Structures Laboratory (DS Lab), covering fundamental data types, algorithms, analysis, and implementation techniques essential for computer engineering foundations.**
 
   ---
 
-  [📖 Overview](#overview) &nbsp;·&nbsp; [📂 Contents](#repository-contents) &nbsp;·&nbsp; [📚 Reference Books](#reference-books) &nbsp;·&nbsp; [📝 Question Papers](#question-papers) &nbsp;·&nbsp; [✏️ Personal Preparation](#personal-preparation) &nbsp;·&nbsp; [🧪 Laboratory](#data-structures-laboratory) &nbsp;·&nbsp; [📋 Syllabus](#syllabus) &nbsp;·&nbsp; [📘 Usage Guidelines](#usage-guidelines) &nbsp;·&nbsp; [📜 License](#license) &nbsp;·&nbsp; [ℹ️ About](#about-this-repository) &nbsp;·&nbsp; [🙏 Acknowledgments](#acknowledgments)
+  <!-- Navigation Links -->
+  [📖 Overview](#overview) &nbsp;·&nbsp; [📂 Contents](#repository-contents) &nbsp;·&nbsp; [📚 Reference Books](#reference-books) &nbsp;·&nbsp; [📝 Question Papers](#question-papers) &nbsp;·&nbsp; [✏️ Personal Preparation](#personal-preparation) &nbsp;·&nbsp; [🧪 Laboratory](#data-structures-laboratory) &nbsp;·&nbsp; [📋 Syllabus](#syllabus) &nbsp;·&nbsp; [📘 Usage Guidelines](#usage-guidelines) &nbsp;·&nbsp; [📜 License](#license) &nbsp;·&nbsp; [ℹ️ About](#about-this-repository) &nbsp;·&nbsp; [🙏🏻 Acknowledgments](#acknowledgments)
 
 </div>
 
 ---
 
-<!-- OVERVIEW -->
+<!-- =========================================================================================
+                                     OVERVIEW SECTION
+     ========================================================================================= -->
 ## Overview
 
 Data Structures (CSC305) and Data Structures Lab (CSL303) are core subjects in the Second Year (Semester III) of the Computer Engineering curriculum at the University of Mumbai. These courses establish the foundational understanding of organizing and managing data efficiently, which is crucial for developing high-performance algorithms and robust software systems.
@@ -57,7 +67,9 @@ All materials in this repository were gathered, organized, and documented by me 
 
 ---
 
-<!-- CONTENTS -->
+<!-- =========================================================================================
+                                     CONTENTS SECTION
+     ========================================================================================= -->
 ## Repository Contents
 
 ### Reference Books
@@ -102,7 +114,9 @@ Study materials and planning resources for effective exam preparation:
 
 ---
 
-<!-- LABORATORY -->
+<!-- =========================================================================================
+                                     LABORATORY SECTION
+     ========================================================================================= -->
 ## Data Structures Laboratory
 
 The laboratory component (CSL303) focuses on hands-on implementation of various data structures and algorithms using C, providing practical experience in solving complex computational problems.
@@ -193,7 +207,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 | `priority_queue.c` | Priority-based queue using linked list | [View](Data%20Structures%20Lab/Programs/Queues/priority_queue.c) |
 | `double_ended_queue.c` | Deque with sentinel nodes | [View](Data%20Structures%20Lab/Programs/Queues/double_ended_queue.c) |
 | `deque_both_ends.c` | Array-based deque operations | [View](Data%20Structures%20Lab/Programs/Queues/deque_both_ends.c) |
-| `reverse_queue.c` | Reverses queue using stack | [View](Data%20Structures%20Lab/Programs/Queues/reverse_queue.c) |
+| `reverse_queue.c" | Reverses queue using stack | [View](Data%20Structures%20Lab/Programs/Queues/reverse_queue.c) |
 
 </details>
 
@@ -222,15 +236,22 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 ---
 
-<!-- SYLLABUS -->
+<!-- =========================================================================================
+                                     SYLLABUS SECTION
+     ========================================================================================= -->
 ## Syllabus
 
 > 📋 **[Official CBCGS Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**  
 > Complete Second Year Computer Engineering syllabus document from the University of Mumbai, including detailed course outcomes, assessment criteria, and module specifications for Data Structures and Data Structures Lab.
 
+> [!IMPORTANT]
+> Always verify the latest syllabus details with the official University of Mumbai website, as curriculum updates may occur after this repository's archival date.
+
 ---
 
-<!-- USAGE -->
+<!-- =========================================================================================
+                                     USAGE GUIDELINES
+     ========================================================================================= -->
 ## Usage Guidelines
 
 This repository is openly shared to support learning and knowledge exchange across the academic community.
@@ -246,16 +267,21 @@ The documentation and organization may provide insights into academic resource c
 
 ---
 
-<!-- LICENSE -->
+<!-- =========================================================================================
+                                     LICENSE SECTION
+     ========================================================================================= -->
 ## License
 
 This repository and all linked academic content are made available under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. See the [LICENSE](LICENSE) file for complete terms.
 
-**Summary**: You are free to share and adapt this content for any purpose, even commercially, as long as you provide appropriate attribution to the original author.
+> [!NOTE]
+> **Summary**: You are free to share and adapt this content for any purpose, even commercially, as long as you provide appropriate attribution to the original author.
 
 ---
 
-<!-- ABOUT -->
+<!-- =========================================================================================
+                                     ABOUT SECTION
+     ========================================================================================= -->
 ## About This Repository
 
 **Created & Maintained by**: [Amey Thakur](https://github.com/Amey-Thakur)  
@@ -275,10 +301,15 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
 
 ---
 
-<!-- FOOTER -->
+<!-- =========================================================================================
+                                     FOOTER SECTION
+     ========================================================================================= -->
 <div align="center">
 
-  **[⬆ Back to Top](#data-structures-and-data-structures-lab)** &nbsp;·&nbsp; **[📖 Overview](#overview)** &nbsp;·&nbsp; **[📂 Contents](#repository-contents)** &nbsp;·&nbsp; **[📚 Reference Books](#reference-books)** &nbsp;·&nbsp; **[📝 Question Papers](#question-papers)** &nbsp;·&nbsp; **[✏️ Personal Preparation](#personal-preparation)** &nbsp;·&nbsp; **[🧪 Laboratory](#data-structures-laboratory)** &nbsp;·&nbsp; **[📋 Syllabus](#syllabus)** &nbsp;·&nbsp; **[📘 Usage Guidelines](#usage-guidelines)** &nbsp;·&nbsp; **[📜 License](#license)** &nbsp;·&nbsp; **[ℹ️ About](#about-this-repository)** &nbsp;·&nbsp; **[🙏 Acknowledgments](#acknowledgments)**
+  <!-- Footer Navigation -->
+  **[⬆ Back to Top](#data-structures-and-data-structures-lab)**
+
+  **[📖 Overview](#overview)** &nbsp;·&nbsp; **[📂 Contents](#repository-contents)** &nbsp;·&nbsp; **[📚 Reference Books](#reference-books)** &nbsp;·&nbsp; **[📝 Question Papers](#question-papers)** &nbsp;·&nbsp; **[✏️ Personal Preparation](#personal-preparation)** &nbsp;·&nbsp; **[🧪 Laboratory](#data-structures-laboratory)** &nbsp;·&nbsp; **[📋 Syllabus](#syllabus)** &nbsp;·&nbsp; **[📘 Usage Guidelines](#usage-guidelines)** &nbsp;·&nbsp; **[📜 License](#license)** &nbsp;·&nbsp; **[ℹ️ About](#about-this-repository)** &nbsp;·&nbsp; **[🙏🏻 Acknowledgments](#acknowledgments)**
 
   <br>
 
