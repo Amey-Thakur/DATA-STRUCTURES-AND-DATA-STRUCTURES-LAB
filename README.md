@@ -130,7 +130,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
   [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Data%20Structures%20Lab/Programs/)
   [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
 
-  **[📂 Browse All Programs](Data%20Structures%20Lab/)**
+
 
 </div>
 
