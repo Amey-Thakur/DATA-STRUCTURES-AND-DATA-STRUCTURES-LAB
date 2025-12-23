@@ -24,7 +24,7 @@
   ---
 
   <!-- Navigation Links -->
-  [📖 Overview](#overview) &nbsp;·&nbsp; [📂 Contents](#repository-contents) &nbsp;·&nbsp; [📚 Reference Books](#reference-books) &nbsp;·&nbsp; [📝 Question Papers](#question-papers) &nbsp;·&nbsp; [✏️ Personal Preparation](#personal-preparation) &nbsp;·&nbsp; [🧪 Laboratory](#data-structures-laboratory) &nbsp;·&nbsp; [📋 Syllabus](#syllabus) &nbsp;·&nbsp; [📘 Usage Guidelines](#usage-guidelines) &nbsp;·&nbsp; [📜 License](#license) &nbsp;·&nbsp; [ℹ️ About](#about-this-repository) &nbsp;·&nbsp; [🙏🏻 Acknowledgments](#acknowledgments)
+  [Overview](#overview) &nbsp;·&nbsp; [Contents](#repository-contents) &nbsp;·&nbsp; [Reference Books](#reference-books) &nbsp;·&nbsp; [Question Papers](#question-papers) &nbsp;·&nbsp; [Personal Preparation](#personal-preparation) &nbsp;·&nbsp; [Laboratory](#data-structures-laboratory) &nbsp;·&nbsp; [Syllabus](#syllabus) &nbsp;·&nbsp; [Usage Guidelines](#usage-guidelines) &nbsp;·&nbsp; [License](#license) &nbsp;·&nbsp; [About](#about-this-repository) &nbsp;·&nbsp; [Acknowledgments](#acknowledgments)
 
 </div>
 
@@ -92,12 +92,12 @@ This collection includes **7 comprehensive reference materials** covering all ma
 
 University of Mumbai examination papers from **2017-2019** with complete solutions:
 
-| Exam Session | Question Paper | Solutions |
-|:---|:---|:---|
-| December 2017 | [📄 Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC17.pdf) | [✅ Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC17_SOLUTION.pdf) |
-| May 2018 | [📄 Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY18.pdf) | [✅ Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY18_SOLUTION.pdf) |
-| December 2018 | [📄 Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC18.pdf) | [✅ Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC18_SOLUTION.pdf) |
-| May 2019 | [📄 Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY19.pdf) | [✅ Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY19_SOLUTION.pdf) |
+| # | Exam Session | Question Paper | Solutions |
+|:-:|:---|:---|:---|
+| 1 | December 2017 | [Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC17.pdf) | [Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC17_SOLUTION.pdf) |
+| 2 | May 2018 | [Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY18.pdf) | [Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY18_SOLUTION.pdf) |
+| 3 | December 2018 | [Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC18.pdf) | [Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_DEC18_SOLUTION.pdf) |
+| 4 | May 2019 | [Paper](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/Previous%20Question%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY19.pdf) | [Solutions](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Question%20Papers/DS%20Solved%20Papers/SE-Comps_SEM3_DS-CBCGS_MAY19_SOLUTION.pdf) |
 
 ---
 
@@ -105,12 +105,12 @@ University of Mumbai examination papers from **2017-2019** with complete solutio
 
 Study materials and planning resources for effective exam preparation:
 
-| Resource | Description |
-|:---|:---|
-| 📝 [Syllabus Breakdown](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_13_54_38_159.png) | Detailed module-wise syllabus notes |
-| 📊 [Module Planning](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_10_59_854.png) | Topic organization and study schedule |
-| 📅 [Semester Timetable](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_17_40_056.png) | Class schedule and planning |
-| 🎯 [Examination Blueprint](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Blueprint%20(DS).png) | Question paper pattern and marking scheme |
+| # | Resource | Description |
+|:-:|:---|:---|
+| 1 | [Syllabus Breakdown](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_13_54_38_159.png) | Detailed module-wise syllabus notes |
+| 2 | [Module Planning](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_10_59_854.png) | Topic organization and study schedule |
+| 3 | [Semester Timetable](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/My%20Preparation/Note_2019-09-26_14_17_40_056.png) | Class schedule and planning |
+| 4 | [Examination Blueprint](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/Blueprint%20(DS).png) | Question paper pattern and marking scheme |
 
 ---
 
@@ -138,17 +138,17 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 | Category | Programs | Topics Covered | Repository |
 |:---|:-:|:---|:---|
-| 📊 **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Programs](Data%20Structures%20Lab/Programs/Array/) |
-| 🔤 **Strings** | 3 | Word reversal, character counting, replacement | [View Programs](Data%20Structures%20Lab/Programs/String/) |
-| 🔗 **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Programs](Data%20Structures%20Lab/Programs/Linked%20List/) |
-| 📚 **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Programs](Data%20Structures%20Lab/Programs/Stacks/) |
-| 📋 **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
-| 🔍 **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
+| **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Programs](Data%20Structures%20Lab/Programs/Array/) |
+| **Strings** | 3 | Word reversal, character counting, replacement | [View Programs](Data%20Structures%20Lab/Programs/String/) |
+| **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Programs](Data%20Structures%20Lab/Programs/Linked%20List/) |
+| **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Programs](Data%20Structures%20Lab/Programs/Stacks/) |
+| **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
+| **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
 
 ### Program Details
 
 <details>
-<summary><strong>📊 Array Operations (4 Programs)</strong></summary>
+<summary><strong>Array Operations (4 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -160,7 +160,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>🔤 String Operations (3 Programs)</strong></summary>
+<summary><strong>String Operations (3 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -171,7 +171,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>🔗 Linked List Operations (7 Programs)</strong></summary>
+<summary><strong>Linked List Operations (7 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -186,7 +186,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>📚 Stack Operations (8 Programs)</strong></summary>
+<summary><strong>Stack Operations (8 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -202,7 +202,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>📋 Queue Operations (5 Programs)</strong></summary>
+<summary><strong>Queue Operations (5 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -215,7 +215,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>🔍 Searching & Sorting (7 Programs)</strong></summary>
+<summary><strong>Searching & Sorting (7 Programs)</strong></summary>
 
 | Program | Algorithm | Time Complexity | Code |
 |:---|:---|:---|:---|
@@ -233,8 +233,8 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 | Resource | Description |
 |:---|:---|
-| 🧪 [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
-| 📖 [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with program descriptions |
+| [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
+| [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with program descriptions |
 
 ---
 
@@ -243,7 +243,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
      ========================================================================================= -->
 ## Syllabus
 
-> 📋 **[Official CBCGS Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**  
+> **[Official CBCGS Syllabus](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/blob/main/SE-Comps_CBCGS_Syllabus.pdf)**  
 > Complete Second Year Computer Engineering syllabus document from the University of Mumbai, including detailed course outcomes, assessment criteria, and module specifications for Data Structures and Data Structures Lab.
 
 > [!IMPORTANT]
@@ -309,13 +309,13 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
 <div align="center">
 
   <!-- Footer Navigation -->
-  **[⬆ Back to Top](#data-structures-and-data-structures-lab)**
+  **[↑ Back to Top](#data-structures-and-data-structures-lab)**
 
-  **[📖 Overview](#overview)** &nbsp;·&nbsp; **[📂 Contents](#repository-contents)** &nbsp;·&nbsp; **[📚 Reference Books](#reference-books)** &nbsp;·&nbsp; **[📝 Question Papers](#question-papers)** &nbsp;·&nbsp; **[✏️ Personal Preparation](#personal-preparation)** &nbsp;·&nbsp; **[🧪 Laboratory](#data-structures-laboratory)** &nbsp;·&nbsp; **[📋 Syllabus](#syllabus)** &nbsp;·&nbsp; **[📘 Usage Guidelines](#usage-guidelines)** &nbsp;·&nbsp; **[📜 License](#license)** &nbsp;·&nbsp; **[ℹ️ About](#about-this-repository)** &nbsp;·&nbsp; **[🙏🏻 Acknowledgments](#acknowledgments)**
+  **[Overview](#overview)** &nbsp;·&nbsp; **[Contents](#repository-contents)** &nbsp;·&nbsp; **[Reference Books](#reference-books)** &nbsp;·&nbsp; **[Question Papers](#question-papers)** &nbsp;·&nbsp; **[Personal Preparation](#personal-preparation)** &nbsp;·&nbsp; **[Laboratory](#data-structures-laboratory)** &nbsp;·&nbsp; **[Syllabus](#syllabus)** &nbsp;·&nbsp; **[Usage Guidelines](#usage-guidelines)** &nbsp;·&nbsp; **[License](#license)** &nbsp;·&nbsp; **[About](#about-this-repository)** &nbsp;·&nbsp; **[Acknowledgments](#acknowledgments)**
 
   <br>
 
-  **[🧪 Data Structures Laboratory](Data%20Structures%20Lab/)**
+  **[Data Structures Laboratory](Data%20Structures%20Lab/)**
 
   ---
 
