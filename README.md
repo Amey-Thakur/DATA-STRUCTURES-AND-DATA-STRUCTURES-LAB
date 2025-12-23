@@ -231,10 +231,10 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 ### Laboratory Documentation
 
-| Resource | Description |
-|:---|:---|
-| [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
-| [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with program descriptions |
+| # | Resource | Description |
+|:-:|:---|:---|
+| 1 | [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
+| 2 | [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with program descriptions |
 
 ---
 
