@@ -136,7 +136,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 ### Laboratory Experiments
 
-| # | Category | Source Code | Topics Covered | Source Code |
+| # | Category | Programs | Topics Covered | Source Code |
 |:-:|:---|:-:|:---|:---|
 | 1 | **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View](Data%20Structures%20Lab/Source%20Code/Array/) |
 | 2 | **Strings** | 3 | Word reversal, character counting, replacement | [View](Data%20Structures%20Lab/Source%20Code/String/) |
