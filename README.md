@@ -134,7 +134,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 </div>
 
-### Source Code Categories
+### Laboratory Experiments
 
 | # | Category | Source Code | Topics Covered | Repository |
 |:-:|:---|:-:|:---|:---|
@@ -145,7 +145,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 | 5 | **Queues** | 5 | Circular, priority, deque, reversal operations | [View Source Code](Data%20Structures%20Lab/Source%20Code/Queues/) |
 | 6 | **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Source Code](Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting/) |
 
-### Source Code Details
+### Program Details
 
 <details>
 <summary><strong>Array Operations (4 Source Codes)</strong></summary>
