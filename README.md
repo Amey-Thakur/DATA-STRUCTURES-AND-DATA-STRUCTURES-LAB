@@ -136,14 +136,14 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 ### Laboratory Experiments
 
-| # | Category | Source Code | Topics Covered | Repository |
+| # | Category | Source Code | Topics Covered | Source Code |
 |:-:|:---|:-:|:---|:---|
-| 1 | **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Source Code](Data%20Structures%20Lab/Source%20Code/Array/) |
-| 2 | **Strings** | 3 | Word reversal, character counting, replacement | [View Source Code](Data%20Structures%20Lab/Source%20Code/String/) |
-| 3 | **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Source Code](Data%20Structures%20Lab/Source%20Code/Linked%20List/) |
-| 4 | **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Source Code](Data%20Structures%20Lab/Source%20Code/Stacks/) |
-| 5 | **Queues** | 5 | Circular, priority, deque, reversal operations | [View Source Code](Data%20Structures%20Lab/Source%20Code/Queues/) |
-| 6 | **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Source Code](Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting/) |
+| 1 | **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View](Data%20Structures%20Lab/Source%20Code/Array/) |
+| 2 | **Strings** | 3 | Word reversal, character counting, replacement | [View](Data%20Structures%20Lab/Source%20Code/String/) |
+| 3 | **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View](Data%20Structures%20Lab/Source%20Code/Linked%20List/) |
+| 4 | **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View](Data%20Structures%20Lab/Source%20Code/Stacks/) |
+| 5 | **Queues** | 5 | Circular, priority, deque, reversal operations | [View](Data%20Structures%20Lab/Source%20Code/Queues/) |
+| 6 | **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View](Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting/) |
 
 ### Program Details
 
