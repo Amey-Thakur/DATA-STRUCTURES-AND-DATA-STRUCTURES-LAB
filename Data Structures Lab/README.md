@@ -21,7 +21,7 @@
   ---
 
   <!-- Navigation Links -->
-  [How to Use](#how-to-use) &nbsp;·&nbsp; [Learning Path](#learning-path) &nbsp;·&nbsp; [Arrays](#arrays-4-source-codes) &nbsp;·&nbsp; [Strings](#strings-3-source-codes) &nbsp;·&nbsp; [Linked Lists](#linked-lists-7-source-codes) &nbsp;·&nbsp; [Stacks](#stacks-8-source-codes) &nbsp;·&nbsp; [Queues](#queues-5-source-codes) &nbsp;·&nbsp; [Searching & Sorting](#searching--sorting-7-source-codes)
+  [How to Use](#how-to-use) &nbsp;·&nbsp; [Learning Path](#learning-path) &nbsp;·&nbsp; [Lab Manual](#lab-manual) &nbsp;·&nbsp; [Arrays](#arrays-4-source-codes) &nbsp;·&nbsp; [Strings](#strings-3-source-codes) &nbsp;·&nbsp; [Linked Lists](#linked-lists-7-source-codes) &nbsp;·&nbsp; [Stacks](#stacks-8-source-codes) &nbsp;·&nbsp; [Queues](#queues-5-source-codes) &nbsp;·&nbsp; [Searching & Sorting](#searching--sorting-7-source-codes)
 
 </div>
 
@@ -74,6 +74,17 @@ gcc matrix_addition.c -o matrix_addition
 - Expression conversions (infix/postfix/prefix)
 - Sorting algorithms comparison
 - Data structure trade-offs
+
+---
+
+<!-- =========================================================================================
+                                     LAB MANUAL SECTION
+     ========================================================================================= -->
+## Lab Manual
+
+| # | Resource | Description |
+|:-:|:---|:---|
+| 1 | [DSL Experiments.pdf](DSL%20Experiments.pdf) | Complete laboratory manual with all experiments |
 
 ---
 
@@ -195,7 +206,7 @@ gcc matrix_addition.c -o matrix_addition
   <!-- Footer Navigation -->
   **[↑ Back to Top](#data-structures-lab)**
 
-  **[How to Use](#how-to-use)** &nbsp;·&nbsp; [Learning Path](#learning-path) &nbsp;·&nbsp; [Arrays](#arrays-4-source-codes) &nbsp;·&nbsp; [Strings](#strings-3-source-codes) &nbsp;·&nbsp; [Linked Lists](#linked-lists-7-source-codes) &nbsp;·&nbsp; [Stacks](#stacks-8-source-codes) &nbsp;·&nbsp; [Queues](#queues-5-source-codes) &nbsp;·&nbsp; [Searching & Sorting](#searching--sorting-7-source-codes)
+  **[How to Use](#how-to-use)** &nbsp;·&nbsp; [Learning Path](#learning-path) &nbsp;·&nbsp; [Lab Manual](#lab-manual) &nbsp;·&nbsp; [Arrays](#arrays-4-source-codes) &nbsp;·&nbsp; [Strings](#strings-3-source-codes) &nbsp;·&nbsp; [Linked Lists](#linked-lists-7-source-codes) &nbsp;·&nbsp; [Stacks](#stacks-8-source-codes) &nbsp;·&nbsp; [Queues](#queues-5-source-codes) &nbsp;·&nbsp; [Searching & Sorting](#searching--sorting-7-source-codes)
 
   <br>
 
