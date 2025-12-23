@@ -136,14 +136,14 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 ### Program Categories
 
-| Category | Programs | Topics Covered | Repository |
-|:---|:-:|:---|:---|
-| **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Programs](Data%20Structures%20Lab/Programs/Array/) |
-| **Strings** | 3 | Word reversal, character counting, replacement | [View Programs](Data%20Structures%20Lab/Programs/String/) |
-| **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Programs](Data%20Structures%20Lab/Programs/Linked%20List/) |
-| **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Programs](Data%20Structures%20Lab/Programs/Stacks/) |
-| **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
-| **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
+| # | Category | Programs | Topics Covered | Repository |
+|:-:|:---|:-:|:---|:---|
+| 1 | **Arrays** | 4 | Matrix operations, pair finding, statistical analysis | [View Programs](Data%20Structures%20Lab/Programs/Array/) |
+| 2 | **Strings** | 3 | Word reversal, character counting, replacement | [View Programs](Data%20Structures%20Lab/Programs/String/) |
+| 3 | **Linked Lists** | 7 | Singly, doubly, circular lists, concatenation, traversal | [View Programs](Data%20Structures%20Lab/Programs/Linked%20List/) |
+| 4 | **Stacks** | 8 | Expression evaluation, infix/postfix/prefix conversion | [View Programs](Data%20Structures%20Lab/Programs/Stacks/) |
+| 5 | **Queues** | 5 | Circular, priority, deque, reversal operations | [View Programs](Data%20Structures%20Lab/Programs/Queues/) |
+| 6 | **Searching & Sorting** | 7 | Binary search, bubble, insertion, merge, quick sort | [View Programs](Data%20Structures%20Lab/Programs/Searching%20and%20Sorting/) |
 
 ### Program Details
 
