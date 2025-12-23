@@ -148,7 +148,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 ### Program Details
 
 <details>
-<summary><strong>Array Operations (4 Source Codes)</strong></summary>
+<summary><strong>Array Operations (4 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -160,7 +160,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>String Operations (3 Source Codes)</strong></summary>
+<summary><strong>String Operations (3 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -171,7 +171,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>Linked List Operations (7 Source Codes)</strong></summary>
+<summary><strong>Linked List Operations (7 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -186,7 +186,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>Stack Operations (8 Source Codes)</strong></summary>
+<summary><strong>Stack Operations (8 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -202,7 +202,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>Queue Operations (5 Source Codes)</strong></summary>
+<summary><strong>Queue Operations (5 Programs)</strong></summary>
 
 | Program | Description | Code |
 |:---|:---|:---|
@@ -215,7 +215,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 </details>
 
 <details>
-<summary><strong>Searching & Sorting (7 Source Codes)</strong></summary>
+<summary><strong>Searching & Sorting (7 Programs)</strong></summary>
 
 | Program | Algorithm | Time Complexity | Code |
 |:---|:---|:---|:---|
