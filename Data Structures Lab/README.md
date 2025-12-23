@@ -36,6 +36,48 @@
 ---
 
 <!-- =========================================================================================
+                                     HOW TO USE SECTION
+     ========================================================================================= -->
+## How to Use
+
+1. **Navigate** to the desired source code folder.
+2. **Open** the `.c` file.
+3. **Compile** using: `gcc filename.c -o output`.
+4. **Run** using: `./output` (Linux/Mac) or `output.exe` (Windows).
+
+Example:
+```bash
+cd "Source Code/Array"
+gcc matrix_addition.c -o matrix_addition
+./matrix_addition
+```
+
+---
+
+
+<!-- =========================================================================================
+                                     LEARNING PATH SECTION
+     ========================================================================================= -->
+## Learning Path
+
+**Beginner Level:**
+- Start with Arrays → Strings
+- Move to basic Linked Lists
+- Explore Searching algorithms
+
+**Intermediate Level:**
+- Advanced Linked Lists (circular, doubly)
+- Stack operations and expressions
+- Queue implementations
+
+**Advanced Level:**
+- Expression conversions (infix/postfix/prefix)
+- Sorting algorithms comparison
+- Data structure trade-offs
+
+---
+
+<!-- =========================================================================================
                                      ARRAYS SECTION
      ========================================================================================= -->
 ## Arrays (4 Source Codes)
@@ -143,47 +185,7 @@
 
 ---
 
-<!-- =========================================================================================
-                                     HOW TO USE SECTION
-     ========================================================================================= -->
-## How to Use
 
-1. **Navigate** to the desired source code folder.
-2. **Open** the `.c` file.
-3. **Compile** using: `gcc filename.c -o output`.
-4. **Run** using: `./output` (Linux/Mac) or `output.exe` (Windows).
-
-Example:
-```bash
-cd "Source Code/Array"
-gcc matrix_addition.c -o matrix_addition
-./matrix_addition
-```
-
----
-
-
-<!-- =========================================================================================
-                                     LEARNING PATH SECTION
-     ========================================================================================= -->
-## Learning Path
-
-**Beginner Level:**
-- Start with Arrays → Strings
-- Move to basic Linked Lists
-- Explore Searching algorithms
-
-**Intermediate Level:**
-- Advanced Linked Lists (circular, doubly)
-- Stack operations and expressions
-- Queue implementations
-
-**Advanced Level:**
-- Expression conversions (infix/postfix/prefix)
-- Sorting algorithms comparison
-- Data structure trade-offs
-
----
 
 <!-- =========================================================================================
                                      FOOTER SECTION
