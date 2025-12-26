@@ -210,7 +210,7 @@ gcc matrix_addition.c -o matrix_addition
 
   <br>
 
-  🔬 **[Data Structures Laboratory](./)** &nbsp;·&nbsp; [🏠 Back to Main Repository](../)
+  [🏠 Back to Main Repository](../)
 
   ---
 
