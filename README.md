@@ -315,7 +315,7 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
 
   <br>
 
-  **[Data Structures Laboratory](Data%20Structures%20Lab/)**
+  **🔬 [Data Structures Laboratory](Data%20Structures%20Lab/)**
 
   ---
 
