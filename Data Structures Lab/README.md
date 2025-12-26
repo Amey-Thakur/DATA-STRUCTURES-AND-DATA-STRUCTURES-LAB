@@ -93,12 +93,12 @@ gcc matrix_addition.c -o matrix_addition
      ========================================================================================= -->
 ## Arrays (4 Source Codes)
 
-| # | Program | Description |
-|:---|:---|:---|
-| 1 | [matrix_addition.c](Source%20Code/Array/matrix_addition.c) | Adds two 3x3 matrices using pointer arithmetic |
-| 2 | [student_marks_analysis.c](Source%20Code/Array/student_marks_analysis.c) | Analyzes student marks with subject/student averages |
-| 3 | [find_pairs_sum.c](Source%20Code/Array/find_pairs_sum.c) | Finds all pairs that sum to target value (50) |
-| 4 | [array_sum_mean.c](Source%20Code/Array/array_sum_mean.c) | Calculates sum and mean of 2D array elements |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 1 | matrix_addition.c | Adds two 3x3 matrices using pointer arithmetic | [View](Source%20Code/Array/matrix_addition.c) |
+| 2 | student_marks_analysis.c | Analyzes student marks with subject/student averages | [View](Source%20Code/Array/student_marks_analysis.c) |
+| 3 | find_pairs_sum.c | Finds all pairs that sum to target value (50) | [View](Source%20Code/Array/find_pairs_sum.c) |
+| 4 | array_sum_mean.c | Calculates sum and mean of 2D array elements | [View](Source%20Code/Array/array_sum_mean.c) |
 
 ---
 
@@ -107,11 +107,11 @@ gcc matrix_addition.c -o matrix_addition
      ========================================================================================= -->
 ## Strings (3 Source Codes)
 
-| # | Program | Description |
-|:---|:---|:---|
-| 1 | [reverse_words.c](Source%20Code/String/reverse_words.c) | Reverses word order in a sentence |
-| 2 | [count_characters.c](Source%20Code/String/count_characters.c) | Counts numbers, uppercase, lowercase, special chars |
-| 3 | [replace_character.c](Source%20Code/String/replace_character.c) | Replaces all occurrences of a character |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 1 | reverse_words.c | Reverses word order in a sentence | [View](Source%20Code/String/reverse_words.c) |
+| 2 | count_characters.c | Counts numbers, uppercase, lowercase, special chars | [View](Source%20Code/String/count_characters.c) |
+| 3 | replace_character.c | Replaces all occurrences of a character | [View](Source%20Code/String/replace_character.c) |
 
 ---
 
@@ -120,15 +120,15 @@ gcc matrix_addition.c -o matrix_addition
      ========================================================================================= -->
 ## Linked Lists (7 Source Codes)
 
-| # | Program | Description |
-|:---|:---|:---|
-| 1 | [singly_linked_list.c](Source%20Code/Linked%20List/singly_linked_list.c) | Basic singly linked list operations |
-| 2 | [circular_linked_list.c](Source%20Code/Linked%20List/circular_linked_list.c) | Circular linked list (last→first) |
-| 3 | [doubly_linked_list.c](Source%20Code/Linked%20List/doubly_linked_list.c) | Doubly linked list with bidirectional traversal |
-| 4 | [concatenate_linked_lists.c](Source%20Code/Linked%20List/concatenate_linked_lists.c) | Merges two linked lists |
-| 5 | [count_nonzero_nodes.c](Source%20Code/Linked%20List/count_nonzero_nodes.c) | Counts nodes with non-zero values |
-| 6 | [count_occurrences.c](Source%20Code/Linked%20List/count_occurrences.c) | Counts occurrences of a value |
-| 7 | [find_max_min.c](Source%20Code/Linked%20List/find_max_min.c) | Finds maximum and minimum values |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 1 | singly_linked_list.c | Basic singly linked list operations | [View](Source%20Code/Linked%20List/singly_linked_list.c) |
+| 2 | circular_linked_list.c | Circular linked list (last→first) | [View](Source%20Code/Linked%20List/circular_linked_list.c) |
+| 3 | doubly_linked_list.c | Doubly linked list with bidirectional traversal | [View](Source%20Code/Linked%20List/doubly_linked_list.c) |
+| 4 | concatenate_linked_lists.c | Merges two linked lists | [View](Source%20Code/Linked%20List/concatenate_linked_lists.c) |
+| 5 | count_nonzero_nodes.c | Counts nodes with non-zero values | [View](Source%20Code/Linked%20List/count_nonzero_nodes.c) |
+| 6 | count_occurrences.c | Counts occurrences of a value | [View](Source%20Code/Linked%20List/count_occurrences.c) |
+| 7 | find_max_min.c | Finds maximum and minimum values | [View](Source%20Code/Linked%20List/find_max_min.c) |
 
 ---
 
@@ -138,24 +138,24 @@ gcc matrix_addition.c -o matrix_addition
 ## Stacks (8 Source Codes)
 
 ### Expression Evaluation
-| # | Program | Description |
-|:---|:---|:---|
-| 1 | [evaluate_postfix_simple.c](Source%20Code/Stacks/evaluate_postfix_simple.c) | Evaluates postfix expressions (simple) |
-| 2 | [evaluate_postfix_expression.c](Source%20Code/Stacks/evaluate_postfix_expression.c) | Evaluates postfix expressions (advanced) |
-| 3 | [evaluate_prefix.c](Source%20Code/Stacks/evaluate_prefix.c) | Evaluates prefix expressions |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 1 | evaluate_postfix_simple.c | Evaluates postfix expressions (simple) | [View](Source%20Code/Stacks/evaluate_postfix_simple.c) |
+| 2 | evaluate_postfix_expression.c | Evaluates postfix expressions (advanced) | [View](Source%20Code/Stacks/evaluate_postfix_expression.c) |
+| 3 | evaluate_prefix.c | Evaluates prefix expressions | [View](Source%20Code/Stacks/evaluate_prefix.c) |
 
 ### Expression Conversion
-| # | Program | Description |
-|:---|:---|:---|
-| 4 | [infix_to_postfix.c](Source%20Code/Stacks/infix_to_postfix.c) | Converts infix → postfix |
-| 5 | [infix_to_prefix.c](Source%20Code/Stacks/infix_to_prefix.c) | Converts infix → prefix |
-| 6 | [postfix_to_infix.c](Source%20Code/Stacks/postfix_to_infix.c) | Converts postfix → infix |
-| 7 | [prefix_to_infix.c](Source%20Code/Stacks/prefix_to_infix.c) | Converts prefix → infix |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 4 | infix_to_postfix.c | Converts infix → postfix | [View](Source%20Code/Stacks/infix_to_postfix.c) |
+| 5 | infix_to_prefix.c | Converts infix → prefix | [View](Source%20Code/Stacks/infix_to_prefix.c) |
+| 6 | postfix_to_infix.c | Converts postfix → infix | [View](Source%20Code/Stacks/postfix_to_infix.c) |
+| 7 | prefix_to_infix.c | Converts prefix → infix | [View](Source%20Code/Stacks/prefix_to_infix.c) |
 
 ### Stack Implementation
-| # | Program | Description |
-|:---|:---|:---|
-| 8 | [stack_using_linked_list.c](Source%20Code/Stacks/stack_using_linked_list.c) | Dynamic stack using linked list |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 8 | stack_using_linked_list.c | Dynamic stack using linked list | [View](Source%20Code/Stacks/stack_using_linked_list.c) |
 
 ---
 
@@ -164,13 +164,13 @@ gcc matrix_addition.c -o matrix_addition
      ========================================================================================= -->
 ## Queues (5 Source Codes)
 
-| # | Program | Description |
-|:---|:---|:---|
-| 1 | [circular_queue.c](Source%20Code/Queues/circular_queue.c) | Circular queue with wrap-around |
-| 2 | [priority_queue.c](Source%20Code/Queues/priority_queue.c) | Priority-based queue (linked list) |
-| 3 | [reverse_queue.c](Source%20Code/Queues/reverse_queue.c) | Reverses queue using stack |
-| 4 | [double_ended_queue.c](Source%20Code/Queues/double_ended_queue.c) | Deque with sentinel nodes |
-| 5 | [deque_both_ends.c](Source%20Code/Queues/deque_both_ends.c) | Array-based deque |
+| # | Program | Description | Source Code |
+|:---|:---|:---|:-:|
+| 1 | circular_queue.c | Circular queue with wrap-around | [View](Source%20Code/Queues/circular_queue.c) |
+| 2 | priority_queue.c | Priority-based queue (linked list) | [View](Source%20Code/Queues/priority_queue.c) |
+| 3 | reverse_queue.c | Reverses queue using stack | [View](Source%20Code/Queues/reverse_queue.c) |
+| 4 | double_ended_queue.c | Deque with sentinel nodes | [View](Source%20Code/Queues/double_ended_queue.c) |
+| 5 | deque_both_ends.c | Array-based deque | [View](Source%20Code/Queues/deque_both_ends.c) |
 
 ---
 
@@ -180,19 +180,19 @@ gcc matrix_addition.c -o matrix_addition
 ## Searching & Sorting (7 Source Codes)
 
 ### Searching Algorithms
-| # | Program | Description | Time Complexity |
-|:---|:---|:---|:---|
-| 1 | [binary_search.c](Source%20Code/Searching%20and%20Sorting/binary_search.c) | Binary search (advanced) | O(log n) |
-| 2 | [binary.c](Source%20Code/Searching%20and%20Sorting/binary.c) | Binary search (alternative) | O(log n) |
+| # | Program | Description | Time Complexity | Source Code |
+|:---|:---|:---|:---|:-:|
+| 1 | binary_search.c | Binary search (advanced) | O(log n) | [View](Source%20Code/Searching%20and%20Sorting/binary_search.c) |
+| 2 | binary.c | Binary search (alternative) | O(log n) | [View](Source%20Code/Searching%20and%20Sorting/binary.c) |
 
 ### Sorting Algorithms
-| # | Program | Description | Time Complexity |
-|:---|:---|:---|:---|
-| 3 | [bubble_sort.c](Source%20Code/Searching%20and%20Sorting/bubble_sort.c) | Bubble sort (optimized) | O(n²) |
-| 4 | [bubble.c](Source%20Code/Searching%20and%20Sorting/bubble.c) | Bubble sort (alternative) | O(n²) |
-| 5 | [insertion.c](Source%20Code/Searching%20and%20Sorting/insertion.c) | Insertion sort | O(n²) |
-| 6 | [merge.c](Source%20Code/Searching%20and%20Sorting/merge.c) | Merge sort (divide & conquer) | O(n log n) |
-| 7 | [quick.c](Source%20Code/Searching%20and%20Sorting/quick.c) | Quick sort (partition-exchange) | O(n log n) avg |
+| # | Program | Description | Time Complexity | Source Code |
+|:---|:---|:---|:---|:-:|
+| 3 | bubble_sort.c | Bubble sort (optimized) | O(n²) | [View](Source%20Code/Searching%20and%20Sorting/bubble_sort.c) |
+| 4 | bubble.c | Bubble sort (alternative) | O(n²) | [View](Source%20Code/Searching%20and%20Sorting/bubble.c) |
+| 5 | insertion.c | Insertion sort | O(n²) | [View](Source%20Code/Searching%20and%20Sorting/insertion.c) |
+| 6 | merge.c | Merge sort (divide & conquer) | O(n log n) | [View](Source%20Code/Searching%20and%20Sorting/merge.c) |
+| 7 | quick.c | Quick sort (partition-exchange) | O(n log n) avg | [View](Source%20Code/Searching%20and%20Sorting/quick.c) |
 
 ---
 
@@ -214,7 +214,7 @@ gcc matrix_addition.c -o matrix_addition
 
   ---
 
-  ### [Data Structures and Data Structures Lab](https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB)
+  ### [Data Structures and Data Structures Lab](../)
 
   **CSC305 & CSL303 · Semester III · Computer Engineering**
 
