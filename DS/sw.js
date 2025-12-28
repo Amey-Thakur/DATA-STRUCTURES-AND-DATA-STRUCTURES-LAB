@@ -1,3 +1,15 @@
+/**
+ * ================================================================
+ *   Data Structures Lab (DS Lab) - Service Worker
+ * ================================================================
+ *   Author: Amey Thakur
+ *   Course: Data Structures (DS) Lab
+ *   Roll No: 50
+ *   Batch: B3
+ *   Date: January 17, 2020
+ * ================================================================
+ */
+
 const CACHE_NAME = 'ds-lab-v1';
 const ASSETS_TO_CACHE = [
     'index.html',
