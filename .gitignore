@@ -1,25 +1,52 @@
+# ALL REPOSITORIES
+# ----------------
 # General
 .DS_Store
 Thumbs.db
+*.swp
 *.log
 *.tmp
 *.bak
-*.swp
 *~
 
-# Editors
+# Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
 .vscode/
+*.code-workspace
+
+# JetBrains
 .idea/
+*.iml
+
+# Visual Studio
 *.suo
 *.sln
+*.user
+*.pdb
+*.idb
+*.tlog
+*.vs/
+Debug/
+Release/
+x64/
+x86/
 
 # C/C++ Build Artifacts
-bin/
-obj/
 *.exe
 *.dll
-*.o
-*.a
 *.so
 *.dylib
+*.o
+*.obj
+*.a
+*.lib
 *.out
+*.app
+bin/
+obj/
+
+# Git
+*.orig
