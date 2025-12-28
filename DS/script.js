@@ -3,6 +3,7 @@
  *   Data Structures Lab (DS Lab) - Interactive Logic
  * ================================================================
  *   Author: Amey Thakur
+ *   GitHub: https://github.com/Amey-Thakur
  *   Course: Data Structures (DS) Lab
  *   Roll No: 50
  *   Batch: B3
