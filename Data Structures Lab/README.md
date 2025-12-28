@@ -27,8 +27,14 @@
 
 ---
 
+<div align="center">
+
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/)
+
+</div>
+
 > [!TIP]
-> **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
+> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/). Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
 
 > [!WARNING]
 > **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.

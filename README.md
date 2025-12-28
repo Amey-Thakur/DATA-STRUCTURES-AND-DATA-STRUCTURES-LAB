@@ -108,18 +108,18 @@ Study materials and planning resources for effective exam preparation:
 
 The laboratory component (CSL303) focuses on hands-on implementation of various data structures and algorithms using C, providing practical experience in solving complex computational problems.
 
-> [!TIP]
-> **Visualization is Key**: Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation. Dry running your logic with small test cases is the most effective way to debug complex pointer manipulations.
-
 <div align="center">
 
   [![Total Programs](https://img.shields.io/badge/Total%20Programs-34-yellowgreen.svg)](Data%20Structures%20Lab/)
   [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Data%20Structures%20Lab/Source%20Code/)
   [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
 
-
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/)
 
 </div>
+
+> [!TIP]
+> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/). For the complete source code and detailed documentation, visit the [Data Structures Lab](Data%20Structures%20Lab/) directory. Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
 
 ### Laboratory Experiments
 
