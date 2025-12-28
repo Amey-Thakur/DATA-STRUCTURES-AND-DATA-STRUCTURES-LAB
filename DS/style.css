@@ -674,10 +674,8 @@ h5 {
     box-shadow: var(--shadow-md);
     z-index: 100;
     max-width: 350px;
-    max-height: 400px;
-    overflow-y: auto;
-    overflow-x: auto;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     pointer-events: auto;
     text-align: left;
     transition: all 0.3s;
