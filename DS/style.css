@@ -199,7 +199,7 @@ h5 {
 .visualizer-bg {
     background: linear-gradient(-45deg, #ffffff, #f0f4ff, #e0e7ff, #f8fafc);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    animation: gradientBG 15s ease infinite, fadeInDown 0.5s ease forwards;
 }
 
 [data-theme="dark"] .visualizer-bg {
