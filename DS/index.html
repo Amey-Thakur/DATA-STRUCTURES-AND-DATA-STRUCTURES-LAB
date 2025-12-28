@@ -902,10 +902,7 @@
                                     <option value="linear">Linear Search</option>
                                     <option value="binary">Binary Search</option>
                                 </optgroup>
-                                <optgroup label="Data Structures">
-                                    <option value="stack">Stack</option>
-                                    <option value="queue">Queue</option>
-                                </optgroup>
+
                             </select>
                             <button id="btn-show-code" class="btn btn-primary-custom"
                                 style="padding: 8px 12px; border-radius: 8px; background: var(--accent-color);"
@@ -943,20 +940,7 @@
                         </div>
                     </div>
 
-                    <!-- DS Controls (Stack/Queue) -->
-                    <div id="ds-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
-                        style="display: none !important;">
-                        <input type="number" id="ds-input" placeholder="Value"
-                            style="width: 100px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                        <button id="btn-push-enqueue" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px; background: #10b981;">
-                            <i class="fas fa-plus me-2"></i><span id="btn-push-text">Push</span>
-                        </button>
-                        <button id="btn-pop-dequeue" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px; background: #ef4444;">
-                            <i class="fas fa-minus me-2"></i><span id="btn-pop-text">Pop</span>
-                        </button>
-                    </div>
+
 
                     <!-- Binary Search Target Input (hidden by default) -->
                     <div id="search-controls"
@@ -1110,8 +1094,7 @@
             shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)' },
             linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)' },
             binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)' },
-            stack: { title: 'Stack', desc: 'LIFO (Last In First Out) structure. Elements are added and removed from the top only.', complexity: 'O(1)' },
-            queue: { title: 'Queue', desc: 'FIFO (First In First Out) structure. Elements are added at the rear and removed from the front.', complexity: 'O(1)' }
+
         };
 
         const algoComplexity = document.getElementById('algo-complexity');
@@ -1128,22 +1111,8 @@
             btnRunText.textContent = 'Start';
             dsInput.value = '';
 
-            if (algo === 'stack' || algo === 'queue') {
-                mainControls.style.display = 'none';
-                searchControls.style.display = 'none';
-                dsControls.style.display = 'flex';
-
-                if (algo === 'stack') {
-                    btnPushText.textContent = 'Push';
-                    btnPopText.textContent = 'Pop';
-                    dsArray = [];
-                    renderStack();
-                } else {
-                    btnPushText.textContent = 'Enqueue';
-                    btnPopText.textContent = 'Dequeue';
-                    dsArray = [];
-                    renderQueue();
-                }
+            if (false) {
+                // Removed DS logic
             } else {
                 mainControls.style.display = 'flex';
                 dsControls.style.display = 'none';
