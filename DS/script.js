@@ -879,6 +879,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize on load
 initArray();
-if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode.bubble) {
-    renderPseudoCode(algoPseudoCode.bubble);
-}
