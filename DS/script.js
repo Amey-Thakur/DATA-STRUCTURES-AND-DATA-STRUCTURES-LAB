@@ -793,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const shareData = {
                 title: 'AMEY | DS Lab Portfolio',
-                text: 'Check out this interactive Data Structures and Algorithms visualizer!',
+                text: 'Check out this interactive Data Structures and Algorithms visualizer by Amey Thakur!',
                 url: window.location.origin + window.location.pathname
             };
 
