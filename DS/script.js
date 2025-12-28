@@ -1,0 +1,680 @@
+/**
+ * =========================================
+ *   INTERACTIVE LOGIC
+ * =========================================
+ */
+
+// Set Current Year
+const yearEl = document.getElementById('current-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Theme Toggle Logic
+const toggleBtn = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+// Back to Top Logic
+const backToTopBtn = document.getElementById("btn-back-to-top");
+if (backToTopBtn) {
+    window.onscroll = function () { scrollFunction(); };
+    backToTopBtn.addEventListener("click", () => {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+}
+
+function scrollFunction() {
+    if (!backToTopBtn) return;
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopBtn.style.display = "flex";
+    } else {
+        backToTopBtn.style.display = "none";
+    }
+}
+
+// Theme Toggle Logic
+if (toggleBtn) {
+    const themeIcon = toggleBtn.querySelector('i');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    if (themeIcon) updateIcon(themeIcon, savedTheme);
+
+    toggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        if (themeIcon) updateIcon(themeIcon, newTheme);
+    });
+}
+
+function updateIcon(icon, theme) {
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Scroll Reveal Logic using Intersection Observer
+const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// =========================================
+//   MULTI-ALGORITHM VISUALIZER
+// =========================================
+const visualizerContainer = document.getElementById('visualizer-container');
+const btnShuffle = document.getElementById('btn-shuffle');
+const btnRun = document.getElementById('btn-run');
+const btnRunText = document.getElementById('btn-run-text');
+const speedSlider = document.getElementById('speed-slider');
+const algoSelect = document.getElementById('algo-select');
+const algoTitle = document.getElementById('algo-title');
+const algoDescription = document.getElementById('algo-description');
+const searchControls = document.getElementById('search-controls');
+const searchTarget = document.getElementById('search-target');
+const algoLegend = document.getElementById('algo-legend');
+const algoComplexity = document.getElementById('algo-complexity');
+
+// DS Controls (Might be missing in some versions)
+const mainControls = document.getElementById('main-controls');
+const dsControls = document.getElementById('ds-controls');
+const dsInput = document.getElementById('ds-input');
+const btnPushEnqueue = document.getElementById('btn-push-enqueue');
+const btnPopDequeue = document.getElementById('btn-pop-dequeue');
+
+let array = [];
+let isRunning = false;
+const ARRAY_SIZE = 25;
+const MAX_VALUE = 180;
+let dsArray = []; // For Stack/Queue
+
+// Algorithm descriptions
+const algoInfo = {
+    bubble: { title: 'Bubble Sort', desc: 'Repeatedly compares adjacent elements and swaps them if they are in the wrong order.', complexity: 'O(n²)' },
+    insertion: { title: 'Insertion Sort', desc: 'Builds the sorted array one element at a time by inserting each element into its correct position.', complexity: 'O(n²)' },
+    selection: { title: 'Selection Sort', desc: 'Finds the minimum element and places it at the beginning, then repeats for remaining elements.', complexity: 'O(n²)' },
+    quick: { title: 'Quick Sort', desc: 'Uses divide-and-conquer with a pivot element to partition and recursively sort subarrays.', complexity: 'O(n log n)' },
+    merge: { title: 'Merge Sort', desc: 'Divides array into halves, sorts them recursively, and merges sorted halves.', complexity: 'O(n log n)' },
+    heap: { title: 'Heap Sort', desc: 'Builds a max-heap from the array and repeatedly extracts the maximum element.', complexity: 'O(n log n)' },
+    shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)' },
+    linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)' },
+    binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)' },
+};
+
+if (algoSelect) {
+    // Update UI when algorithm changes
+    algoSelect.addEventListener('change', () => {
+        const algo = algoSelect.value;
+        if (algoInfo[algo]) {
+            if (algoTitle) algoTitle.textContent = algoInfo[algo].title;
+            if (algoDescription) algoDescription.textContent = algoInfo[algo].desc;
+            if (algoComplexity) algoComplexity.textContent = algoInfo[algo].complexity;
+        }
+
+        // Reset state
+        isRunning = false;
+        if (btnRunText) btnRunText.textContent = 'Start';
+        if (dsInput) dsInput.value = '';
+
+        if (mainControls) mainControls.style.display = 'flex';
+        if (dsControls) dsControls.style.display = 'none';
+
+        if (searchControls) {
+            if (algo === 'binary' || algo === 'linear') {
+                searchControls.style.display = 'flex';
+                if (btnRunText) btnRunText.textContent = 'Search';
+                if (algo === 'binary') initSortedArray();
+                else initArray();
+            } else {
+                searchControls.style.display = 'none';
+                if (btnRunText) btnRunText.textContent = 'Start';
+                initArray();
+            }
+        } else {
+            initArray();
+        }
+    });
+}
+
+// Stack/Queue Buttons
+if (btnPushEnqueue) {
+    btnPushEnqueue.addEventListener('click', () => {
+        if (!dsInput) return;
+        const val = dsInput.value;
+        if (val === '') return;
+
+        if (dsArray.length >= 8) {
+            alert("Limit reached for visualization purposes!");
+            return;
+        }
+
+        const num = parseInt(val);
+        dsArray.push(num);
+        dsInput.value = '';
+
+        // If DS logic returns, add rendering here
+    });
+}
+
+if (btnPopDequeue) {
+    btnPopDequeue.addEventListener('click', () => {
+        if (dsArray.length === 0) return;
+        // If DS logic returns, add rendering here
+    });
+}
+
+// Initialize random array
+function initArray() {
+    array = [];
+    for (let i = 0; i < ARRAY_SIZE; i++) {
+        array.push(Math.floor(Math.random() * MAX_VALUE) + 20);
+    }
+    renderBars();
+}
+
+// Initialize sorted array for binary search
+function initSortedArray() {
+    array = [];
+    for (let i = 0; i < ARRAY_SIZE; i++) {
+        array.push(Math.floor((i + 1) * (MAX_VALUE / ARRAY_SIZE)) + 10);
+    }
+    if (searchTarget) {
+        searchTarget.value = array[Math.floor(Math.random() * ARRAY_SIZE)];
+    }
+    renderBars([], [], [], []);
+}
+
+// Render bars with highlighting
+function renderBars(comparing = [], swapping = [], sorted = [], found = []) {
+    if (!visualizerContainer) return;
+    visualizerContainer.innerHTML = '';
+    // Reset Container Styles for Bar Chart
+    visualizerContainer.style.flexDirection = 'row';
+    visualizerContainer.style.alignItems = 'flex-end';
+    visualizerContainer.style.justifyContent = 'center';
+    visualizerContainer.style.paddingBottom = '20px';
+
+    const containerWidth = visualizerContainer.offsetWidth - 40;
+    const barWidth = Math.max(8, Math.floor(containerWidth / ARRAY_SIZE) - 4);
+
+    array.forEach((value, idx) => {
+        const bar = document.createElement('div');
+        bar.style.width = barWidth + 'px';
+        bar.style.height = value + 'px';
+        bar.style.borderRadius = '4px 4px 0 0';
+        bar.style.transition = 'height 0.15s ease, background 0.15s ease';
+        bar.style.position = 'relative';
+
+        if (found.includes(idx)) {
+            bar.style.background = '#8b5cf6'; // Purple - found
+        } else if (sorted.includes(idx)) {
+            bar.style.background = '#10b981'; // Green - sorted
+        } else if (swapping.includes(idx)) {
+            bar.style.background = '#ef4444'; // Red - swapping
+        } else if (comparing.includes(idx)) {
+            bar.style.background = '#f59e0b'; // Yellow - comparing
+        } else {
+            bar.style.background = 'var(--accent-color)'; // Default
+        }
+
+        visualizerContainer.appendChild(bar);
+    });
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getDelay() {
+    if (!speedSlider) return 100;
+    const speed = speedSlider.value;
+    return Math.max(10, 500 - (speed * 4.5));
+}
+
+// ========== SORTING ALGORITHMS ==========
+
+// Bubble Sort
+async function bubbleSort() {
+    const n = array.length;
+    const sortedIndices = [];
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+            if (!isRunning) return;
+            renderBars([j, j + 1], [], sortedIndices);
+            await sleep(getDelay());
+            if (array[j] > array[j + 1]) {
+                renderBars([], [j, j + 1], sortedIndices);
+                await sleep(getDelay());
+                [array[j], array[j + 1]] = [array[j + 1], array[j]];
+            }
+        }
+        sortedIndices.push(n - 1 - i);
+    }
+    sortedIndices.push(0);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Insertion Sort
+async function insertionSort() {
+    const n = array.length;
+    const sortedIndices = [0];
+    for (let i = 1; i < n; i++) {
+        if (!isRunning) return;
+        let key = array[i];
+        let j = i - 1;
+        renderBars([i], [], sortedIndices);
+        await sleep(getDelay());
+        while (j >= 0 && array[j] > key) {
+            if (!isRunning) return;
+            renderBars([j], [j, j + 1], sortedIndices);
+            await sleep(getDelay());
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = key;
+        sortedIndices.push(i);
+        renderBars([], [], sortedIndices);
+        await sleep(getDelay());
+    }
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Selection Sort
+async function selectionSort() {
+    const n = array.length;
+    const sortedIndices = [];
+    for (let i = 0; i < n - 1; i++) {
+        if (!isRunning) return;
+        let minIdx = i;
+        for (let j = i + 1; j < n; j++) {
+            if (!isRunning) return;
+            renderBars([minIdx, j], [], sortedIndices);
+            await sleep(getDelay());
+            if (array[j] < array[minIdx]) {
+                minIdx = j;
+            }
+        }
+        if (minIdx !== i) {
+            renderBars([], [i, minIdx], sortedIndices);
+            await sleep(getDelay());
+            [array[i], array[minIdx]] = [array[minIdx], array[i]];
+        }
+        sortedIndices.push(i);
+    }
+    sortedIndices.push(n - 1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Quick Sort
+async function quickSort(low = 0, high = array.length - 1, sortedIndices = []) {
+    if (low < high && isRunning) {
+        const pi = await partition(low, high, sortedIndices);
+        if (!isRunning) return;
+        await quickSort(low, pi - 1, sortedIndices);
+        await quickSort(pi + 1, high, sortedIndices);
+    }
+    if (low === 0 && high === array.length - 1) {
+        renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
+        finishRun();
+    }
+}
+
+async function partition(low, high, sortedIndices) {
+    const pivot = array[high];
+    let i = low - 1;
+    for (let j = low; j < high; j++) {
+        if (!isRunning) return;
+        renderBars([j, high], [], sortedIndices);
+        await sleep(getDelay());
+        if (array[j] < pivot) {
+            i++;
+            renderBars([], [i, j], sortedIndices);
+            await sleep(getDelay());
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+    renderBars([], [i + 1, high], sortedIndices);
+    await sleep(getDelay());
+    [array[i + 1], array[high]] = [array[high], array[i + 1]];
+    sortedIndices.push(i + 1);
+    return i + 1;
+}
+
+// Merge Sort
+async function mergeSort(left = 0, right = array.length - 1) {
+    if (left >= right) return;
+
+    const mid = Math.floor((left + right) / 2);
+    if (!isRunning) return;
+
+    await mergeSort(left, mid);
+    await mergeSort(mid + 1, right);
+    await merge(left, mid, right);
+
+    if (left === 0 && right === array.length - 1) {
+        renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
+        finishRun();
+    }
+}
+
+async function merge(left, mid, right) {
+    if (!isRunning) return;
+    const n1 = mid - left + 1;
+    const n2 = right - mid;
+    const L = array.slice(left, mid + 1);
+    const R = array.slice(mid + 1, right + 1);
+
+    let i = 0, j = 0, k = left;
+
+    while (i < n1 && j < n2) {
+        if (!isRunning) return;
+        renderBars([k], [], [], []);
+        await sleep(getDelay());
+
+        if (L[i] <= R[j]) {
+            array[k] = L[i];
+            i++;
+        } else {
+            array[k] = R[j];
+            j++;
+        }
+        renderBars([], [k], [], []);
+        await sleep(getDelay());
+        k++;
+    }
+
+    while (i < n1) {
+        if (!isRunning) return;
+        array[k] = L[i];
+        renderBars([], [k], [], []);
+        await sleep(getDelay());
+        i++; k++;
+    }
+
+    while (j < n2) {
+        if (!isRunning) return;
+        array[k] = R[j];
+        renderBars([], [k], [], []);
+        await sleep(getDelay());
+        j++; k++;
+    }
+}
+
+// Heap Sort
+async function heapSort() {
+    const n = array.length;
+
+    // Build max heap
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        if (!isRunning) return;
+        await heapify(n, i);
+    }
+
+    // Extract elements from heap
+    for (let i = n - 1; i > 0; i--) {
+        if (!isRunning) return;
+        renderBars([0, i], [], []);
+        await sleep(getDelay());
+
+        [array[0], array[i]] = [array[i], array[0]];
+        renderBars([], [0, i], [], []);
+        await sleep(getDelay());
+
+        await heapify(i, 0);
+    }
+
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+async function heapify(n, i) {
+    if (!isRunning) return;
+    let largest = i;
+    const l = 2 * i + 1;
+    const r = 2 * i + 2;
+
+    if (l < n && array[l] > array[largest]) largest = l;
+    if (r < n && array[r] > array[largest]) largest = r;
+
+    if (largest !== i) {
+        renderBars([i, largest], [], []);
+        await sleep(getDelay());
+
+        [array[i], array[largest]] = [array[largest], array[i]];
+        renderBars([], [i, largest], [], []);
+        await sleep(getDelay());
+
+        await heapify(n, largest);
+    }
+}
+
+// Shell Sort
+async function shellSort() {
+    const n = array.length;
+    for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (let i = gap; i < n; i++) {
+            if (!isRunning) return;
+            let temp = array[i];
+            let j;
+            for (j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+                if (!isRunning) return;
+                renderBars([j, j - gap], [], []);
+                await sleep(getDelay());
+                array[j] = array[j - gap];
+                renderBars([], [j], [], []);
+                await sleep(getDelay());
+            }
+            array[j] = temp;
+        }
+    }
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// ========== SEARCHING ALGORITHMS ==========
+
+// Linear Search
+async function linearSearch() {
+    if (!searchTarget) return;
+    const target = parseInt(searchTarget.value);
+    const n = array.length;
+
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+
+        renderBars([i], [], [], []); // Highlight current being checked
+        await sleep(getDelay());
+
+        if (array[i] === target) {
+            renderBars([], [], [], [i]); // Found!
+            await sleep(1000);
+            finishRun();
+            return;
+        }
+    }
+    // Not found
+    renderBars([], Array.from({ length: n }, (_, i) => i), [], []);
+    await sleep(500);
+    renderBars();
+    finishRun();
+}
+
+// Binary Search
+async function binarySearch() {
+    if (!searchTarget) return;
+    const target = parseInt(searchTarget.value);
+    let left = 0, right = array.length - 1;
+
+    while (left <= right && isRunning) {
+        const mid = Math.floor((left + right) / 2);
+        renderBars([left, right], [mid], [], []);
+        await sleep(getDelay() * 2);
+
+        if (array[mid] === target) {
+            renderBars([], [], [], [mid]);
+            await sleep(1000);
+            finishRun();
+            return;
+        } else if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    // Not found - flash red
+    renderBars([], Array.from({ length: array.length }, (_, i) => i), [], []);
+    await sleep(500);
+    renderBars();
+    finishRun();
+}
+
+function finishRun() {
+    isRunning = false;
+    const algo = algoSelect ? algoSelect.value : 'bubble';
+    if (btnRunText) btnRunText.textContent = algo === 'binary' ? 'Search' : 'Start';
+}
+
+// Run selected algorithm
+function runAlgorithm() {
+    if (!algoSelect) return;
+    const algo = algoSelect.value;
+    switch (algo) {
+        case 'bubble': bubbleSort(); break;
+        case 'insertion': insertionSort(); break;
+        case 'selection': selectionSort(); break;
+        case 'quick': quickSort(); break;
+        case 'merge': mergeSort(); break;
+        case 'heap': heapSort(); break;
+        case 'shell': shellSort(); break;
+        case 'linear': linearSearch(); break;
+        case 'binary': binarySearch(); break;
+    }
+}
+
+// Shuffle button
+if (btnShuffle) {
+    btnShuffle.addEventListener('click', () => {
+        if (isRunning) {
+            isRunning = false;
+        }
+        setTimeout(() => {
+            if (algoSelect && algoSelect.value === 'binary') {
+                initSortedArray();
+            } else {
+                initArray();
+            }
+            if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+        }, 100);
+    });
+}
+
+// Run button
+if (btnRun) {
+    btnRun.addEventListener('click', () => {
+        if (isRunning) {
+            isRunning = false;
+            if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+        } else {
+            isRunning = true;
+            if (btnRunText) btnRunText.textContent = 'Pause';
+            runAlgorithm();
+        }
+    });
+}
+
+// Modal Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const btnShowCode = document.getElementById('btn-show-code');
+    const codeModal = document.getElementById('code-modal');
+    const closeModal = document.getElementById('close-modal');
+    const modalCode = document.getElementById('modal-code');
+    const modalTitle = document.getElementById('modal-title');
+    const modalGithubLink = document.getElementById('modal-github-link');
+
+    function getAlgoFunction(algo) {
+        switch (algo) {
+            case 'bubble': return bubbleSort;
+            case 'insertion': return insertionSort;
+            case 'selection': return selectionSort;
+            case 'quick': return quickSort;
+            case 'merge': return mergeSort;
+            case 'heap': return heapSort;
+            case 'shell': return shellSort;
+            case 'linear': return linearSearch;
+            case 'binary': return binarySearch;
+            default: return null;
+        }
+    }
+
+    if (btnShowCode) {
+        btnShowCode.addEventListener('click', () => {
+            if (!algoSelect) return;
+            const algo = algoSelect.value;
+            const func = getAlgoFunction(algo);
+
+            if (func) {
+                if (modalTitle) modalTitle.textContent = algoInfo[algo].title + ' Implementation';
+                if (modalCode) {
+                    modalCode.textContent = func.toString();
+                    if (window.Prism) {
+                        Prism.highlightElement(modalCode);
+                    }
+                }
+                if (codeModal) codeModal.style.display = 'flex';
+                if (modalGithubLink) modalGithubLink.href = 'https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB';
+            }
+        });
+    }
+
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            if (codeModal) codeModal.style.display = 'none';
+        });
+    }
+
+    window.addEventListener('click', (e) => {
+        if (codeModal && e.target === codeModal) {
+            codeModal.style.display = 'none';
+        }
+    });
+
+    // Stats Counter Animation
+    const counters = document.querySelectorAll('.stat-number');
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const suffix = counter.getAttribute('data-suffix') || '';
+            const count = +counter.innerText.replace(suffix, '');
+
+            const inc = Math.max(1, target / 100);
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc) + suffix;
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target + suffix;
+            }
+        };
+        updateCount();
+    });
+});
+
+// Initialize on load
+initArray();
