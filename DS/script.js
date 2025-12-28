@@ -149,20 +149,21 @@ algoSelect.addEventListener('change', () => {
     algoDescription.textContent = algoInfo[algo].desc;
     algoComplexity.textContent = algoInfo[algo].complexity;
 
-    // Reset state
+    // Reset state and visibility
     isRunning = false;
     btnRunText.textContent = 'Start';
     dsInput.value = '';
 
-    if (algo === 'stack' || algo === 'queue' || algo === 'linkedlist' || algo === 'binarytree' || algo === 'graph') {
-        mainControls.style.display = 'none';
-        searchControls.style.display = 'none';
+    // Hide ALL controls first
+    mainControls.style.display = 'none';
+    searchControls.style.display = 'none';
+    dsControls.style.display = 'none';
+    llControls.style.display = 'none';
+    btControls.style.display = 'none';
+    graphControls.style.display = 'none';
 
-        // Reset all specific controls
-        dsControls.style.display = 'none';
-        llControls.style.display = 'none';
-        btControls.style.display = 'none';
-        graphControls.style.display = 'none';
+    if (algo === 'stack' || algo === 'queue' || algo === 'linkedlist' || algo === 'binarytree' || algo === 'graph') {
+        // Logic to Show specific DS controls
 
         if (algo === 'graph') {
             graphControls.style.display = 'flex';
@@ -191,7 +192,6 @@ algoSelect.addEventListener('change', () => {
         }
     } else {
         mainControls.style.display = 'flex';
-        dsControls.style.display = 'none';
 
         if (algo === 'binary') {
             searchControls.style.display = 'flex';
