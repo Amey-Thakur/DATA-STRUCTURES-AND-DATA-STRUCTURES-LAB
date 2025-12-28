@@ -684,7 +684,7 @@ h5 {
 }
 
 [data-theme="dark"] .pseudo-code-box {
-    background: rgba(30, 41, 59, 0.9);
+    background: rgba(30, 41, 59, 0.3);
 }
 
 .pseudo-code-line {
