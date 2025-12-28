@@ -674,6 +674,7 @@ h5 {
     box-shadow: var(--shadow-md);
     z-index: 100;
     max-width: 350px;
+    overflow: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
     pointer-events: auto;
