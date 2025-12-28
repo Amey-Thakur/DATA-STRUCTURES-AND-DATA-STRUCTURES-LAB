@@ -88,6 +88,20 @@ const searchControls = document.getElementById('search-controls');
 const searchTarget = document.getElementById('search-target');
 const algoLegend = document.getElementById('algo-legend');
 const algoComplexity = document.getElementById('algo-complexity');
+const pseudoCodeEl = document.getElementById('pseudo-code-display');
+
+// Pseudo-code Strings
+const algoPseudoCode = {
+    bubble: [
+        "for (int i = 0; i < n - 1; i++) {",
+        "    for (int j = 0; j < n - i - 1; j++) {",
+        "        if (array[j] > array[j + 1]) {",
+        "            swap(&array[j], &array[j+1]);",
+        "        }",
+        "    }",
+        "}"
+    ]
+};
 
 // DS Controls (Might be missing in some versions)
 const mainControls = document.getElementById('main-controls');
@@ -147,6 +161,8 @@ if (algoSelect) {
         } else {
             initArray();
         }
+        // Clear pseudo code on change
+        renderPseudoCode(null);
     });
 }
 
@@ -245,25 +261,56 @@ function getDelay() {
     return Math.max(10, 500 - (speed * 4.5));
 }
 
+// Pseudo-code Helpers
+function renderPseudoCode(lines) {
+    if (!pseudoCodeEl) return;
+    if (!lines) {
+        pseudoCodeEl.style.display = 'none';
+        return;
+    }
+    pseudoCodeEl.innerHTML = lines.map(line => `<div class="pseudo-code-line">${line}</div>`).join('');
+    pseudoCodeEl.style.display = 'block';
+}
+
+async function highlightLine(lineIdx) {
+    if (!pseudoCodeEl) return;
+    const lines = pseudoCodeEl.querySelectorAll('.pseudo-code-line');
+    lines.forEach((line, idx) => {
+        if (idx === lineIdx) line.classList.add('highlight-line');
+        else line.classList.remove('highlight-line');
+    });
+}
+
 // ========== SORTING ALGORITHMS ==========
 
 // Bubble Sort
 async function bubbleSort() {
+    renderPseudoCode(algoPseudoCode.bubble);
     const n = array.length;
     const sortedIndices = [];
+
+    await highlightLine(0); // Outer loop start
     for (let i = 0; i < n - 1; i++) {
+        await highlightLine(1); // Inner loop start
         for (let j = 0; j < n - i - 1; j++) {
             if (!isRunning) return;
+
+            await highlightLine(2); // Comparison
             renderBars([j, j + 1], [], sortedIndices);
             await sleep(getDelay());
+
             if (array[j] > array[j + 1]) {
+                await highlightLine(3); // Swap
                 renderBars([], [j, j + 1], sortedIndices);
                 await sleep(getDelay());
                 [array[j], array[j + 1]] = [array[j + 1], array[j]];
             }
+            await highlightLine(1); // Inner loop repeat
         }
         sortedIndices.push(n - 1 - i);
+        await highlightLine(0); // Outer loop repeat
     }
+    await highlightLine(-1); // Clear highlight
     sortedIndices.push(0);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
