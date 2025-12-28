@@ -334,14 +334,7 @@
                                     <option value="linear">Linear Search</option>
                                     <option value="binary">Binary Search</option>
                                 </optgroup>
-                                <optgroup label="Data Structures">
-                                    <option value="stack">Stack</option>
-                                    <option value="queue">Queue</option>
-                                    <option value="linkedlist">Linked List</option>
 
-                                    <option value="binarytree">Binary Search Tree</option>
-                                    <option value="graph">Graph (BFS/DFS)</option>
-                                </optgroup>
                             </select>
                             <button id="btn-show-code" class="btn btn-primary-custom"
                                 style="padding: 8px 12px; border-radius: 8px; background: var(--accent-color);"
@@ -379,85 +372,7 @@
                         </div>
                     </div>
 
-                    <!-- DS Controls (Stack/Queue) -->
-                    <div id="ds-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
-                        style="display: none !important;">
-                        <input type="number" id="ds-input" placeholder="Value"
-                            style="width: 100px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                        <button id="btn-push-enqueue" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px; background: #10b981;">
-                            <i class="fas fa-plus me-2"></i><span id="btn-push-text">Push</span>
-                        </button>
-                        <button id="btn-pop-dequeue" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px; background: #ef4444;">
-                            <i class="fas fa-minus me-2"></i><span id="btn-pop-text">Pop</span>
-                        </button>
-                    </div>
 
-                    <!-- Linked List Controls -->
-                    <div id="ll-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
-                        style="display: none !important;">
-                        <input type="number" id="ll-input" placeholder="Value"
-                            style="width: 100px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                        <button id="btn-insert-head" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #10b981; font-size: 0.9rem;">
-                            <i class="fas fa-plus me-1"></i>Head
-                        </button>
-                        <button id="btn-insert-tail" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #10b981; font-size: 0.9rem;">
-                            <i class="fas fa-plus me-1"></i>Tail
-                        </button>
-                        <button id="btn-delete-head" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #ef4444; font-size: 0.9rem;">
-                            <i class="fas fa-minus me-1"></i>Head
-                        </button>
-                        <button id="btn-delete-tail" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #ef4444; font-size: 0.9rem;">
-                            <i class="fas fa-minus me-1"></i>Tail
-                        </button>
-                    </div>
-
-                    <!-- Binary Tree Controls -->
-                    <div id="bt-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
-                        style="display: none !important;">
-                        <input type="number" id="bt-input" placeholder="Value"
-                            style="width: 100px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                        <button id="btn-bt-insert" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #10b981; font-size: 0.9rem;">
-                            <i class="fas fa-plus me-1"></i>Insert
-                        </button>
-                        <button id="btn-bt-reset" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #ef4444; font-size: 0.9rem;">
-                            <i class="fas fa-trash me-1"></i>Reset
-                        </button>
-                    </div>
-
-                    <!-- Graph Controls -->
-                    <div id="graph-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
-                        style="display: none !important;">
-                        <input type="text" id="graph-input" placeholder="Edge u-v (e.g. 0-1)"
-                            style="width: 140px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                        <button id="btn-add-node" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #3b82f6; font-size: 0.9rem;">
-                            <i class="fas fa-plus-circle me-1"></i>Node
-                        </button>
-                        <button id="btn-add-edge" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #8b5cf6; font-size: 0.9rem;">
-                            <i class="fas fa-link me-1"></i>Edge
-                        </button>
-                        <button id="btn-run-bfs" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #10b981; font-size: 0.9rem;">
-                            BFS(0)
-                        </button>
-                        <button id="btn-run-dfs" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #10b981; font-size: 0.9rem;">
-                            DFS(0)
-                        </button>
-                        <button id="btn-graph-reset" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 20px; background: #ef4444; font-size: 0.9rem;">
-                            <i class="fas fa-trash me-1"></i>Reset
-                        </button>
-                    </div>
 
                     <!-- Binary Search Target Input (hidden by default) -->
                     <div id="search-controls"
