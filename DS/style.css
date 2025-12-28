@@ -199,7 +199,7 @@ h5 {
 .visualizer-bg {
     background: linear-gradient(-45deg, #ffffff, #f0f4ff, #e0e7ff, #f8fafc);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite, fadeInDown 0.5s ease forwards;
+    animation: gradientBG 15s ease infinite;
 }
 
 [data-theme="dark"] .visualizer-bg {
@@ -659,26 +659,26 @@ h5 {
 }
 
 /* Pseudo Code Overlay */
-/* Pseudo Code Box - Responsive Side-by-Side */
 .pseudo-code-box {
-    background: var(--card-bg);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 15px;
     font-family: 'Fira Code', monospace;
     font-size: 0.85rem;
     color: var(--text-primary);
-    box-shadow: var(--shadow-sm);
-
-    /* Layout & Scroll */
-    min-width: 300px;
-    flex-shrink: 0;
-    max-width: 100%;
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    max-width: 350px;
     max-height: 400px;
     overflow-y: auto;
     overflow-x: auto;
     white-space: pre;
-    pointer-events: auto;
+    pointer-events: none;
     text-align: left;
     transition: all 0.3s;
     animation: fadeInDown 0.5s ease forwards;
