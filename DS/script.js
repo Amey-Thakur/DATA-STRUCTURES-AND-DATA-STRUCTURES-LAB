@@ -192,6 +192,11 @@ algoSelect.addEventListener('change', () => {
         }
     } else {
         mainControls.style.display = 'flex';
+        // Explicitly hide others again to be sure
+        dsControls.style.display = 'none';
+        llControls.style.display = 'none';
+        btControls.style.display = 'none';
+        graphControls.style.display = 'none';
 
         if (algo === 'binary') {
             searchControls.style.display = 'flex';
