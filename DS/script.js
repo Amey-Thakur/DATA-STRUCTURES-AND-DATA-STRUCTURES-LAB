@@ -161,8 +161,12 @@ if (algoSelect) {
         } else {
             initArray();
         }
-        // Clear pseudo code on change
-        renderPseudoCode(null);
+        // Show pseudo code if available
+        if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode[algo]) {
+            renderPseudoCode(algoPseudoCode[algo]);
+        } else {
+            renderPseudoCode(null);
+        }
     });
 }
 
@@ -725,3 +729,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize on load
 initArray();
+if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode.bubble) {
+    renderPseudoCode(algoPseudoCode.bubble);
+}
