@@ -672,7 +672,7 @@ h5 {
     font-size: 0.8rem;
     color: var(--text-primary);
     box-shadow: var(--shadow-sm);
-    z-index: 10;
+    z-index: 100;
     max-width: 300px;
     pointer-events: none;
     transition: all 0.3s;
