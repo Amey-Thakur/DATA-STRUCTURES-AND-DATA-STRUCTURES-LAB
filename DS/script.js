@@ -474,14 +474,20 @@ async function quickSort(low = 0, high = array.length - 1, sortedIndices = []) {
 
     if (low < high && isRunning) {
         await highlightLine(1); // if low < high
+        await sleep(getDelay() / 2);
+
         await highlightLine(2); // partition
+        await sleep(getDelay() / 2);
         const pi = await partition(low, high, sortedIndices);
 
         if (!isRunning) return;
+
         await highlightLine(3); // recursive left
+        await sleep(getDelay() / 2);
         await quickSort(low, pi - 1, sortedIndices);
 
         await highlightLine(4); // recursive right
+        await sleep(getDelay() / 2);
         await quickSort(pi + 1, high, sortedIndices);
     }
 
