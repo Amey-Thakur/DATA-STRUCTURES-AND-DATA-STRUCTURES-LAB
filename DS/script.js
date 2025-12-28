@@ -786,6 +786,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Share Functionality
+    const shareBtn = document.getElementById('share-btn');
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const shareData = {
+                title: 'AMEY | DS Lab Portfolio',
+                text: 'Check out this interactive Data Structures and Algorithms visualizer!',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    const originalIcon = shareBtn.innerHTML;
+                    shareBtn.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalIcon;
+                    }, 2000);
+                }
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        });
+    }
+
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 1000,

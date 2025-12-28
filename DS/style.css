@@ -427,14 +427,19 @@ h5 {
     color: var(--accent-color);
 }
 
-/* Theme Toggle */
-.theme-switch {
+/* --- Controls --- */
+.top-controls {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    color: var(--text-primary);
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -442,10 +447,26 @@ h5 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
+    color: var(--text-primary);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-sm);
 }
+
+.control-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+}
+
+/* Theme Toggle */
+.theme-switch {
+    display: none;
+}
+
+/* Handled by control-btn now */
 
 .theme-switch:hover {
     transform: scale(1.1);
