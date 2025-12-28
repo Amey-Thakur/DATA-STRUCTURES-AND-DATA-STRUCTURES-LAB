@@ -678,7 +678,7 @@ h5 {
     overflow-y: auto;
     overflow-x: auto;
     white-space: pre;
-    pointer-events: none;
+    pointer-events: auto;
     text-align: left;
     transition: all 0.3s;
     animation: fadeInDown 0.5s ease forwards;
