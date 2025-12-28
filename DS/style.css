@@ -659,24 +659,28 @@ h5 {
 }
 
 /* Pseudo Code Overlay */
+/* Pseudo Code Box - Responsive Side-by-Side */
 .pseudo-code-box {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: 12px;
+    padding: 15px;
     font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-primary);
     box-shadow: var(--shadow-sm);
-    z-index: 100;
-    max-width: 300px;
-    pointer-events: none;
-    transition: all 0.3s;
+
+    /* Layout & Scroll */
+    min-width: 300px;
+    max-width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: pre;
+    pointer-events: auto;
     text-align: left;
+    transition: all 0.3s;
 }
 
 [data-theme="dark"] .pseudo-code-box {
