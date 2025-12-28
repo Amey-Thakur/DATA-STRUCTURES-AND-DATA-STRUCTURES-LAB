@@ -1,9 +1,50 @@
-# Auto-detect text files and perform LF normalization
-* text=auto
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
 
-# Custom binary file text attributes
+# Standard to msysgit
+*.doc	 diff=astextplain
+*.DOC	 diff=astextplain
+*.docx diff=astextplain
+*.DOCX diff=astextplain
+*.dot  diff=astextplain
+*.DOT  diff=astextplain
+*.pdf  diff=astextplain
+*.PDF	 diff=astextplain
+*.rtf	 diff=astextplain
+*.RTF	 diff=astextplain
+
+# Binary files
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
-*.pdf binary
+*.ico binary
+*.bmp binary
+*.tif binary
+*.tiff binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.flv binary
+*.fla binary
+*.swf binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.rar binary
+*.tar binary
+*.iso binary
+
+# Compiled Binaries (safety check)
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.a binary
+*.lib binary
+
+# C/C++ Source
+*.c     text
+*.cpp   text
+*.h     text
+*.hpp   text
