@@ -58,12 +58,581 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 
+         * =========================================
+         *   THEME & BASE VARIABLES
+         * =========================================
+         */
+        :root {
+            /* Light Mode Variables */
+            --bg-color: #f4f6f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --card-bg: #ffffff;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --header-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            --badge-bg: #eff6ff;
+            --badge-text: #2563eb;
+            --footer-border: #cbd5e1;
+        }
 
-    <!-- PrismJS Theme (Syntax Highlighting) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+        [data-theme="dark"] {
+            /* Dark Mode Variables */
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #60a5fa;
+            --border-color: #334155;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --header-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --badge-bg: #0f172a;
+            --badge-text: #38bdf8;
+            --footer-border: #334155;
+        }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.8s ease, color 0.8s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Back to Top Button */
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+            z-index: 100;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        #btn-back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--accent-hover);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-primary);
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(-45deg, #ffffff, #f0f4ff, #e0e7ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite, fadeInDown 0.8s ease-out;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1a237e);
+            background-size: 400% 400%;
+        }
+
+        /* Visualizer Background Animation */
+        .visualizer-bg {
+            background: linear-gradient(-45deg, #ffffff, #f0f4ff, #e0e7ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        [data-theme="dark"] .visualizer-bg {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1a237e);
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-5px);
+            }
+
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .hero h1 {
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(120deg, var(--accent-color), #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .info-badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .badge-pill {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero-buttons .btn {
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            margin: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+        }
+
+        .btn-primary-custom {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            color: #fff;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Section Title */
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title h3 {
+            font-weight: 700;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: var(--border-color);
+            border-radius: 2px;
+        }
+
+        /* Glassmorphism Cards */
+        .card-custom {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        [data-theme="dark"] .card-custom {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        [data-theme="dark"] .card-custom:hover {
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: var(--badge-bg);
+            color: var(--accent-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-custom:hover .icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .exp-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .card-custom h5 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .card-custom p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .launch-link {
+            text-decoration: none;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            transition: gap 0.2s;
+        }
+
+        .launch-link:hover {
+            gap: 8px;
+            color: var(--accent-hover);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--footer-border);
+            margin-top: 40px;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Theme Toggle */
+        .theme-switch {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-switch:hover {
+            transform: scale(1.1);
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal-left.active,
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .col-md-6:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .col-md-6:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        /* Tech Badges */
+        .badge-tech {
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--bg-color);
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-right: 5px;
+            border: 1px solid var(--border-color);
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .card-custom:hover .badge-tech,
+        .badge-tech:hover {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border-color: var(--badge-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Custom Tooltips for Badges */
+        .badge[data-tooltip] {
+            position: relative;
+            cursor: help;
+        }
+
+        .badge[data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-8px);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+            font-weight: normal;
+        }
+
+        .badge[data-tooltip]::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(0px);
+            border: 6px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.9);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1001;
+        }
+
+        .badge[data-tooltip]:hover::after,
+        .badge[data-tooltip]:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Service Model Badge Hover */
+        .badge[data-tooltip]:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary-custom {
+            background: var(--card-bg) !important;
+            color: var(--text-primary) !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        .clickable-badge {
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .clickable-badge:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            background: var(--accent-color) !important;
+            color: #fff !important;
+            border-color: var(--accent-color) !important;
+        }
+
+        /* Stats Counter */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInDown 0.5s ease forwards;
+        }
+
+        .stat-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .stat-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .stat-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(120deg, var(--accent-color), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 
 <body>
@@ -287,7 +856,6 @@
                         implementations.</p>
                     <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting"
                         class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
             </div>
@@ -334,7 +902,10 @@
                                     <option value="linear">Linear Search</option>
                                     <option value="binary">Binary Search</option>
                                 </optgroup>
-
+                                <optgroup label="Data Structures">
+                                    <option value="stack">Stack</option>
+                                    <option value="queue">Queue</option>
+                                </optgroup>
                             </select>
                             <button id="btn-show-code" class="btn btn-primary-custom"
                                 style="padding: 8px 12px; border-radius: 8px; background: var(--accent-color);"
@@ -372,7 +943,20 @@
                         </div>
                     </div>
 
-
+                    <!-- DS Controls (Stack/Queue) -->
+                    <div id="ds-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center"
+                        style="display: none !important;">
+                        <input type="number" id="ds-input" placeholder="Value"
+                            style="width: 100px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
+                        <button id="btn-push-enqueue" class="btn btn-primary-custom"
+                            style="border-radius: 50px; padding: 10px 25px; background: #10b981;">
+                            <i class="fas fa-plus me-2"></i><span id="btn-push-text">Push</span>
+                        </button>
+                        <button id="btn-pop-dequeue" class="btn btn-primary-custom"
+                            style="border-radius: 50px; padding: 10px 25px; background: #ef4444;">
+                            <i class="fas fa-minus me-2"></i><span id="btn-pop-text">Pop</span>
+                        </button>
+                    </div>
 
                     <!-- Binary Search Target Input (hidden by default) -->
                     <div id="search-controls"
@@ -414,14 +998,762 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script>
+        /**
+         * =========================================
+         *   INTERACTIVE LOGIC
+         * =========================================
+         */
 
-    <!-- PrismJS Scripts (Syntax Highlighting) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    <!-- Custom JS -->
-    <script src="script.js" defer></script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = toggleBtn.querySelector('i');
+        const htmlElement = document.documentElement;
 
+        // Back to Top Logic
+        const backToTopBtn = document.getElementById("btn-back-to-top");
+        window.onscroll = function () { scrollFunction(); };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopBtn.style.display = "flex";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        }
+
+        backToTopBtn.addEventListener("click", () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+
+        // Theme Toggle Logic
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Scroll Reveal Logic using Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // =========================================
+        //   MULTI-ALGORITHM VISUALIZER
+        // =========================================
+        const visualizerContainer = document.getElementById('visualizer-container');
+        const btnShuffle = document.getElementById('btn-shuffle');
+        const btnRun = document.getElementById('btn-run');
+        const btnRunText = document.getElementById('btn-run-text');
+        const speedSlider = document.getElementById('speed-slider');
+        const algoSelect = document.getElementById('algo-select');
+        const algoTitle = document.getElementById('algo-title');
+        const algoDescription = document.getElementById('algo-description');
+        const searchControls = document.getElementById('search-controls');
+        const searchTarget = document.getElementById('search-target');
+        const algoLegend = document.getElementById('algo-legend');
+
+        // DS Controls
+        const mainControls = document.getElementById('main-controls');
+        const dsControls = document.getElementById('ds-controls');
+        const dsInput = document.getElementById('ds-input');
+        const btnPushEnqueue = document.getElementById('btn-push-enqueue');
+        const btnPopDequeue = document.getElementById('btn-pop-dequeue');
+        const btnPushText = document.getElementById('btn-push-text');
+        const btnPopText = document.getElementById('btn-pop-text');
+
+        let array = [];
+        let isRunning = false;
+        const ARRAY_SIZE = 25;
+        const MAX_VALUE = 180;
+        let dsArray = []; // For Stack/Queue
+
+        // Algorithm descriptions
+        const algoInfo = {
+            bubble: { title: 'Bubble Sort', desc: 'Repeatedly compares adjacent elements and swaps them if they are in the wrong order.', complexity: 'O(n²)' },
+            insertion: { title: 'Insertion Sort', desc: 'Builds the sorted array one element at a time by inserting each element into its correct position.', complexity: 'O(n²)' },
+            selection: { title: 'Selection Sort', desc: 'Finds the minimum element and places it at the beginning, then repeats for remaining elements.', complexity: 'O(n²)' },
+            quick: { title: 'Quick Sort', desc: 'Uses divide-and-conquer with a pivot element to partition and recursively sort subarrays.', complexity: 'O(n log n)' },
+            merge: { title: 'Merge Sort', desc: 'Divides array into halves, sorts them recursively, and merges sorted halves.', complexity: 'O(n log n)' },
+            heap: { title: 'Heap Sort', desc: 'Builds a max-heap from the array and repeatedly extracts the maximum element.', complexity: 'O(n log n)' },
+            shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)' },
+            linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)' },
+            binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)' },
+            stack: { title: 'Stack', desc: 'LIFO (Last In First Out) structure. Elements are added and removed from the top only.', complexity: 'O(1)' },
+            queue: { title: 'Queue', desc: 'FIFO (First In First Out) structure. Elements are added at the rear and removed from the front.', complexity: 'O(1)' }
+        };
+
+        const algoComplexity = document.getElementById('algo-complexity');
+
+        // Update UI when algorithm changes
+        algoSelect.addEventListener('change', () => {
+            const algo = algoSelect.value;
+            algoTitle.textContent = algoInfo[algo].title;
+            algoDescription.textContent = algoInfo[algo].desc;
+            algoComplexity.textContent = algoInfo[algo].complexity;
+
+            // Reset state
+            isRunning = false;
+            btnRunText.textContent = 'Start';
+            dsInput.value = '';
+
+            if (algo === 'stack' || algo === 'queue') {
+                mainControls.style.display = 'none';
+                searchControls.style.display = 'none';
+                dsControls.style.display = 'flex';
+
+                if (algo === 'stack') {
+                    btnPushText.textContent = 'Push';
+                    btnPopText.textContent = 'Pop';
+                    dsArray = [];
+                    renderStack();
+                } else {
+                    btnPushText.textContent = 'Enqueue';
+                    btnPopText.textContent = 'Dequeue';
+                    dsArray = [];
+                    renderQueue();
+                }
+            } else {
+                mainControls.style.display = 'flex';
+                dsControls.style.display = 'none';
+
+                if (algo === 'binary') {
+                    searchControls.style.display = 'flex';
+                    btnRunText.textContent = 'Search';
+                    initSortedArray();
+                } else if (algo === 'linear') {
+                    searchControls.style.display = 'flex';
+                    btnRunText.textContent = 'Search';
+                    initArray();
+                } else {
+                    searchControls.style.display = 'none';
+                    btnRunText.textContent = 'Start';
+                    initArray();
+                }
+            }
+        });
+
+        // Stack Implementation
+        function renderStack() {
+            visualizerContainer.innerHTML = '';
+            visualizerContainer.style.flexDirection = 'column-reverse';
+            visualizerContainer.style.alignItems = 'center';
+            visualizerContainer.style.justifyContent = 'flex-start';
+            visualizerContainer.style.paddingBottom = '0';
+
+            if (dsArray.length === 0) {
+                visualizerContainer.innerHTML = '<div style="color: var(--text-secondary);">Stack is Empty</div>';
+                return;
+            }
+
+            dsArray.forEach((val, idx) => {
+                const block = document.createElement('div');
+                block.className = 'val-block';
+                block.textContent = val;
+                block.style.width = '100px';
+                block.style.height = '40px';
+                block.style.background = idx === dsArray.length - 1 ? '#8b5cf6' : 'var(--accent-color)';
+                block.style.border = '1px solid rgba(255,255,255,0.2)';
+                block.style.display = 'flex';
+                block.style.alignItems = 'center';
+                block.style.justifyContent = 'center';
+                block.style.color = '#fff';
+                block.style.borderRadius = '4px';
+                block.style.margin = '2px';
+                block.style.animation = 'fadeInDown 0.3s ease';
+                visualizerContainer.appendChild(block);
+            });
+        }
+
+        // Queue Implementation
+        function renderQueue() {
+            visualizerContainer.innerHTML = '';
+            visualizerContainer.style.flexDirection = 'row';
+            visualizerContainer.style.alignItems = 'center';
+            visualizerContainer.style.justifyContent = 'center';
+            visualizerContainer.style.paddingBottom = '20px';
+
+            if (dsArray.length === 0) {
+                visualizerContainer.innerHTML = '<div style="color: var(--text-secondary);">Queue is Empty</div>';
+                return;
+            }
+
+            dsArray.forEach((val, idx) => {
+                const block = document.createElement('div');
+                block.className = 'val-block';
+                block.textContent = val;
+                block.style.width = '50px';
+                block.style.height = '50px';
+                block.style.background = idx === 0 ? '#8b5cf6' : 'var(--accent-color)'; // Head is purple
+                block.style.border = '1px solid rgba(255,255,255,0.2)';
+                block.style.display = 'flex';
+                block.style.alignItems = 'center';
+                block.style.justifyContent = 'center';
+                block.style.color = '#fff';
+                block.style.borderRadius = '8px';
+                block.style.margin = '4px';
+                block.style.animation = 'fadeInDown 0.3s ease';
+
+                // Add arrow for next
+                if (idx < dsArray.length - 1) {
+                    const arrow = document.createElement('div');
+                    arrow.innerHTML = '<i class="fas fa-arrow-right" style="color: var(--text-secondary);"></i>';
+                    visualizerContainer.appendChild(block);
+                    visualizerContainer.appendChild(arrow);
+                } else {
+                    visualizerContainer.appendChild(block);
+                }
+            });
+        }
+
+        // Stack/Queue Buttons
+        btnPushEnqueue.addEventListener('click', () => {
+            const val = dsInput.value;
+            if (val === '') return;
+
+            if (dsArray.length >= 8) {
+                alert("Limit reached for visualization purposes!");
+                return;
+            }
+
+            const num = parseInt(val);
+            dsArray.push(num);
+            dsInput.value = '';
+
+            if (algoSelect.value === 'stack') renderStack();
+            else renderQueue();
+        });
+
+        btnPopDequeue.addEventListener('click', () => {
+            if (dsArray.length === 0) return;
+
+            if (algoSelect.value === 'stack') {
+                dsArray.pop();
+                renderStack();
+            } else {
+                dsArray.shift();
+                renderQueue();
+            }
+        });
+
+        // Initialize random array
+        function initArray() {
+            array = [];
+            for (let i = 0; i < ARRAY_SIZE; i++) {
+                array.push(Math.floor(Math.random() * MAX_VALUE) + 20);
+            }
+            renderBars();
+        }
+
+        // Initialize sorted array for binary search
+        function initSortedArray() {
+            array = [];
+            for (let i = 0; i < ARRAY_SIZE; i++) {
+                array.push(Math.floor((i + 1) * (MAX_VALUE / ARRAY_SIZE)) + 10);
+            }
+            searchTarget.value = array[Math.floor(Math.random() * ARRAY_SIZE)];
+            renderBars([], [], [], []);
+        }
+
+        // Render bars with highlighting
+        function renderBars(comparing = [], swapping = [], sorted = [], found = []) {
+            visualizerContainer.innerHTML = '';
+            // Reset Container Styles for Bar Chart
+            visualizerContainer.style.flexDirection = 'row';
+            visualizerContainer.style.alignItems = 'flex-end';
+            visualizerContainer.style.justifyContent = 'center';
+            visualizerContainer.style.paddingBottom = '20px';
+
+            const containerWidth = visualizerContainer.offsetWidth - 40;
+            const barWidth = Math.max(8, Math.floor(containerWidth / ARRAY_SIZE) - 4);
+
+            array.forEach((value, idx) => {
+                const bar = document.createElement('div');
+                bar.style.width = barWidth + 'px';
+                bar.style.height = value + 'px';
+                bar.style.borderRadius = '4px 4px 0 0';
+                bar.style.transition = 'height 0.15s ease, background 0.15s ease';
+                bar.style.position = 'relative';
+
+                if (found.includes(idx)) {
+                    bar.style.background = '#8b5cf6'; // Purple - found
+                } else if (sorted.includes(idx)) {
+                    bar.style.background = '#10b981'; // Green - sorted
+                } else if (swapping.includes(idx)) {
+                    bar.style.background = '#ef4444'; // Red - swapping
+                } else if (comparing.includes(idx)) {
+                    bar.style.background = '#f59e0b'; // Yellow - comparing
+                } else {
+                    bar.style.background = 'var(--accent-color)'; // Default
+                }
+
+                visualizerContainer.appendChild(bar);
+            });
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function getDelay() {
+            const speed = speedSlider.value;
+            return Math.max(10, 500 - (speed * 4.5));
+        }
+
+        // ========== SORTING ALGORITHMS ==========
+
+        // Bubble Sort
+        async function bubbleSort() {
+            const n = array.length;
+            const sortedIndices = [];
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (!isRunning) return;
+                    renderBars([j, j + 1], [], sortedIndices);
+                    await sleep(getDelay());
+                    if (array[j] > array[j + 1]) {
+                        renderBars([], [j, j + 1], sortedIndices);
+                        await sleep(getDelay());
+                        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+                    }
+                }
+                sortedIndices.push(n - 1 - i);
+            }
+            sortedIndices.push(0);
+            renderBars([], [], Array.from({ length: n }, (_, i) => i));
+            finishRun();
+        }
+
+        // Insertion Sort
+        async function insertionSort() {
+            const n = array.length;
+            const sortedIndices = [0];
+            for (let i = 1; i < n; i++) {
+                if (!isRunning) return;
+                let key = array[i];
+                let j = i - 1;
+                renderBars([i], [], sortedIndices);
+                await sleep(getDelay());
+                while (j >= 0 && array[j] > key) {
+                    if (!isRunning) return;
+                    renderBars([j], [j, j + 1], sortedIndices);
+                    await sleep(getDelay());
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = key;
+                sortedIndices.push(i);
+                renderBars([], [], sortedIndices);
+                await sleep(getDelay());
+            }
+            renderBars([], [], Array.from({ length: n }, (_, i) => i));
+            finishRun();
+        }
+
+        // Selection Sort
+        async function selectionSort() {
+            const n = array.length;
+            const sortedIndices = [];
+            for (let i = 0; i < n - 1; i++) {
+                if (!isRunning) return;
+                let minIdx = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (!isRunning) return;
+                    renderBars([minIdx, j], [], sortedIndices);
+                    await sleep(getDelay());
+                    if (array[j] < array[minIdx]) {
+                        minIdx = j;
+                    }
+                }
+                if (minIdx !== i) {
+                    renderBars([], [i, minIdx], sortedIndices);
+                    await sleep(getDelay());
+                    [array[i], array[minIdx]] = [array[minIdx], array[i]];
+                }
+                sortedIndices.push(i);
+            }
+            sortedIndices.push(n - 1);
+            renderBars([], [], Array.from({ length: n }, (_, i) => i));
+            finishRun();
+        }
+
+        // Quick Sort
+        async function quickSort(low = 0, high = array.length - 1, sortedIndices = []) {
+            if (low < high && isRunning) {
+                const pi = await partition(low, high, sortedIndices);
+                if (!isRunning) return;
+                await quickSort(low, pi - 1, sortedIndices);
+                await quickSort(pi + 1, high, sortedIndices);
+            }
+            if (low === 0 && high === array.length - 1) {
+                renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
+                finishRun();
+            }
+        }
+
+        async function partition(low, high, sortedIndices) {
+            const pivot = array[high];
+            let i = low - 1;
+            for (let j = low; j < high; j++) {
+                if (!isRunning) return;
+                renderBars([j, high], [], sortedIndices);
+                await sleep(getDelay());
+                if (array[j] < pivot) {
+                    i++;
+                    renderBars([], [i, j], sortedIndices);
+                    await sleep(getDelay());
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+            renderBars([], [i + 1, high], sortedIndices);
+            await sleep(getDelay());
+            [array[i + 1], array[high]] = [array[high], array[i + 1]];
+            sortedIndices.push(i + 1);
+            return i + 1;
+        }
+
+        // Merge Sort
+        async function mergeSort(left = 0, right = array.length - 1) {
+            if (left >= right) return;
+
+            const mid = Math.floor((left + right) / 2);
+            if (!isRunning) return;
+
+            await mergeSort(left, mid);
+            await mergeSort(mid + 1, right);
+            await merge(left, mid, right);
+
+            if (left === 0 && right === array.length - 1) {
+                renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
+                finishRun();
+            }
+        }
+
+        async function merge(left, mid, right) {
+            if (!isRunning) return;
+            const n1 = mid - left + 1;
+            const n2 = right - mid;
+            const L = array.slice(left, mid + 1);
+            const R = array.slice(mid + 1, right + 1);
+
+            let i = 0, j = 0, k = left;
+
+            while (i < n1 && j < n2) {
+                if (!isRunning) return;
+                renderBars([k], [], [], []);
+                await sleep(getDelay());
+
+                if (L[i] <= R[j]) {
+                    array[k] = L[i];
+                    i++;
+                } else {
+                    array[k] = R[j];
+                    j++;
+                }
+                renderBars([], [k], [], []);
+                await sleep(getDelay());
+                k++;
+            }
+
+            while (i < n1) {
+                if (!isRunning) return;
+                array[k] = L[i];
+                renderBars([], [k], [], []);
+                await sleep(getDelay());
+                i++; k++;
+            }
+
+            while (j < n2) {
+                if (!isRunning) return;
+                array[k] = R[j];
+                renderBars([], [k], [], []);
+                await sleep(getDelay());
+                j++; k++;
+            }
+        }
+
+        // Heap Sort
+        async function heapSort() {
+            const n = array.length;
+
+            // Build max heap
+            for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+                if (!isRunning) return;
+                await heapify(n, i);
+            }
+
+            // Extract elements from heap
+            for (let i = n - 1; i > 0; i--) {
+                if (!isRunning) return;
+                renderBars([0, i], [], []);
+                await sleep(getDelay());
+
+                [array[0], array[i]] = [array[i], array[0]];
+                renderBars([], [0, i], [], []);
+                await sleep(getDelay());
+
+                await heapify(i, 0);
+            }
+
+            renderBars([], [], Array.from({ length: n }, (_, i) => i));
+            finishRun();
+        }
+
+        async function heapify(n, i) {
+            if (!isRunning) return;
+            let largest = i;
+            const l = 2 * i + 1;
+            const r = 2 * i + 2;
+
+            if (l < n && array[l] > array[largest]) largest = l;
+            if (r < n && array[r] > array[largest]) largest = r;
+
+            if (largest !== i) {
+                renderBars([i, largest], [], []);
+                await sleep(getDelay());
+
+                [array[i], array[largest]] = [array[largest], array[i]];
+                renderBars([], [i, largest], [], []);
+                await sleep(getDelay());
+
+                await heapify(n, largest);
+            }
+        }
+
+        // Shell Sort
+        async function shellSort() {
+            const n = array.length;
+            for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+                for (let i = gap; i < n; i++) {
+                    if (!isRunning) return;
+                    let temp = array[i];
+                    let j;
+                    for (j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+                        if (!isRunning) return;
+                        renderBars([j, j - gap], [], []);
+                        await sleep(getDelay());
+                        array[j] = array[j - gap];
+                        renderBars([], [j], [], []);
+                        await sleep(getDelay());
+                    }
+                    array[j] = temp;
+                }
+            }
+            renderBars([], [], Array.from({ length: n }, (_, i) => i));
+            finishRun();
+        }
+
+        // ========== SEARCHING ALGORITHMS ==========
+
+        // Linear Search
+        async function linearSearch() {
+            const target = parseInt(searchTarget.value);
+            const n = array.length;
+
+            for (let i = 0; i < n; i++) {
+                if (!isRunning) return;
+
+                renderBars([i], [], [], []); // Highlight current being checked
+                await sleep(getDelay());
+
+                if (array[i] === target) {
+                    renderBars([], [], [], [i]); // Found!
+                    await sleep(1000);
+                    finishRun();
+                    return;
+                }
+            }
+            // Not found
+            renderBars([], Array.from({ length: n }, (_, i) => i), [], []);
+            await sleep(500);
+            renderBars();
+            finishRun();
+        }
+
+        // Binary Search
+        async function binarySearch() {
+            const target = parseInt(searchTarget.value);
+            let left = 0, right = array.length - 1;
+
+            while (left <= right && isRunning) {
+                const mid = Math.floor((left + right) / 2);
+                renderBars([left, right], [mid], [], []);
+                await sleep(getDelay() * 2);
+
+                if (array[mid] === target) {
+                    renderBars([], [], [], [mid]);
+                    await sleep(1000);
+                    finishRun();
+                    return;
+                } else if (array[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            // Not found - flash red
+            renderBars([], Array.from({ length: array.length }, (_, i) => i), [], []);
+            await sleep(500);
+            renderBars();
+            finishRun();
+        }
+
+        function finishRun() {
+            isRunning = false;
+            const algo = algoSelect.value;
+            btnRunText.textContent = algo === 'binary' ? 'Search' : 'Start';
+        }
+
+        // Run selected algorithm
+        function runAlgorithm() {
+            const algo = algoSelect.value;
+            switch (algo) {
+                case 'bubble': bubbleSort(); break;
+                case 'insertion': insertionSort(); break;
+                case 'selection': selectionSort(); break;
+                case 'quick': quickSort(); break;
+                case 'merge': mergeSort(); break;
+                case 'heap': heapSort(); break;
+                case 'shell': shellSort(); break;
+                case 'linear': linearSearch(); break;
+                case 'binary': binarySearch(); break;
+            }
+        }
+
+        // Shuffle button
+        btnShuffle.addEventListener('click', () => {
+            if (isRunning) {
+                isRunning = false;
+            }
+            setTimeout(() => {
+                if (algoSelect.value === 'binary') { // Linear can be random
+                    initSortedArray();
+                } else {
+                    initArray();
+                }
+                btnRunText.textContent = (algoSelect.value === 'binary' || algoSelect.value === 'linear') ? 'Search' : 'Start';
+            }, 100);
+        });
+
+        // Run button
+        btnRun.addEventListener('click', () => {
+            if (isRunning) {
+                isRunning = false;
+                btnRunText.textContent = (algoSelect.value === 'binary' || algoSelect.value === 'linear') ? 'Search' : 'Start';
+            } else {
+                isRunning = true;
+                btnRunText.textContent = 'Pause';
+                runAlgorithm();
+            }
+        });
+
+        // Modal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnShowCode = document.getElementById('btn-show-code');
+            const codeModal = document.getElementById('code-modal');
+            const closeModal = document.getElementById('close-modal');
+            const modalCode = document.getElementById('modal-code');
+            const modalTitle = document.getElementById('modal-title');
+            const modalGithubLink = document.getElementById('modal-github-link');
+
+            function getAlgoFunction(algo) {
+                switch (algo) {
+                    case 'bubble': return bubbleSort;
+                    case 'insertion': return insertionSort;
+                    case 'selection': return selectionSort;
+                    case 'quick': return quickSort;
+                    case 'merge': return mergeSort;
+                    case 'heap': return heapSort;
+                    case 'shell': return shellSort;
+                    case 'linear': return linearSearch;
+                    case 'binary': return binarySearch;
+                    case 'stack': return renderStack;
+                    case 'queue': return renderQueue;
+                    default: return null;
+                }
+            }
+
+            if (btnShowCode) {
+                btnShowCode.addEventListener('click', () => {
+                    const algo = algoSelect.value;
+                    const func = getAlgoFunction(algo);
+
+                    if (func) {
+                        modalTitle.textContent = algoInfo[algo].title + ' Implementation';
+                        modalCode.textContent = func.toString();
+                        codeModal.style.display = 'flex';
+                        modalGithubLink.href = 'https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB';
+                    }
+                });
+            }
+
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    codeModal.style.display = 'none';
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === codeModal) {
+                    codeModal.style.display = 'none';
+                }
+            });
+
+            // Stats Counter Animation
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const count = +counter.innerText.replace(suffix, '');
+
+                    const inc = Math.max(1, target / 100);
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc) + suffix;
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + suffix;
+                    }
+                };
+                updateCount();
+            });
+        });
+
+        // Initialize on load
+        initArray();
+    </script>
     <!-- Code Preview Modal -->
     <div id="code-modal" class="modal-overlay"
         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
@@ -445,7 +1777,6 @@
             </div>
         </div>
     </div>
-    <!-- Enhanced by Google Deepmind -->
 </body>
 
 </html>
