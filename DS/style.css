@@ -661,8 +661,7 @@ h5 {
 /* Pseudo Code Overlay */
 /* Pseudo Code Box - Responsive Side-by-Side */
 .pseudo-code-box {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(5px);
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 15px;
@@ -673,6 +672,7 @@ h5 {
 
     /* Layout & Scroll */
     min-width: 300px;
+    flex-shrink: 0;
     max-width: 100%;
     max-height: 400px;
     overflow-y: auto;
@@ -681,6 +681,7 @@ h5 {
     pointer-events: auto;
     text-align: left;
     transition: all 0.3s;
+    animation: fadeInDown 0.5s ease forwards;
 }
 
 [data-theme="dark"] .pseudo-code-box {
