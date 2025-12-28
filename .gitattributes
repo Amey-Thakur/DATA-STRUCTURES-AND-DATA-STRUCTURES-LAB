@@ -1,0 +1,9 @@
+# Auto-detect text files and perform LF normalization
+* text=auto
+
+# Custom binary file text attributes
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
