@@ -699,3 +699,94 @@ h5 {
     color: white;
     font-weight: bold;
 }
+
+/* 
+ * =========================================
+ *   PRINT STYLES
+ * =========================================
+ */
+@media print {
+
+    /* Hide interactive and purely decorative elements */
+    .theme-switch,
+    #btn-back-to-top,
+    .hero-buttons,
+    #main-controls,
+    .exp-tag,
+    .badge,
+    .badge-tech,
+    .info-badges,
+    .scroll-hint,
+    .theme-toggle,
+    iframe,
+    button {
+        display: none !important;
+    }
+
+    /* Force light colors and remove gradients for clean printing */
+    body,
+    .main-container,
+    .hero,
+    .card-custom,
+    .visualizer-bg {
+        background: white !important;
+        background-image: none !important;
+        color: black !important;
+        box-shadow: none !important;
+        border-color: #eee !important;
+    }
+
+    .hero h1,
+    .stat-number,
+    h5,
+    h3 {
+        color: black !important;
+        background: none !important;
+        -webkit-text-fill-color: black !important;
+    }
+
+    /* Layout adjustments for print */
+    .main-container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .row {
+        display: block !important;
+    }
+
+    .col-md-6 {
+        width: 100% !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+    }
+
+    /* Ensure visualizer and code are still visible but simplified */
+    #visualizer-container {
+        border: 1px solid #ddd !important;
+        min-height: auto !important;
+    }
+
+    .pseudo-code-box {
+        position: static !important;
+        display: block !important;
+        background: white !important;
+        border: 1px solid #ddd !important;
+        color: black !important;
+        max-height: none !important;
+        overflow: visible !important;
+        width: 100% !important;
+        margin-top: 10px;
+    }
+
+    .pseudo-code-line {
+        color: black !important;
+    }
+
+    .highlight-line {
+        background: #f0f0f0 !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+    }
+}
