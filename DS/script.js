@@ -100,6 +100,81 @@ const algoPseudoCode = {
         "        }",
         "    }",
         "}"
+    ],
+    insertion: [
+        "for (int i = 1; i < n; i++) {",
+        "    int key = array[i];",
+        "    int j = i - 1;",
+        "    while (j >= 0 && array[j] > key) {",
+        "        array[j + 1] = array[j];",
+        "        j = j - 1;",
+        "    }",
+        "    array[j + 1] = key;",
+        "}"
+    ],
+    selection: [
+        "for (int i = 0; i < n - 1; i++) {",
+        "    int min_idx = i;",
+        "    for (int j = i + 1; j < n; j++) {",
+        "        if (array[j] < array[min_idx])",
+        "            min_idx = j;",
+        "    }",
+        "    swap(&array[min_idx], &array[i]);",
+        "}"
+    ],
+    quick: [
+        "void quickSort(int arr[], int low, int high) {",
+        "    if (low < high) {",
+        "        int pi = partition(arr, low, high);",
+        "        quickSort(arr, low, pi - 1);",
+        "        quickSort(arr, pi + 1, high);",
+        "    }",
+        "}",
+        "int partition(...) { ... pivot logic ... }"
+    ],
+    merge: [
+        "void mergeSort(int arr[], int l, int r) {",
+        "    if (l < r) {",
+        "        int m = l + (r - l) / 2;",
+        "        mergeSort(arr, l, m);",
+        "        mergeSort(arr, m + 1, r);",
+        "        merge(arr, l, m, r);",
+        "    }",
+        "}"
+    ],
+    heap: [
+        "for (int i = n / 2 - 1; i >= 0; i--)",
+        "    heapify(arr, n, i);",
+        "for (int i = n - 1; i > 0; i--) {",
+        "    swap(&arr[0], &arr[i]);",
+        "    heapify(arr, i, 0);",
+        "}"
+    ],
+    shell: [
+        "for (int gap = n/2; gap > 0; gap /= 2) {",
+        "    for (int i = gap; i < n; i += 1) {",
+        "        int temp = a[i];",
+        "        for (j = i; j >= gap && a[j-gap] > temp; j -= gap)",
+        "            a[j] = a[j-gap];",
+        "        a[j] = temp;",
+        "    }",
+        "}"
+    ],
+    linear: [
+        "for (int i = 0; i < n; i++) {",
+        "    if (arr[i] == x)",
+        "        return i;",
+        "}",
+        "return -1;"
+    ],
+    binary: [
+        "while (l <= r) {",
+        "    int m = l + (r - l) / 2;",
+        "    if (arr[m] == x) return m;",
+        "    if (arr[m] < x) l = m + 1;",
+        "    else r = m - 1;",
+        "}",
+        "return -1;"
     ]
 };
 
@@ -322,52 +397,70 @@ async function bubbleSort() {
 
 // Insertion Sort
 async function insertionSort() {
+    renderPseudoCode(algoPseudoCode.insertion);
     const n = array.length;
     const sortedIndices = [0];
+    await highlightLine(0); // Loop start
     for (let i = 1; i < n; i++) {
         if (!isRunning) return;
+        await highlightLine(1); // key = array[i]
         let key = array[i];
+        await highlightLine(2); // j = i - 1
         let j = i - 1;
         renderBars([i], [], sortedIndices);
         await sleep(getDelay());
+
         while (j >= 0 && array[j] > key) {
+            await highlightLine(3); // While condition (checked implicitly)
             if (!isRunning) return;
             renderBars([j], [j, j + 1], sortedIndices);
+            await highlightLine(4); // array[j+1] = array[j]
             await sleep(getDelay());
             array[j + 1] = array[j];
+            await highlightLine(5); // j--
             j--;
         }
+        await highlightLine(7); // array[j+1] = key
         array[j + 1] = key;
         sortedIndices.push(i);
         renderBars([], [], sortedIndices);
         await sleep(getDelay());
     }
+    await highlightLine(-1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
 }
 
 // Selection Sort
 async function selectionSort() {
+    renderPseudoCode(algoPseudoCode.selection);
     const n = array.length;
     const sortedIndices = [];
+    await highlightLine(0); // Outer loop
     for (let i = 0; i < n - 1; i++) {
         if (!isRunning) return;
+        await highlightLine(1); // min_idx = i
         let minIdx = i;
+        await highlightLine(2); // Inner loop start
         for (let j = i + 1; j < n; j++) {
             if (!isRunning) return;
             renderBars([minIdx, j], [], sortedIndices);
+            await highlightLine(3); // Comparison
             await sleep(getDelay());
             if (array[j] < array[minIdx]) {
+                await highlightLine(4); // Update min_idx
                 minIdx = j;
             }
         }
         if (minIdx !== i) {
+            await highlightLine(6); // Swap
             renderBars([], [i, minIdx], sortedIndices);
             await sleep(getDelay());
             [array[i], array[minIdx]] = [array[minIdx], array[i]];
         }
         sortedIndices.push(i);
     }
+    await highlightLine(-1);
     sortedIndices.push(n - 1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
@@ -375,19 +468,32 @@ async function selectionSort() {
 
 // Quick Sort
 async function quickSort(low = 0, high = array.length - 1, sortedIndices = []) {
+    if (low === 0 && high === array.length - 1) {
+        renderPseudoCode(algoPseudoCode.quick);
+    }
+
     if (low < high && isRunning) {
+        await highlightLine(1); // if low < high
+        await highlightLine(2); // partition
         const pi = await partition(low, high, sortedIndices);
+
         if (!isRunning) return;
+        await highlightLine(3); // recursive left
         await quickSort(low, pi - 1, sortedIndices);
+
+        await highlightLine(4); // recursive right
         await quickSort(pi + 1, high, sortedIndices);
     }
+
     if (low === 0 && high === array.length - 1) {
+        await highlightLine(-1);
         renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
         finishRun();
     }
 }
 
 async function partition(low, high, sortedIndices) {
+    await highlightLine(7); // Partition function start (pseudo)
     const pivot = array[high];
     let i = low - 1;
     for (let j = low; j < high; j++) {
@@ -410,16 +516,28 @@ async function partition(low, high, sortedIndices) {
 
 // Merge Sort
 async function mergeSort(left = 0, right = array.length - 1) {
+    if (left === 0 && right === array.length - 1) {
+        renderPseudoCode(algoPseudoCode.merge);
+    }
+
     if (left >= right) return;
 
+    await highlightLine(1); // if l < r
     const mid = Math.floor((left + right) / 2);
     if (!isRunning) return;
 
+    await highlightLine(2); // mid calc
+    await highlightLine(3); // recursive left
     await mergeSort(left, mid);
+
+    await highlightLine(4); // recursive right
     await mergeSort(mid + 1, right);
+
+    await highlightLine(5); // merge call
     await merge(left, mid, right);
 
     if (left === 0 && right === array.length - 1) {
+        await highlightLine(-1);
         renderBars([], [], Array.from({ length: array.length }, (_, i) => i));
         finishRun();
     }
@@ -470,27 +588,33 @@ async function merge(left, mid, right) {
 
 // Heap Sort
 async function heapSort() {
+    renderPseudoCode(algoPseudoCode.heap);
     const n = array.length;
 
     // Build max heap
+    await highlightLine(0); // loop start
     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
         if (!isRunning) return;
+        await highlightLine(1); // heapify call
         await heapify(n, i);
     }
 
     // Extract elements from heap
+    await highlightLine(2); // extraction loop
     for (let i = n - 1; i > 0; i--) {
         if (!isRunning) return;
         renderBars([0, i], [], []);
         await sleep(getDelay());
 
+        await highlightLine(3); // swap(0, i)
         [array[0], array[i]] = [array[i], array[0]];
         renderBars([], [0, i], [], []);
         await sleep(getDelay());
 
+        await highlightLine(4); // heapify(i, 0)
         await heapify(i, 0);
     }
-
+    await highlightLine(-1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
 }
@@ -518,23 +642,31 @@ async function heapify(n, i) {
 
 // Shell Sort
 async function shellSort() {
+    renderPseudoCode(algoPseudoCode.shell);
     const n = array.length;
+    await highlightLine(0); // Outer loop (gap)
     for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        await highlightLine(1); // i loop
         for (let i = gap; i < n; i++) {
             if (!isRunning) return;
+            await highlightLine(2); // temp = array[i]
             let temp = array[i];
             let j;
+            await highlightLine(3); // inner loop
             for (j = i; j >= gap && array[j - gap] > temp; j -= gap) {
                 if (!isRunning) return;
                 renderBars([j, j - gap], [], []);
                 await sleep(getDelay());
+                await highlightLine(4); // array[j] = array[j-gap]
                 array[j] = array[j - gap];
                 renderBars([], [j], [], []);
                 await sleep(getDelay());
             }
+            await highlightLine(5); // array[j] = temp
             array[j] = temp;
         }
     }
+    await highlightLine(-1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
 }
@@ -543,57 +675,75 @@ async function shellSort() {
 
 // Linear Search
 async function linearSearch() {
+    renderPseudoCode(algoPseudoCode.linear);
     if (!searchTarget) return;
     const target = parseInt(searchTarget.value);
     const n = array.length;
 
+    await highlightLine(0); // Loop start
     for (let i = 0; i < n; i++) {
         if (!isRunning) return;
 
         renderBars([i], [], [], []); // Highlight current being checked
+        await highlightLine(1); // if arr[i] == x
         await sleep(getDelay());
 
         if (array[i] === target) {
+            await highlightLine(2); // return i
             renderBars([], [], [], [i]); // Found!
             await sleep(1000);
             finishRun();
+            await highlightLine(-1);
             return;
         }
     }
+    await highlightLine(4); // return -1
     // Not found
     renderBars([], Array.from({ length: n }, (_, i) => i), [], []);
     await sleep(500);
     renderBars();
     finishRun();
+    await highlightLine(-1);
 }
 
 // Binary Search
 async function binarySearch() {
+    renderPseudoCode(algoPseudoCode.binary);
     if (!searchTarget) return;
     const target = parseInt(searchTarget.value);
     let left = 0, right = array.length - 1;
 
+    await highlightLine(0); // while loop
     while (left <= right && isRunning) {
         const mid = Math.floor((left + right) / 2);
+        await highlightLine(1); // int m = ...
         renderBars([left, right], [mid], [], []);
         await sleep(getDelay() * 2);
 
+        await highlightLine(2); // if arr[m] == x
         if (array[mid] === target) {
             renderBars([], [], [], [mid]);
             await sleep(1000);
             finishRun();
+            await highlightLine(-1);
             return;
         } else if (array[mid] < target) {
+            await highlightLine(3); // if arr[m] < x
             left = mid + 1;
         } else {
+            await highlightLine(4); // else
             right = mid - 1;
         }
+        await highlightLine(0); // loop check
     }
+
+    await highlightLine(6); // return -1
     // Not found - flash red
     renderBars([], Array.from({ length: array.length }, (_, i) => i), [], []);
     await sleep(500);
     renderBars();
     finishRun();
+    await highlightLine(-1);
 }
 
 function finishRun() {
