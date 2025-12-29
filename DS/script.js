@@ -298,73 +298,7 @@ const algoInfo = {
     cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)' },
 };
 
-if (algoSelect) {
-    // Update UI when algorithm changes
-    algoSelect.addEventListener('change', () => {
-        const algo = algoSelect.value;
-        if (algoInfo[algo]) {
-            if (algoTitle) algoTitle.textContent = algoInfo[algo].title;
-            if (algoDescription) algoDescription.textContent = algoInfo[algo].desc;
-            if (algoComplexity) algoComplexity.textContent = algoInfo[algo].complexity;
-        }
 
-        // Reset state
-        isRunning = false;
-        if (btnRunText) btnRunText.textContent = 'Start';
-        if (dsInput) dsInput.value = '';
-
-        if (mainControls) mainControls.style.display = 'flex';
-        if (dsControls) dsControls.style.display = 'none';
-
-        if (searchControls) {
-            if (algo === 'binary' || algo === 'linear') {
-                searchControls.style.display = 'flex';
-                if (btnRunText) btnRunText.textContent = 'Search';
-                if (algo === 'binary') initSortedArray();
-                else initArray();
-            } else {
-                searchControls.style.display = 'none';
-                if (btnRunText) btnRunText.textContent = 'Start';
-                initArray();
-            }
-        } else {
-            initArray();
-        }
-        // Show pseudo code if available
-        if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode[algo]) {
-            renderPseudoCode(algoPseudoCode[algo]);
-        } else {
-            renderPseudoCode(null);
-        }
-    });
-}
-
-// Stack/Queue Buttons
-if (btnPushEnqueue) {
-    btnPushEnqueue.addEventListener('click', () => {
-        if (!dsInput) return;
-        const val = dsInput.value;
-        if (val === '') return;
-
-        if (dsArray.length >= 8) {
-            alert("Limit reached for visualization purposes!");
-            return;
-        }
-
-        const num = parseInt(val);
-        dsArray.push(num);
-        dsInput.value = '';
-
-        // If DS logic returns, add rendering here
-    });
-}
-
-if (btnPopDequeue) {
-    btnPopDequeue.addEventListener('click', () => {
-        if (dsArray.length === 0) return;
-        // If DS logic returns, add rendering here
-    });
-}
 
 // Initialize random array
 function initArray() {
@@ -989,35 +923,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Shuffle button
-if (btnShuffle) {
-    btnShuffle.addEventListener('click', () => {
-        if (isRunning) {
-            isRunning = false;
-        }
-        setTimeout(() => {
-            if (algoSelect && algoSelect.value === 'binary') {
-                initSortedArray();
-            } else {
-                initArray();
-            }
-            if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
-        }, 100);
-    });
-}
 
-// Run button
-if (btnRun) {
-    btnRun.addEventListener('click', () => {
-        if (isRunning) {
-            isRunning = false;
-            if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
-        } else {
-            isRunning = true;
-            if (btnRunText) btnRunText.textContent = 'Pause';
-            runAlgorithm();
-        }
-    });
-}
 
 // Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
@@ -1107,4 +1013,88 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Initialize on load
-initArray();
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    initApp();
+});
+
+function initApp() {
+    // 1. Algo Select Listener
+    if (algoSelect) {
+        algoSelect.addEventListener('change', () => {
+            const algo = algoSelect.value;
+            if (algoInfo[algo]) {
+                if (algoTitle) algoTitle.textContent = algoInfo[algo].title;
+                if (algoDescription) algoDescription.textContent = algoInfo[algo].desc;
+                if (algoComplexity) algoComplexity.textContent = algoInfo[algo].complexity;
+            }
+
+            // Reset state
+            isRunning = false;
+            if (btnRunText) btnRunText.textContent = 'Start';
+            if (dsInput) dsInput.value = '';
+
+            if (mainControls) mainControls.style.display = 'flex';
+            if (dsControls) dsControls.style.display = 'none';
+
+            if (searchControls) {
+                if (algo === 'binary' || algo === 'linear') {
+                    searchControls.style.setProperty('display', 'flex', 'important');
+                    if (btnRunText) btnRunText.textContent = 'Search';
+                    if (algo === 'binary') initSortedArray();
+                    else initArray();
+                } else {
+                    searchControls.style.setProperty('display', 'none', 'important');
+                    if (btnRunText) btnRunText.textContent = 'Start';
+                    initArray();
+                }
+            } else {
+                initArray();
+            }
+            // Show pseudo code if available
+            if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode[algo]) {
+                renderPseudoCode(algoPseudoCode[algo]);
+            } else {
+                renderPseudoCode(null);
+            }
+        });
+    }
+
+    // 2. Shuffle Button
+    if (btnShuffle) {
+        btnShuffle.addEventListener('click', () => {
+            if (isRunning) {
+                isRunning = false;
+            }
+            setTimeout(() => {
+                if (algoSelect && algoSelect.value === 'binary') {
+                    initSortedArray();
+                } else {
+                    initArray();
+                }
+                if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+            }, 100);
+        });
+    }
+
+    // 3. Run Button
+    if (btnRun) {
+        btnRun.addEventListener('click', () => {
+            if (isRunning) {
+                isRunning = false;
+                if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+            } else {
+                isRunning = true;
+                if (btnRunText) btnRunText.textContent = 'Pause';
+                runAlgorithm();
+            }
+        });
+    }
+
+    // 4. Force Initial UI State
+    if (algoSelect) {
+        algoSelect.dispatchEvent(new Event('change'));
+    } else {
+        initArray();
+    }
+}
