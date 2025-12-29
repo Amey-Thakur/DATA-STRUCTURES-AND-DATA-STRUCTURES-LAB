@@ -1044,6 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'linear': return linearSearch;
             case 'binary': return binarySearch;
             case 'cocktail': return cocktailSort;
+            case 'radix': return radixSort;
             default: return null;
         }
     }
