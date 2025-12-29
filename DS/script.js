@@ -1041,7 +1041,10 @@ function initApp() {
             if (mainControls) mainControls.style.display = 'flex';
             if (dsControls) dsControls.style.display = 'none';
 
-            const searchControlsEl = searchControls || document.getElementById('search-controls');
+            if (mainControls) mainControls.style.display = 'flex';
+            if (dsControls) dsControls.style.display = 'none';
+
+            const searchControlsEl = document.getElementById('search-controls');
 
             if (searchControlsEl) {
                 // Robust visibility toggle
