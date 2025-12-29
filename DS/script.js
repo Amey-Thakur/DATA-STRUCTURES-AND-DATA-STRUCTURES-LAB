@@ -445,27 +445,7 @@ function renderPseudoCode(lines) {
     pseudoCodeEl.style.display = 'block';
 }
 
-async function highlightLine(lineIdx) {
-    if (!pseudoCodeEl) return;
-    const lines = pseudoCodeEl.querySelectorAll('.pseudo-code-line');
-    lines.forEach((line, idx) => {
-        if (idx === lineIdx) {
-            line.classList.add('highlight-line');
 
-            // Manual safe scroll to keep line in view
-            const containerHeight = pseudoCodeEl.clientHeight;
-            const lineTop = line.offsetTop;
-            const lineHeight = line.clientHeight;
-
-            // Scroll to center the line
-            const scrollPos = lineTop - (containerHeight / 2) + (lineHeight / 2);
-
-            pseudoCodeEl.scrollTo({ top: scrollPos, behavior: 'smooth' });
-        } else {
-            line.classList.remove('highlight-line');
-        }
-    });
-}
 
 // ========== SORTING ALGORITHMS ==========
 
