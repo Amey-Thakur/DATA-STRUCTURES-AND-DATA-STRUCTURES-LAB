@@ -2219,12 +2219,15 @@ function initApp() {
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
             const searchControlsEl = document.getElementById('search-controls');
-            const isSearch = ['binary', 'linear', 'jump', 'interpolation'].includes(algo);
+            const searchAlgorithms = ['binary', 'linear', 'jump', 'interpolation', 'exponential', 'ternary', 'fibonacci', 'meta'];
+            const sortedSearchAlgorithms = ['binary', 'jump', 'interpolation', 'exponential', 'ternary', 'fibonacci', 'meta'];
+
+            const isSearch = searchAlgorithms.includes(algo);
 
             if (searchControlsEl) {
                 if (isSearch) {
                     searchControlsEl.style.display = 'flex';
-                    if (['binary', 'jump', 'interpolation'].includes(algo)) initSortedArray();
+                    if (sortedSearchAlgorithms.includes(algo)) initSortedArray();
                     else initArray();
                 } else {
                     searchControlsEl.style.display = 'none';
@@ -2236,7 +2239,7 @@ function initApp() {
             updateRunButton(false);
 
             // Initialize Array
-            if (['binary', 'jump', 'interpolation'].includes(algo)) initSortedArray();
+            if (sortedSearchAlgorithms.includes(algo)) initSortedArray();
             else initArray();
 
             // Hide pseudo code when switching algorithms (will show again on Start)
@@ -2251,7 +2254,8 @@ function initApp() {
                 isRunning = false;
             }
             setTimeout(() => {
-                if (algoSelect && algoSelect.value === 'binary') {
+                const sortedSearchAlgorithms = ['binary', 'jump', 'interpolation', 'exponential', 'ternary', 'fibonacci', 'meta'];
+                if (algoSelect && sortedSearchAlgorithms.includes(algoSelect.value)) {
                     initSortedArray();
                 } else {
                     initArray();
