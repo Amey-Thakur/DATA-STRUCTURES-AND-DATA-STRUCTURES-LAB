@@ -1042,7 +1042,7 @@ function initApp() {
             if (dsControls) dsControls.style.display = 'none';
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
-            const searchControlsEl = document.getElementById('find-value-reset');
+            const searchControlsEl = document.getElementById('search-controls');
             const isSearch = (algo === 'binary' || algo === 'linear');
 
             if (searchControlsEl) {
