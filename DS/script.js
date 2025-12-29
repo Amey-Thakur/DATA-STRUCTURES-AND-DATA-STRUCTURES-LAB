@@ -188,6 +188,28 @@ const algoPseudoCode = {
         "    else r = m - 1;",
         "}",
         "return -1;"
+    ],
+    cocktail: [
+        "bool swapped = true;",
+        "while (swapped) {",
+        "    swapped = false;",
+        "    for (i = start; i < end; ++i) {",
+        "        if (a[i] > a[i + 1]) {",
+        "            swap(a[i], a[i + 1]);",
+        "            swapped = true;",
+        "        }",
+        "    }",
+        "    if (!swapped) break;",
+        "    swapped = false;",
+        "    --end;",
+        "    for (i = end - 1; i >= start; --i) {",
+        "        if (a[i] > a[i + 1]) {",
+        "            swap(a[i], a[i + 1]);",
+        "            swapped = true;",
+        "        }",
+        "    }",
+        "    ++start;",
+        "}"
     ]
 };
 
@@ -215,6 +237,7 @@ const algoInfo = {
     shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)' },
     linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)' },
     binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)' },
+    cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)' },
 };
 
 if (algoSelect) {
@@ -404,6 +427,79 @@ async function bubbleSort() {
     }
     await highlightLine(-1); // Clear highlight
     sortedIndices.push(0);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+
+// Cocktail Shaker Sort
+async function cocktailSort() {
+    renderPseudoCode(algoPseudoCode.cocktail);
+    const n = array.length;
+    let swapped = true;
+    let start = 0;
+    let end = n - 1;
+    const sortedIndices = [];
+
+    await highlightLine(0); // swapped = true
+    await highlightLine(1); // while (swapped)
+
+    while (swapped && isRunning) {
+        swapped = false;
+        await highlightLine(2); // swapped = false
+
+        // Forward pass
+        await highlightLine(3); // for loop forward
+        for (let i = start; i < end; ++i) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], sortedIndices);
+            await highlightLine(4); // compare
+            await sleep(getDelay());
+
+            if (array[i] > array[i + 1]) {
+                await highlightLine(5); // swap
+                renderBars([], [i, i + 1], sortedIndices);
+                await sleep(getDelay());
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                swapped = true;
+                await highlightLine(6); // swapped = true
+            }
+        }
+
+        if (!swapped) {
+            await highlightLine(9); // if (!swapped) break
+            break;
+        }
+
+        swapped = false;
+        end--;
+        sortedIndices.push(end + 1); // Last element is sorted
+        await highlightLine(10); // swapped = false
+        await highlightLine(11); // --end
+
+        // Backward pass
+        await highlightLine(12); // for loop backward
+        for (let i = end - 1; i >= start; --i) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], sortedIndices);
+            await highlightLine(13); // compare
+            await sleep(getDelay());
+
+            if (array[i] > array[i + 1]) {
+                await highlightLine(14); // swap
+                renderBars([], [i, i + 1], sortedIndices);
+                await sleep(getDelay());
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                swapped = true;
+                await highlightLine(15); // swapped = true
+            }
+        }
+        start++;
+        sortedIndices.push(start - 1); // First element is sorted
+        await highlightLine(18); // ++start
+    }
+
+    await highlightLine(-1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
 }
@@ -777,6 +873,7 @@ function runAlgorithm() {
     const algo = algoSelect.value;
     switch (algo) {
         case 'bubble': bubbleSort(); break;
+        case 'cocktail': cocktailSort(); break;
         case 'insertion': insertionSort(); break;
         case 'selection': selectionSort(); break;
         case 'quick': quickSort(); break;
