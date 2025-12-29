@@ -1044,13 +1044,16 @@ function initApp() {
             const searchControlsEl = searchControls || document.getElementById('search-controls');
 
             if (searchControlsEl) {
-                if (algo === 'binary' || algo === 'linear') {
-                    searchControlsEl.style.display = 'flex';
+                // Robust visibility toggle
+                const isSearchAlgo = ['binary', 'linear'].includes(algo);
+
+                if (isSearchAlgo) {
+                    searchControlsEl.style.setProperty('display', 'flex', 'important');
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControlsEl.style.display = 'none';
+                    searchControlsEl.style.setProperty('display', 'none', 'important');
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
