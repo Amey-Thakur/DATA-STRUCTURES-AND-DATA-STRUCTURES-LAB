@@ -764,14 +764,35 @@ h5 {
     box-shadow: var(--shadow-md);
     z-index: 100;
     max-width: 350px;
-    overflow: hidden;
+    max-height: 400px; /* Restrict height */
+    overflow-y: auto; /* Enable vertical scroll */
+    overflow-x: hidden;
     white-space: pre-wrap;
     word-wrap: break-word;
     pointer-events: auto;
     text-align: left;
     transition: all 0.3s;
     animation: fadeInDown 0.5s ease forwards;
+    
+    /* Custom Scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
 }
+
+/* Webkit Scrollbar Styling for Code Box */
+.pseudo-code-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.pseudo-code-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pseudo-code-box::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 20px;
+    border: 2px solid transparent;
+
 
 [data-theme="dark"] .pseudo-code-box {
     background: rgba(30, 41, 59, 0.3);
