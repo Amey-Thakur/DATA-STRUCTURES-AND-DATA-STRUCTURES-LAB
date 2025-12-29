@@ -620,13 +620,26 @@ h5 {
     transition: all 0.2s;
 }
 
-.card-custom:hover .badge-tech,
 .badge-tech:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+.card-custom:hover .badge-tech {
     background: var(--badge-bg);
     color: var(--badge-text);
     border-color: var(--badge-bg);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.card-custom:hover .badge-tech:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
 }
 
 /* Custom Tooltips for Badges */
