@@ -241,6 +241,24 @@ const algoPseudoCode = {
         "for each bucket:",
         "    sort(bucket)",
         "concatenate all buckets"
+    ],
+    comb: [
+        "gap = n",
+        "shrink = 1.3",
+        "while gap > 1 or swapped:",
+        "    gap = max(1, floor(gap/shrink))",
+        "    swapped = false",
+        "    for i = 0 to n-gap:",
+        "        if arr[i] > arr[i+gap]: swap, swapped=true"
+    ],
+    gnome: [
+        "pos = 0",
+        "while pos < n:",
+        "    if pos == 0 or arr[pos] >= arr[pos-1]:",
+        "        pos++",
+        "    else:",
+        "        swap(arr[pos], arr[pos-1])",
+        "        pos--"
     ]
 };
 
@@ -343,6 +361,8 @@ const algoInfo = {
     radix: { title: 'Radix Sort', desc: 'Non-comparative sorting algorithm that sorts integers by processing individual digits, from least significant to most significant.', complexity: 'O(nk)', complexityTooltip: 'Linear time - k is the number of digits in the largest number.' },
     counting: { title: 'Counting Sort', desc: 'Non-comparative algorithm that counts occurrences of each value and uses arithmetic to determine positions.', complexity: 'O(n+k)', complexityTooltip: 'Linear time - k is the range of input values.' },
     bucket: { title: 'Bucket Sort', desc: 'Distributes elements into buckets, sorts each bucket individually, then concatenates the results.', complexity: 'O(n+k)', complexityTooltip: 'Linear time on average - k is the number of buckets.' },
+    comb: { title: 'Comb Sort', desc: 'Improves on Bubble Sort by using a gap larger than 1 to eliminate small values at the end (turtles).', complexity: 'O(n²)', complexityTooltip: 'Quadratic worst case - but much faster than bubble sort in practice.' },
+    gnome: { title: 'Gnome Sort', desc: 'Similar to insertion sort but moves elements to their proper place by swapping backwards like a garden gnome sorting flower pots.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - simple but efficient for small or nearly sorted data.' },
 };
 
 
@@ -989,6 +1009,87 @@ async function bucketSort() {
     finishRun();
 }
 
+// Comb Sort
+async function combSort() {
+    renderPseudoCode(algoPseudoCode.comb);
+    const n = array.length;
+    const shrink = 1.3;
+
+    await highlightLine(0); // gap = n
+    let gap = n;
+    await highlightLine(1); // shrink = 1.3
+    let swapped = true;
+
+    await highlightLine(2); // while gap > 1 or swapped
+    while (gap > 1 || swapped) {
+        if (!isRunning) return;
+
+        await highlightLine(3); // gap = max(1, floor(gap/shrink))
+        gap = Math.floor(gap / shrink);
+        if (gap < 1) gap = 1;
+
+        await highlightLine(4); // swapped = false
+        swapped = false;
+
+        await highlightLine(5); // for i = 0 to n-gap
+        await highlightLine(6); // if arr[i] > arr[i+gap]: swap
+        for (let i = 0; i + gap < n; i++) {
+            if (!isRunning) return;
+            renderBars([i, i + gap], [], []);
+            await sleep(getDelay());
+
+            if (array[i] > array[i + gap]) {
+                [array[i], array[i + gap]] = [array[i + gap], array[i]];
+                swapped = true;
+                renderBars([], [i, i + gap], []);
+                await sleep(getDelay());
+            }
+        }
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Gnome Sort
+async function gnomeSort() {
+    renderPseudoCode(algoPseudoCode.gnome);
+    const n = array.length;
+
+    await highlightLine(0); // pos = 0
+    let pos = 0;
+
+    await highlightLine(1); // while pos < n
+    while (pos < n) {
+        if (!isRunning) return;
+
+        await highlightLine(2); // if pos == 0 or arr[pos] >= arr[pos-1]
+        if (pos === 0 || array[pos] >= array[pos - 1]) {
+            await highlightLine(3); // pos++
+            renderBars([], [], [pos]);
+            pos++;
+            await sleep(getDelay());
+        } else {
+            await highlightLine(4); // else
+            await highlightLine(5); // swap(arr[pos], arr[pos-1])
+            renderBars([pos, pos - 1], [], []);
+            await sleep(getDelay());
+
+            [array[pos], array[pos - 1]] = [array[pos - 1], array[pos]];
+            renderBars([], [pos, pos - 1], []);
+            await sleep(getDelay());
+
+            await highlightLine(6); // pos--
+            pos--;
+        }
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
 // ========== SEARCHING ALGORITHMS ==========
 
 // Linear Search
@@ -1088,6 +1189,8 @@ function runAlgorithm() {
         case 'radix': radixSort(); break;
         case 'counting': countingSort(); break;
         case 'bucket': bucketSort(); break;
+        case 'comb': combSort(); break;
+        case 'gnome': gnomeSort(); break;
     }
 }
 
@@ -1305,6 +1408,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'radix': return radixSort;
             case 'counting': return countingSort;
             case 'bucket': return bucketSort;
+            case 'comb': return combSort;
+            case 'gnome': return gnomeSort;
             default: return null;
         }
     }
