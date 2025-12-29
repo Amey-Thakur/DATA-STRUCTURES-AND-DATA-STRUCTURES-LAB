@@ -2394,7 +2394,15 @@ function initCommandPalette() {
             if (select && key) {
                 select.value = key;
                 select.dispatchEvent(new Event('change'));
-                document.getElementById('visualizer-section').scrollIntoView({ behavior: 'smooth' });
+                const vizSection = document.getElementById('visualizer-section');
+                if (vizSection) {
+                    vizSection.scrollIntoView({ behavior: 'smooth' });
+                    // Auto-Run after scroll (800ms delay)
+                    setTimeout(() => {
+                        const btnRun = document.getElementById('btn-run');
+                        if (btnRun && !isRunning) btnRun.click();
+                    }, 800);
+                }
             }
         }
     }));
@@ -2405,8 +2413,16 @@ function initCommandPalette() {
         icon: 'fa-flask',
         action: () => {
             h3.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            h3.closest('.experiment-card').style.border = '2px solid var(--accent-color)';
-            setTimeout(() => h3.closest('.experiment-card').style.border = 'none', 1500);
+            const card = h3.closest('.experiment-card');
+            if (card) {
+                card.style.transition = 'all 0.3s ease';
+                card.style.transform = 'scale(1.05)';
+                card.style.boxShadow = '0 0 0 4px var(--accent-color)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                    card.style.boxShadow = 'none';
+                }, 1500);
+            }
         }
     }));
 
