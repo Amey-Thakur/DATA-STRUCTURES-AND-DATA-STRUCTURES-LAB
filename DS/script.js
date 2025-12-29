@@ -224,6 +224,23 @@ const algoPseudoCode = {
         "}",
         "// countSort: place elements in buckets",
         "// based on current digit (exp)"
+    ],
+    counting: [
+        "int count[k] = {0}; // k = max + 1",
+        "for (i = 0; i < n; i++)",
+        "    count[arr[i]]++;",
+        "for (i = 1; i < k; i++)",
+        "    count[i] += count[i-1];",
+        "for (i = n-1; i >= 0; i--)",
+        "    output[--count[arr[i]]] = arr[i];"
+    ],
+    bucket: [
+        "create n empty buckets",
+        "for each element arr[i]:",
+        "    insert arr[i] into bucket[n*arr[i]/max]",
+        "for each bucket:",
+        "    sort(bucket)",
+        "concatenate all buckets"
     ]
 };
 
@@ -324,6 +341,8 @@ const algoInfo = {
     binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)', complexityTooltip: 'Logarithmic time - halves search space each step.' },
     cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - slightly better than bubble sort.' },
     radix: { title: 'Radix Sort', desc: 'Non-comparative sorting algorithm that sorts integers by processing individual digits, from least significant to most significant.', complexity: 'O(nk)', complexityTooltip: 'Linear time - k is the number of digits in the largest number.' },
+    counting: { title: 'Counting Sort', desc: 'Non-comparative algorithm that counts occurrences of each value and uses arithmetic to determine positions.', complexity: 'O(n+k)', complexityTooltip: 'Linear time - k is the range of input values.' },
+    bucket: { title: 'Bucket Sort', desc: 'Distributes elements into buckets, sorts each bucket individually, then concatenates the results.', complexity: 'O(n+k)', complexityTooltip: 'Linear time on average - k is the number of buckets.' },
 };
 
 
@@ -868,6 +887,108 @@ async function countingSortByDigit(exp) {
     }
 }
 
+// Counting Sort
+async function countingSort() {
+    renderPseudoCode(algoPseudoCode.counting);
+    const n = array.length;
+
+    // Find max value to determine count array size
+    await highlightLine(0); // int count[k] = {0}
+    const max = Math.max(...array);
+    const count = new Array(max + 1).fill(0);
+    const output = new Array(n).fill(0);
+    await sleep(getDelay());
+
+    // Count occurrences
+    await highlightLine(1); // for (i = 0; i < n; i++)
+    await highlightLine(2); // count[arr[i]]++
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+        count[array[i]]++;
+        renderBars([i], [], []);
+        await sleep(getDelay());
+    }
+
+    // Build cumulative count
+    await highlightLine(3); // for (i = 1; i < k; i++)
+    await highlightLine(4); // count[i] += count[i-1]
+    for (let i = 1; i <= max; i++) {
+        count[i] += count[i - 1];
+    }
+    await sleep(getDelay());
+
+    // Build output array (stable - process right to left)
+    await highlightLine(5); // for (i = n-1; i >= 0; i--)
+    await highlightLine(6); // output[--count[arr[i]]] = arr[i]
+    for (let i = n - 1; i >= 0; i--) {
+        if (!isRunning) return;
+        output[count[array[i]] - 1] = array[i];
+        count[array[i]]--;
+        renderBars([], [i], []);
+        await sleep(getDelay());
+    }
+
+    // Copy back to original array
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+        array[i] = output[i];
+        renderBars([], [], [i]);
+        await sleep(getDelay() / 2);
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Bucket Sort
+async function bucketSort() {
+    renderPseudoCode(algoPseudoCode.bucket);
+    const n = array.length;
+
+    // Find max value
+    const max = Math.max(...array);
+    const bucketCount = Math.ceil(Math.sqrt(n)); // Use sqrt(n) buckets
+    const buckets = Array.from({ length: bucketCount }, () => []);
+
+    // Distribute elements into buckets
+    await highlightLine(0); // create n empty buckets
+    await highlightLine(1); // for each element arr[i]
+    await highlightLine(2); // insert arr[i] into bucket
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+        const bucketIndex = Math.floor((array[i] / (max + 1)) * bucketCount);
+        buckets[bucketIndex].push(array[i]);
+        renderBars([i], [], []);
+        await sleep(getDelay());
+    }
+
+    // Sort each bucket using insertion sort
+    await highlightLine(3); // for each bucket
+    await highlightLine(4); // sort(bucket)
+    for (let i = 0; i < bucketCount; i++) {
+        buckets[i].sort((a, b) => a - b);
+    }
+    await sleep(getDelay());
+
+    // Concatenate buckets back to array
+    await highlightLine(5); // concatenate all buckets
+    let index = 0;
+    for (let i = 0; i < bucketCount; i++) {
+        for (let j = 0; j < buckets[i].length; j++) {
+            if (!isRunning) return;
+            array[index] = buckets[i][j];
+            renderBars([], [], [index]);
+            await sleep(getDelay() / 2);
+            index++;
+        }
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
 // ========== SEARCHING ALGORITHMS ==========
 
 // Linear Search
@@ -965,6 +1086,8 @@ function runAlgorithm() {
         case 'binary': binarySearch(); break;
         case 'cocktail': cocktailSort(); break;
         case 'radix': radixSort(); break;
+        case 'counting': countingSort(); break;
+        case 'bucket': bucketSort(); break;
     }
 }
 
@@ -1045,6 +1168,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'binary': return binarySearch;
             case 'cocktail': return cocktailSort;
             case 'radix': return radixSort;
+            case 'counting': return countingSort;
+            case 'bucket': return bucketSort;
             default: return null;
         }
     }
