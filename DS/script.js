@@ -93,6 +93,7 @@ const visualizerContainer = document.getElementById('visualizer-container');
 const btnShuffle = document.getElementById('btn-shuffle');
 const btnRun = document.getElementById('btn-run');
 const btnRunText = document.getElementById('btn-run-text');
+const btnRunIcon = document.getElementById('btn-run-icon');
 const speedSlider = document.getElementById('speed-slider');
 const algoSelect = document.getElementById('algo-select');
 const algoTitle = document.getElementById('algo-title');
@@ -102,6 +103,24 @@ const searchTarget = document.getElementById('search-target');
 const algoLegend = document.getElementById('algo-legend');
 const algoComplexity = document.getElementById('algo-complexity');
 const pseudoCodeEl = document.getElementById('pseudo-code-display');
+
+// Helper function to update Run button state (text and icon)
+function updateRunButton(isPaused) {
+    const isSearch = algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear');
+    if (isPaused) {
+        if (btnRunText) btnRunText.textContent = 'Pause';
+        if (btnRunIcon) {
+            btnRunIcon.classList.remove('fa-play');
+            btnRunIcon.classList.add('fa-pause');
+        }
+    } else {
+        if (btnRunText) btnRunText.textContent = isSearch ? 'Search' : 'Start';
+        if (btnRunIcon) {
+            btnRunIcon.classList.remove('fa-pause');
+            btnRunIcon.classList.add('fa-play');
+        }
+    }
+}
 
 // Pseudo-code Strings
 const algoPseudoCode = {
@@ -849,8 +868,7 @@ async function binarySearch() {
 
 function finishRun() {
     isRunning = false;
-    const algo = algoSelect ? algoSelect.value : 'bubble';
-    if (btnRunText) btnRunText.textContent = algo === 'binary' ? 'Search' : 'Start';
+    updateRunButton(false);
 }
 
 // Run selected algorithm
@@ -1043,18 +1061,16 @@ function initApp() {
             if (searchControlsEl) {
                 if (isSearch) {
                     searchControlsEl.style.display = 'flex';
-                    if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
                     searchControlsEl.style.display = 'none';
-                    if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
             }
 
-            // Update Start Button Text
-            if (btnRunText) btnRunText.textContent = isSearch ? 'Search' : 'Start';
+            // Update Start Button Text and Icon
+            updateRunButton(false);
 
             // Initialize Array
             if (algo === 'binary') initSortedArray();
@@ -1081,7 +1097,7 @@ function initApp() {
                 } else {
                     initArray();
                 }
-                if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+                updateRunButton(false);
             }, 100);
         });
     }
@@ -1091,10 +1107,10 @@ function initApp() {
         btnRun.addEventListener('click', () => {
             if (isRunning) {
                 isRunning = false;
-                if (btnRunText) btnRunText.textContent = (algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear')) ? 'Search' : 'Start';
+                updateRunButton(false);
             } else {
                 isRunning = true;
-                if (btnRunText) btnRunText.textContent = 'Pause';
+                updateRunButton(true);
                 runAlgorithm();
             }
         });
