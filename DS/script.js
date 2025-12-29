@@ -1051,11 +1051,6 @@ function initApp() {
                     else initArray();
                 } else {
                     searchControlsEl.style.display = 'none';
-                    if (btnRunText) btnRunText.textContent = 'Search';
-                    if (algo === 'binary') initSortedArray();
-                    else initArray();
-                } else {
-                    searchControlsEl.style.display = 'none';
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
