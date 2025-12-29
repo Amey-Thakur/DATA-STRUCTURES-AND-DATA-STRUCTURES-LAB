@@ -391,8 +391,12 @@ async function highlightLine(lineIdx) {
     if (!pseudoCodeEl) return;
     const lines = pseudoCodeEl.querySelectorAll('.pseudo-code-line');
     lines.forEach((line, idx) => {
-        if (idx === lineIdx) line.classList.add('highlight-line');
-        else line.classList.remove('highlight-line');
+        if (idx === lineIdx) {
+            line.classList.add('highlight-line');
+            line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+            line.classList.remove('highlight-line');
+        }
     });
 }
 
