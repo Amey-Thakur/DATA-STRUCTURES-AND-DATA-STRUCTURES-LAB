@@ -1041,14 +1041,21 @@ function initApp() {
             if (mainControls) mainControls.style.display = 'flex';
             if (dsControls) dsControls.style.display = 'none';
 
-            if (searchControls) {
+            const searchControlsEl = searchControls || document.getElementById('search-controls');
+
+            if (searchControlsEl) {
                 if (algo === 'binary' || algo === 'linear') {
-                    searchControls.style.setProperty('display', 'flex', 'important');
+                    searchControlsEl.style.display = 'flex';
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControls.style.setProperty('display', 'none', 'important');
+                    searchControlsEl.style.display = 'none';
+                    if (btnRunText) btnRunText.textContent = 'Search';
+                    if (algo === 'binary') initSortedArray();
+                    else initArray();
+                } else {
+                    searchControlsEl.style.display = 'none';
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
