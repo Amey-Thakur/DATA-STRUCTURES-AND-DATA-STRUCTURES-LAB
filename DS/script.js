@@ -305,16 +305,16 @@ let dsArray = []; // For Stack/Queue
 
 // Algorithm descriptions
 const algoInfo = {
-    bubble: { title: 'Bubble Sort', desc: 'Repeatedly compares adjacent elements and swaps them if they are in the wrong order.', complexity: 'O(n²)' },
-    insertion: { title: 'Insertion Sort', desc: 'Builds the sorted array one element at a time by inserting each element into its correct position.', complexity: 'O(n²)' },
-    selection: { title: 'Selection Sort', desc: 'Finds the minimum element and places it at the beginning, then repeats for remaining elements.', complexity: 'O(n²)' },
-    quick: { title: 'Quick Sort', desc: 'Uses divide-and-conquer with a pivot element to partition and recursively sort subarrays.', complexity: 'O(n log n)' },
-    merge: { title: 'Merge Sort', desc: 'Divides array into halves, sorts them recursively, and merges sorted halves.', complexity: 'O(n log n)' },
-    heap: { title: 'Heap Sort', desc: 'Builds a max-heap from the array and repeatedly extracts the maximum element.', complexity: 'O(n log n)' },
-    shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)' },
-    linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)' },
-    binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)' },
-    cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)' },
+    bubble: { title: 'Bubble Sort', desc: 'Repeatedly compares adjacent elements and swaps them if they are in the wrong order.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - compares all pairs of elements.' },
+    insertion: { title: 'Insertion Sort', desc: 'Builds the sorted array one element at a time by inserting each element into its correct position.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - efficient for small or nearly sorted data.' },
+    selection: { title: 'Selection Sort', desc: 'Finds the minimum element and places it at the beginning, then repeats for remaining elements.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - always makes n² comparisons.' },
+    quick: { title: 'Quick Sort', desc: 'Uses divide-and-conquer with a pivot element to partition and recursively sort subarrays.', complexity: 'O(n log n)', complexityTooltip: 'Linearithmic time - very efficient on average.' },
+    merge: { title: 'Merge Sort', desc: 'Divides array into halves, sorts them recursively, and merges sorted halves.', complexity: 'O(n log n)', complexityTooltip: 'Linearithmic time - consistent performance guaranteed.' },
+    heap: { title: 'Heap Sort', desc: 'Builds a max-heap from the array and repeatedly extracts the maximum element.', complexity: 'O(n log n)', complexityTooltip: 'Linearithmic time - uses heap data structure.' },
+    shell: { title: 'Shell Sort', desc: 'Generalization of insertion sort that allows exchange of far items.', complexity: 'O(n log n)', complexityTooltip: 'Varies by gap sequence - typically linearithmic.' },
+    linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)', complexityTooltip: 'Linear time - checks each element once.' },
+    binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)', complexityTooltip: 'Logarithmic time - halves search space each step.' },
+    cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - slightly better than bubble sort.' },
 };
 
 
@@ -1049,7 +1049,10 @@ function initApp() {
             if (algoInfo[algo]) {
                 if (algoTitle) algoTitle.textContent = algoInfo[algo].title;
                 if (algoDescription) algoDescription.textContent = algoInfo[algo].desc;
-                if (algoComplexity) algoComplexity.textContent = algoInfo[algo].complexity;
+                if (algoComplexity) {
+                    algoComplexity.textContent = algoInfo[algo].complexity;
+                    algoComplexity.setAttribute('data-tooltip', algoInfo[algo].complexityTooltip);
+                }
             }
 
             // Reset state
