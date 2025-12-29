@@ -190,36 +190,94 @@ const algoPseudoCode = {
         "return -1;"
     ],
     cocktail: [
-        "bool swapped = true;",
-        "while (swapped) {",
+        "do {",
         "    swapped = false;",
-        "    for (i = start; i < end; ++i) {",
-        "        if (a[i] > a[i + 1]) {",
-        "            swap(a[i], a[i + 1]);",
-        "            swapped = true;",
-        "        }",
-        "    }",
+        "    for (i = 0; i < end; i++) { ... } // Forward",
         "    if (!swapped) break;",
         "    swapped = false;",
-        "    --end;",
-        "    for (i = end - 1; i >= start; --i) {",
-        "        if (a[i] > a[i + 1]) {",
-        "            swap(a[i], a[i + 1]);",
-        "            swapped = true;",
-        "        }",
-        "    }",
-        "    ++start;",
-        "}"
+        "    for (i = end; i > 0; i--) { ... } // Backward",
+        "} while (swapped);"
     ]
 };
 
-// DS Controls (Might be missing in some versions)
-const mainControls = document.getElementById('main-controls');
-const dsControls = document.getElementById('ds-controls');
-const dsInput = document.getElementById('ds-input');
-const btnPushEnqueue = document.getElementById('btn-push-enqueue');
-const btnPopDequeue = document.getElementById('btn-pop-dequeue');
+// ... (Rest of code)
 
+async function highlightLine(lineIdx) {
+    if (!pseudoCodeEl) return;
+    const lines = pseudoCodeEl.querySelectorAll('.pseudo-code-line');
+    lines.forEach((line, idx) => {
+        if (idx === lineIdx) line.classList.add('highlight-line');
+        else line.classList.remove('highlight-line');
+    });
+}
+
+// ...
+
+// Cocktail Shaker Sort
+async function cocktailSort() {
+    renderPseudoCode(algoPseudoCode.cocktail);
+    const n = array.length;
+    let swapped = true;
+    let start = 0;
+    let end = n - 1;
+    const sortedIndices = [];
+
+    await highlightLine(0); // do {
+
+    do {
+        swapped = false;
+        await highlightLine(1); // swapped = false
+
+        // Forward pass
+        await highlightLine(2); // Forward loop
+        for (let i = start; i < end; ++i) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], sortedIndices);
+            await sleep(getDelay());
+
+            if (array[i] > array[i + 1]) {
+                renderBars([], [i, i + 1], sortedIndices);
+                await sleep(getDelay());
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                swapped = true;
+            }
+        }
+
+        if (!swapped) {
+            await highlightLine(3); // break
+            break;
+        }
+
+        swapped = false;
+        await highlightLine(4); // swapped = false
+        end--;
+        sortedIndices.push(end + 1);
+
+        // Backward pass
+        await highlightLine(5); // Backward loop
+        for (let i = end - 1; i >= start; --i) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], sortedIndices);
+            await sleep(getDelay());
+
+            if (array[i] > array[i + 1]) {
+                renderBars([], [i, i + 1], sortedIndices);
+                await sleep(getDelay());
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                swapped = true;
+            }
+        }
+
+        start++;
+        sortedIndices.push(start - 1);
+        await highlightLine(6); // } while(swapped)
+
+    } while (swapped && isRunning);
+
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+    await highlightLine(-1);
+}
 let array = [];
 let isRunning = false;
 const ARRAY_SIZE = 25;
