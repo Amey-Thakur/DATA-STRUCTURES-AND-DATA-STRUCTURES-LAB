@@ -1042,20 +1042,14 @@ function initApp() {
             if (dsControls) dsControls.style.display = 'none';
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
-            const searchControlsEl = document.getElementById('search-controls');
+            const searchContainer = document.getElementById('search-input-container');
             const isSearch = (algo === 'binary' || algo === 'linear');
 
-            if (searchControlsEl) {
-                // Use strong CSS classes (defined in style.css)
+            if (searchContainer) {
                 if (isSearch) {
-                    searchControlsEl.classList.remove('force-hidden');
-                    searchControlsEl.classList.add('force-visible');
-                    // Helper to ensure layout
-                    searchControlsEl.classList.add('d-flex');
+                    searchContainer.style.setProperty('display', 'flex', 'important');
                 } else {
-                    searchControlsEl.classList.remove('force-visible');
-                    searchControlsEl.classList.add('force-hidden');
-                    searchControlsEl.classList.remove('d-flex');
+                    searchContainer.style.setProperty('display', 'none', 'important');
                 }
             }
 
