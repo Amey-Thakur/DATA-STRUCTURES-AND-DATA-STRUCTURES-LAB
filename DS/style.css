@@ -880,3 +880,20 @@ h5 {
         border: 1px solid #ccc !important;
     }
 }
+
+/* 
+ * =========================================
+ *   UTILITY HELPERS (Added for Search UI)
+ * =========================================
+ */
+.force-visible {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.force-hidden {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}

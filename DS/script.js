@@ -1046,12 +1046,17 @@ function initApp() {
             const isSearch = (algo === 'binary' || algo === 'linear');
 
             if (searchControlsEl) {
-                // Use cssText to override everything (class, id, inline)
-                searchControlsEl.style.cssText = isSearch ? 'display: flex !important;' : 'display: none !important;';
-
-                // Add bootstrap classes if needed for layout, but rely on cssText for visibility
-                if (isSearch) searchControlsEl.classList.add('d-flex');
-                else searchControlsEl.classList.remove('d-flex');
+                // Use strong CSS classes (defined in style.css)
+                if (isSearch) {
+                    searchControlsEl.classList.remove('force-hidden');
+                    searchControlsEl.classList.add('force-visible');
+                    // Helper to ensure layout
+                    searchControlsEl.classList.add('d-flex');
+                } else {
+                    searchControlsEl.classList.remove('force-visible');
+                    searchControlsEl.classList.add('force-hidden');
+                    searchControlsEl.classList.remove('d-flex');
+                }
             }
 
             // Update Start Button Text
