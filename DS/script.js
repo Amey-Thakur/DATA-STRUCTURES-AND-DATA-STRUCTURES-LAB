@@ -980,6 +980,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getAlgoFunction(algo) {
         switch (algo) {
             case 'bubble': return bubbleSort;
+            case 'cocktail': return cocktailSort;
             case 'insertion': return insertionSort;
             case 'selection': return selectionSort;
             case 'quick': return quickSort;
