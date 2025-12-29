@@ -1047,14 +1047,11 @@ function initApp() {
 
             if (searchControlsEl) {
                 if (isSearch) {
-                    searchControlsEl.classList.remove('force-hidden');
-                    searchControlsEl.classList.add('force-visible');
-                    // Ensure flex layout for the container
-                    searchControlsEl.classList.add('d-flex');
+                    searchControlsEl.style.display = 'flex';
+                    if (btnRunText) btnRunText.textContent = 'Search';
                 } else {
-                    searchControlsEl.classList.remove('force-visible');
-                    searchControlsEl.classList.add('force-hidden');
-                    searchControlsEl.classList.remove('d-flex');
+                    searchControlsEl.style.display = 'none';
+                    if (btnRunText) btnRunText.textContent = 'Start';
                 }
             }
 
