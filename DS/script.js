@@ -1035,34 +1035,32 @@ function initApp() {
 
             // Reset state
             isRunning = false;
-            if (btnRunText) btnRunText.textContent = 'Start';
             if (dsInput) dsInput.value = '';
 
+            // Ensure controls visibility
             if (mainControls) mainControls.style.display = 'flex';
             if (dsControls) dsControls.style.display = 'none';
 
-            if (mainControls) mainControls.style.display = 'flex';
-            if (dsControls) dsControls.style.display = 'none';
-
+            // VISIBILITY LOGIC: Force "Find Value" for Search Algos
             const searchControlsEl = document.getElementById('search-controls');
+            const isSearch = (algo === 'binary' || algo === 'linear');
 
             if (searchControlsEl) {
-                // Robust visibility toggle
-                const isSearchAlgo = ['binary', 'linear'].includes(algo);
+                // Use cssText to override everything (class, id, inline)
+                searchControlsEl.style.cssText = isSearch ? 'display: flex !important;' : 'display: none !important;';
 
-                if (isSearchAlgo) {
-                    searchControlsEl.style.setProperty('display', 'flex', 'important');
-                    if (btnRunText) btnRunText.textContent = 'Search';
-                    if (algo === 'binary') initSortedArray();
-                    else initArray();
-                } else {
-                    searchControlsEl.style.setProperty('display', 'none', 'important');
-                    if (btnRunText) btnRunText.textContent = 'Start';
-                    initArray();
-                }
-            } else {
-                initArray();
+                // Add bootstrap classes if needed for layout, but rely on cssText for visibility
+                if (isSearch) searchControlsEl.classList.add('d-flex');
+                else searchControlsEl.classList.remove('d-flex');
             }
+
+            // Update Start Button Text
+            if (btnRunText) btnRunText.textContent = isSearch ? 'Search' : 'Start';
+
+            // Initialize Array
+            if (algo === 'binary') initSortedArray();
+            else initArray();
+
             // Show pseudo code if available
             if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode[algo]) {
                 renderPseudoCode(algoPseudoCode[algo]);
