@@ -868,6 +868,7 @@ function runAlgorithm() {
         case 'shell': shellSort(); break;
         case 'linear': linearSearch(); break;
         case 'binary': binarySearch(); break;
+        case 'cocktail': cocktailSort(); break;
     }
 }
 
@@ -947,6 +948,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'shell': return shellSort;
             case 'linear': return linearSearch;
             case 'binary': return binarySearch;
+            case 'cocktail': return cocktailSort;
             default: return null;
         }
     }
@@ -1049,9 +1051,13 @@ function initApp() {
                 if (isSearch) {
                     searchControlsEl.style.display = 'flex';
                     if (btnRunText) btnRunText.textContent = 'Search';
+                    // Re-initialize array for binary search specific needs
+                    if (algo === 'binary') initSortedArray();
+                    else initArray();
                 } else {
                     searchControlsEl.style.display = 'none';
                     if (btnRunText) btnRunText.textContent = 'Start';
+                    initArray();
                 }
             }
 
