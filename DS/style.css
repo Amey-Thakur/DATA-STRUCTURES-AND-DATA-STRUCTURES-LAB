@@ -148,6 +148,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    user-select: none;
+    /* Disable text selection */
+}
+
+input,
+textarea {
+    user-select: auto !important;
+    /* Allow selection in inputs */
 }
 
 /* Back to Top Button */
