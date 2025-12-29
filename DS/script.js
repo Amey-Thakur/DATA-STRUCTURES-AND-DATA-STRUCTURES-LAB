@@ -323,8 +323,9 @@ function initSortedArray() {
 
 // Render bars with highlighting
 function renderBars(comparing = [], swapping = [], sorted = [], found = []) {
-    if (!visualizerContainer) return;
-    visualizerContainer.innerHTML = '';
+    const container = visualizerContainer || document.getElementById('visualizer-container');
+    if (!container) return;
+    container.innerHTML = '';
     // Reset Container Styles for Bar Chart
     visualizerContainer.style.flexDirection = 'row';
     visualizerContainer.style.alignItems = 'flex-end';
@@ -1019,6 +1020,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initApp() {
+    // Force render immediately
+    initArray();
+
     // 1. Algo Select Listener
     if (algoSelect) {
         algoSelect.addEventListener('change', () => {
