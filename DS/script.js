@@ -1146,6 +1146,141 @@ document.addEventListener('DOMContentLoaded', () => {
 // Shuffle button
 
 
+// Searchable Algorithm Dropdown Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const algoSearch = document.getElementById('algo-search');
+    const algoDropdownList = document.getElementById('algo-dropdown-list');
+    const algoOptions = document.querySelectorAll('.algo-option');
+    const algoGroupLabels = document.querySelectorAll('.algo-group-label');
+    const hiddenSelect = document.getElementById('algo-select');
+
+    let selectedValue = 'bubble';
+    let selectedText = 'Bubble Sort';
+
+    // Show dropdown on focus/click
+    if (algoSearch) {
+        algoSearch.addEventListener('focus', () => {
+            algoDropdownList.classList.add('show');
+        });
+
+        algoSearch.addEventListener('click', () => {
+            algoDropdownList.classList.add('show');
+        });
+
+        // Filter options as user types
+        algoSearch.addEventListener('input', () => {
+            const query = algoSearch.value.toLowerCase().trim();
+            let hasVisibleOptions = false;
+
+            algoOptions.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    option.classList.remove('hidden');
+                    // Highlight matching text
+                    if (query) {
+                        const regex = new RegExp(`(${query})`, 'gi');
+                        option.innerHTML = option.dataset.originalText.replace(regex, '<mark>$1</mark>');
+                    } else {
+                        option.innerHTML = option.dataset.originalText;
+                    }
+                    hasVisibleOptions = true;
+                } else {
+                    option.classList.add('hidden');
+                }
+            });
+
+            // Show/hide group labels based on visible options
+            algoGroupLabels.forEach(label => {
+                const group = label.textContent.toLowerCase();
+                const hasVisibleInGroup = Array.from(algoOptions).some(opt =>
+                    opt.dataset.group === group && !opt.classList.contains('hidden')
+                );
+                label.style.display = hasVisibleInGroup ? 'block' : 'none';
+            });
+
+            // Show "no results" if nothing matches
+            let noResultsEl = algoDropdownList.querySelector('.algo-no-results');
+            if (!hasVisibleOptions) {
+                if (!noResultsEl) {
+                    noResultsEl = document.createElement('div');
+                    noResultsEl.className = 'algo-no-results';
+                    noResultsEl.textContent = 'No algorithms found';
+                    algoDropdownList.appendChild(noResultsEl);
+                }
+            } else if (noResultsEl) {
+                noResultsEl.remove();
+            }
+        });
+
+        // Store original text for highlighting
+        algoOptions.forEach(option => {
+            option.dataset.originalText = option.textContent;
+        });
+
+        // Set initial value in search box
+        algoSearch.value = selectedText;
+    }
+
+    // Handle option selection
+    algoOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            // Update selection
+            algoOptions.forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+
+            selectedValue = option.dataset.value;
+            selectedText = option.dataset.originalText || option.textContent;
+
+            // Update search input
+            algoSearch.value = selectedText;
+
+            // Update hidden select and trigger change event
+            if (hiddenSelect) {
+                hiddenSelect.value = selectedValue;
+                hiddenSelect.dispatchEvent(new Event('change'));
+            }
+
+            // Close dropdown
+            algoDropdownList.classList.remove('show');
+
+            // Reset filter
+            algoOptions.forEach(opt => {
+                opt.classList.remove('hidden');
+                opt.innerHTML = opt.dataset.originalText || opt.textContent;
+            });
+            algoGroupLabels.forEach(label => label.style.display = 'block');
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.algo-dropdown')) {
+            if (algoDropdownList) {
+                algoDropdownList.classList.remove('show');
+                // Restore selected value if user didn't pick anything
+                if (algoSearch) {
+                    algoSearch.value = selectedText;
+                }
+            }
+        }
+    });
+
+    // Keyboard navigation
+    if (algoSearch) {
+        algoSearch.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                algoDropdownList.classList.remove('show');
+                algoSearch.blur();
+            } else if (e.key === 'Enter') {
+                const visibleOptions = Array.from(algoOptions).filter(opt => !opt.classList.contains('hidden'));
+                if (visibleOptions.length > 0) {
+                    visibleOptions[0].click();
+                }
+            }
+        });
+    }
+});
+
 // Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
     const btnShowCode = document.getElementById('btn-show-code');
