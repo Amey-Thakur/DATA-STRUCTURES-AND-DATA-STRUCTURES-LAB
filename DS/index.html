@@ -49,15 +49,50 @@
     <meta property="og:description"
         content="Comprehensive showcase of Data Structures experiments including Linear and Non-Linear data structures implemented in C.">
     <meta property="og:image"
-        content="https://raw.githubusercontent.com/Amey-Thakur/COMPUTER-ENGINEERING/main/university-of-mumbai-logo.png">
+        content="https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/assets/og-image.png">
 
     <!-- Twitter Card -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Amey | DS Lab Portfolio">
-    <meta property="twitter:description"
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/">
+    <meta name="twitter:title" content="Amey | DS Lab Portfolio">
+    <meta name="twitter:description"
         content="Explore Data Structures implementations: Arrays, Linked Lists, Stacks, Queues, and Algorithms.">
-    <meta property="twitter:image"
-        content="https://raw.githubusercontent.com/Amey-Thakur/COMPUTER-ENGINEERING/main/university-of-mumbai-logo.png">
+    <meta name="twitter:image"
+        content="https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/assets/og-image.png">
+    <meta name="twitter:creator" content="@AmeyThakur">
+
+    <!-- Security Meta Tags -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https: raw.githubusercontent.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self';">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DS Lab Portfolio",
+        "url": "https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/",
+        "description": "Official scholarly portfolio for Data Structures Laboratory (CSL303) at University of Mumbai",
+        "author": {
+            "@type": "Person",
+            "name": "Amey Thakur",
+            "url": "https://github.com/Amey-Thakur"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "University of Mumbai",
+            "url": "https://mu.ac.in"
+        },
+        "mainEntity": {
+            "@type": "SoftwareSourceCode",
+            "name": "Data Structures Algorithms",
+            "programmingLanguage": "C",
+            "codeRepository": "https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB"
+        },
+        "educationalLevel": "Undergraduate",
+        "teaches": ["Data Structures", "Algorithms", "C Programming"]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon"
@@ -75,16 +110,61 @@
 </head>
 
 <body>
-    <div class="main-container">
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- MacOS Style Loading Terminal -->
+    <div id="skeleton-loader"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f172a; z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; animation: fadeOutLoader 0.5s ease 1s forwards;">
+        <div
+            style="width: 60px; height: 60px; border: 4px solid rgba(37, 99, 235, 0.2); border-top-color: #2563eb; border-radius: 50%; animation: spin 1s linear infinite;">
+        </div>
+        <p style="margin-top: 20px; color: #94a3b8; font-family: 'Poppins', sans-serif; font-size: 0.9rem;">Initializing
+            Data Structures Portfolio...</p>
+        <style>
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            @keyframes fadeOutLoader {
+                to {
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+                }
+            }
+
+            .skip-link {
+                position: absolute;
+                top: -40px;
+                left: 0;
+                background: var(--accent-color);
+                color: white;
+                padding: 8px 16px;
+                z-index: 10001;
+                transition: top 0.3s;
+                text-decoration: none;
+                border-radius: 0 0 8px 0;
+            }
+
+            .skip-link:focus {
+                top: 0;
+            }
+        </style>
+    </div>
+
+    <main class="main-container" id="main-content">
 
         <!-- Hero Section -->
-        <div class="hero">
+        <header class="hero">
             <div class="top-controls">
                 <button class="control-btn" id="share-btn" title="Share Portfolio" aria-label="Share Portfolio">
-                    <i class="fas fa-share-nodes"></i>
+                    <i class="fas fa-share-nodes" aria-hidden="true"></i>
                 </button>
-                <button class="control-btn" id="theme-toggle" title="Switch Theme" aria-label="Switch Theme">
-                    <i class="fas fa-moon"></i>
+                <button class="control-btn" id="theme-toggle" title="Switch Theme" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
             </div>
 
@@ -105,11 +185,11 @@
 
             <div class="hero-buttons">
                 <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB"
-                    class="btn btn-primary-custom">
+                    class="btn btn-primary-custom" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github me-2"></i>Data Structures Repo
                 </a>
                 <a href="https://github.com/Amey-Thakur/COMPUTER-ENGINEERING"
-                    class="btn btn-primary-custom btn-secondary-custom">
+                    class="btn btn-primary-custom btn-secondary-custom" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-code-branch me-2"></i>Computer Engineering Repo
                 </a>
             </div>
@@ -139,344 +219,399 @@
                     <i class="fas fa-chevron-down" style="animation: bounce 2s infinite;"></i>
                 </a>
             </div>
-        </div>
+        </header>
 
-        <!-- Section Title -->
-        <div class="section-title reveal">
-            <h3>Fundamentals</h3>
-        </div>
-
-        <div class="row g-4 mb-5 justify-content-center">
-            <!-- Array -->
-            <div class="col-md-6 reveal-left">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-table"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 01</span>
-                    <h5>Arrays & Matrices</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">2D Arrays</span>
-                        <span class="badge-tech">Pointers</span>
-                        <span class="badge bg-primary ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="4 programs implementing matrix operations and statistical analysis.">4
-                            Programs</span>
-                    </div>
-                    <p>Foundational operations on arrays including matrix multiplication, student marks analysis, and
-                        pair counting algorithms.</p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Array"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
+        <!-- Section: Fundamentals -->
+        <section aria-labelledby="fundamentals-title">
+            <div id="foundations" class="section-title reveal">
+                <h3 id="fundamentals-title">Fundamentals</h3>
             </div>
 
-            <!-- String -->
-            <div class="col-md-6 reveal-right">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-font"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 02</span>
-                    <h5>String Manipulation</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">Strings</span>
-                        <span class="badge-tech">ASCII</span>
-                        <span class="badge bg-info text-dark ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="3 programs for word reversal, character counting, and pattern replacement.">3
-                            Programs</span>
-                    </div>
-                    <p>Essential string processing algorithms: word reversal, character counting, and pattern
-                        replacement without standard libraries.</p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/String"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Linked Lists -->
-        <div class="section-title reveal">
-            <h3>Linked Data Structures</h3>
-        </div>
-
-        <div class="row g-4 mb-5 justify-content-center">
-            <!-- Linked Lists -->
-            <div class="col-md-6 reveal-left">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 03</span>
-                    <h5>Linked Lists</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">Malloc</span>
-                        <span class="badge-tech">Pointers</span>
-                        <span class="badge bg-success ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="7 programs covering Singly, Doubly, and Circular Linked Lists.">7
-                            Programs</span>
-                    </div>
-                    <p>Dynamic memory allocation implementations: Singly Linked Lists, Doubly Linked Lists, and Circular
-                        Linked Lists.</p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Linked%20List"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Stacks -->
-            <div class="col-md-6 reveal-right">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 04</span>
-                    <h5>Stack Operations</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">push/pop</span>
-                        <span class="badge-tech">Infix-Postfix</span>
-                        <span class="badge bg-warning text-dark ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="8 programs for expression evaluation and notation conversion.">8
-                            Programs</span>
-                    </div>
-                    <p>LIFO structure applications involving expression evaluation (Postfix/Prefix) and syntax parsing
-                        algorithms.</p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Stacks"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Queues & Sorting -->
-        <div class="section-title reveal">
-            <h3>Advanced Structures</h3>
-        </div>
-
-        <div class="row g-4 mb-5 justify-content-center">
-            <!-- Queues -->
-            <div class="col-md-6 reveal-left">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-people-arrows"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 05</span>
-                    <h5>Queues</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">Circular Buffer</span>
-                        <span class="badge-tech">Deque</span>
-                        <span class="badge bg-danger ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="5 programs including Circular, Priority, and Double-Ended Queues.">5
-                            Programs</span>
-                    </div>
-                    <p>FIFO implementation variants: Circular Queues, Double-Ended Queues (Deque), and Priority Queues.
-                    </p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Queues"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Searching & Sorting -->
-            <div class="col-md-6 reveal-right">
-                <div class="card-custom">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <span class="exp-tag">EXPERIMENT 06</span>
-                    <h5>Searching & Sorting</h5>
-                    <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
-                        <span class="badge-tech">O(n log n)</span>
-                        <span class="badge-tech">Divide & Conquer</span>
-                        <span class="badge bg-secondary ms-1" style="font-size: 0.7rem;"
-                            data-tooltip="7 programs: Binary Search, Bubble, Insertion, Merge, and Quick Sort.">7
-                            Programs</span>
-                    </div>
-                    <p>Performance optimization algorithms: Binary Search, Quick Sort, Merge Sort, and Insertion Sort
-                        implementations.</p>
-                    <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting"
-                        class="launch-link" target="_blank" rel="noopener noreferrer">
-                        View Code <i class="fas fa-arrow-right ms-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Interactive Demo Section -->
-        <div id="interactive-demo" class="section-title reveal">
-            <h3>Interactive Demo</h3>
-        </div>
-
-        <div class="row g-4 mb-5 justify-content-center">
-            <div class="col-12 reveal">
-                <div class="card-custom">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap mb-3 gap-3">
-                        <div class="d-flex align-items-center">
-                            <div class="icon-wrapper me-3" style="margin-bottom: 0;">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <div>
-                                <span class="exp-tag mb-0">Live Visualization</span>
-                                <h5 class="mb-0 d-flex align-items-center gap-2">
-                                    <span id="algo-title">Bubble Sort</span>
-                                    <span id="algo-complexity" class="badge"
-                                        style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6; font-size: 0.7em; border: 1px solid rgba(139, 92, 246, 0.3); cursor: help;"
-                                        data-tooltip="Quadratic time - compares all pairs of elements.">O(n²)</span>
-                                </h5>
-                            </div>
+            <div class="row g-4 mb-5 justify-content-center">
+                <!-- Array -->
+                <div class="col-md-6 reveal-left">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-table"></i>
                         </div>
-                        <!-- Algorithm Selector -->
-                        <div class="d-flex align-items-center gap-2">
-                            <label for="algo-search"
-                                style="color: var(--text-secondary); font-size: 0.9rem;">Algorithm:</label>
+                        <span class="exp-tag">EXPERIMENT 01</span>
+                        <h5>Arrays & Matrices</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">2D Arrays</span>
+                            <span class="badge-tech">Pointers</span>
+                            <span class="badge bg-primary ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="4 programs implementing matrix operations and statistical analysis.">4
+                                Programs</span>
+                        </div>
+                        <p>Foundational operations on arrays including matrix multiplication, student marks analysis,
+                            and
+                            pair counting algorithms.</p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Array"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
 
-                            <!-- Custom Searchable Dropdown -->
-                            <div class="algo-dropdown" id="algo-dropdown">
-                                <input type="text" id="algo-search" class="algo-search-input"
-                                    placeholder="Search algorithms..." autocomplete="off"
-                                    style="width: 200px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px;">
-                                <div class="algo-dropdown-list" id="algo-dropdown-list">
-                                    <div class="algo-group-label">Sorting</div>
-                                    <div class="algo-option" data-value="bogo" data-group="sorting">Bogo Sort</div>
-                                    <div class="algo-option selected" data-value="bubble" data-group="sorting">Bubble Sort</div>
-                                    <div class="algo-option" data-value="bucket" data-group="sorting">Bucket Sort</div>
-                                    <div class="algo-option" data-value="cocktail" data-group="sorting">Cocktail Shaker Sort</div>
-                                    <div class="algo-option" data-value="comb" data-group="sorting">Comb Sort</div>
-                                    <div class="algo-option" data-value="counting" data-group="sorting">Counting Sort</div>
-                                    <div class="algo-option" data-value="cycle" data-group="sorting">Cycle Sort</div>
-                                    <div class="algo-option" data-value="gnome" data-group="sorting">Gnome Sort</div>
-                                    <div class="algo-option" data-value="heap" data-group="sorting">Heap Sort</div>
-                                    <div class="algo-option" data-value="insertion" data-group="sorting">Insertion Sort</div>
-                                    <div class="algo-option" data-value="merge" data-group="sorting">Merge Sort</div>
-                                    <div class="algo-option" data-value="odd-even" data-group="sorting">Odd-Even Sort</div>
-                                    <div class="algo-option" data-value="quick" data-group="sorting">Quick Sort</div>
-                                    <div class="algo-option" data-value="radix" data-group="sorting">Radix Sort</div>
-                                    <div class="algo-option" data-value="selection" data-group="sorting">Selection Sort</div>
-                                    <div class="algo-option" data-value="shell" data-group="sorting">Shell Sort</div>
-                                    <div class="algo-option" data-value="stooge" data-group="sorting">Stooge Sort</div>
-                                    <div class="algo-option" data-value="tim" data-group="sorting">Tim Sort</div>
-                                    <div class="algo-group-label">Searching</div>
-                                    <div class="algo-option" data-value="binary" data-group="searching">Binary Search</div>
-                                    <div class="algo-option" data-value="interpolation" data-group="searching">Interpolation Search</div>
-                                    <div class="algo-option" data-value="exponential" data-group="searching">Exponential Search</div>
-                                    <div class="algo-option" data-value="fibonacci" data-group="searching">Fibonacci Search</div>
-                                    <div class="algo-option" data-value="ternary" data-group="searching">Ternary Search</div>
-                                    <div class="algo-option" data-value="meta" data-group="searching">Meta Binary Search</div>
-                                    <div class="algo-option" data-value="jump" data-group="searching">Jump Search</div>
-                                    <div class="algo-option" data-value="linear" data-group="searching">Linear Search</div>
+                <!-- String -->
+                <div class="col-md-6 reveal-right">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-font"></i>
+                        </div>
+                        <span class="exp-tag">EXPERIMENT 02</span>
+                        <h5>String Manipulation</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">Strings</span>
+                            <span class="badge-tech">ASCII</span>
+                            <span class="badge bg-info text-dark ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="3 programs for word reversal, character counting, and pattern replacement.">3
+                                Programs</span>
+                        </div>
+                        <p>Essential string processing algorithms: word reversal, character counting, and pattern
+                            replacement without standard libraries.</p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/String"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Linked Data Structures -->
+        <section aria-labelledby="linked-structures-title">
+            <div class="section-title reveal">
+                <h3 id="linked-structures-title">Linked Data Structures</h3>
+            </div>
+
+            <div class="row g-4 mb-5 justify-content-center">
+                <!-- Linked Lists -->
+                <div class="col-md-6 reveal-left">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <span class="exp-tag">EXPERIMENT 03</span>
+                        <h5>Linked Lists</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">Malloc</span>
+                            <span class="badge-tech">Pointers</span>
+                            <span class="badge bg-success ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="7 programs covering Singly, Doubly, and Circular Linked Lists.">7
+                                Programs</span>
+                        </div>
+                        <p>Dynamic memory allocation implementations: Singly Linked Lists, Doubly Linked Lists, and
+                            Circular
+                            Linked Lists.</p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Linked%20List"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stacks -->
+                <div class="col-md-6 reveal-right">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <span class="exp-tag">EXPERIMENT 04</span>
+                        <h5>Stack Operations</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">push/pop</span>
+                            <span class="badge-tech">Infix-Postfix</span>
+                            <span class="badge bg-warning text-dark ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="8 programs for expression evaluation and notation conversion.">8
+                                Programs</span>
+                        </div>
+                        <p>LIFO structure applications involving expression evaluation (Postfix/Prefix) and syntax
+                            parsing
+                            algorithms.</p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Stacks"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Advanced Structures -->
+        <section aria-labelledby="advanced-structures-title">
+            <div class="section-title reveal">
+                <h3 id="advanced-structures-title">Advanced Structures</h3>
+            </div>
+
+            <div class="row g-4 mb-5 justify-content-center">
+                <!-- Queues -->
+                <div class="col-md-6 reveal-left">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-people-arrows"></i>
+                        </div>
+                        <span class="exp-tag">EXPERIMENT 05</span>
+                        <h5>Queues</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">Circular Buffer</span>
+                            <span class="badge-tech">Deque</span>
+                            <span class="badge bg-danger ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="5 programs including Circular, Priority, and Double-Ended Queues.">5
+                                Programs</span>
+                        </div>
+                        <p>FIFO implementation variants: Circular Queues, Double-Ended Queues (Deque), and Priority
+                            Queues.
+                        </p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Queues"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Searching & Sorting -->
+                <div class="col-md-6 reveal-right">
+                    <div class="card-custom">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <span class="exp-tag">EXPERIMENT 06</span>
+                        <h5>Searching & Sorting</h5>
+                        <div class="tech-stack mb-3 d-flex align-items-center flex-wrap gap-2">
+                            <span class="badge-tech">O(n log n)</span>
+                            <span class="badge-tech">Divide & Conquer</span>
+                            <span class="badge bg-secondary ms-1" style="font-size: 0.7rem;"
+                                data-tooltip="7 programs: Binary Search, Bubble, Insertion, Merge, and Quick Sort.">7
+                                Programs</span>
+                        </div>
+                        <p>Performance optimization algorithms: Binary Search, Quick Sort, Merge Sort, and Insertion
+                            Sort
+                            implementations.</p>
+                        <a href="https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/tree/main/Data%20Structures%20Lab/Source%20Code/Searching%20and%20Sorting"
+                            class="launch-link" target="_blank" rel="noopener noreferrer">
+                            View Code <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Section: Interactive Demo -->
+        <section aria-labelledby="interactive-demo-title">
+            <div id="interactive-demo" class="section-title reveal">
+                <h3 id="interactive-demo-title">Interactive Demo</h3>
+            </div>
+
+            <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-12 reveal">
+                    <div class="card-custom">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap mb-3 gap-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-wrapper me-3" style="margin-bottom: 0;">
+                                    <i class="fas fa-chart-bar"></i>
                                 </div>
-                                <!-- Hidden select for compatibility -->
-                                <select id="algo-select" style="display: none;">
-                                    <option value="bogo">Bogo Sort</option>
-                                    <option value="bubble" selected>Bubble Sort</option>
-                                    <option value="bucket">Bucket Sort</option>
-                                    <option value="cocktail">Cocktail Shaker Sort</option>
-                                    <option value="comb">Comb Sort</option>
-                                    <option value="counting">Counting Sort</option>
-                                    <option value="cycle">Cycle Sort</option>
-                                    <option value="gnome">Gnome Sort</option>
-                                    <option value="heap">Heap Sort</option>
-                                    <option value="insertion">Insertion Sort</option>
-                                    <option value="merge">Merge Sort</option>
-                                    <option value="odd-even">Odd-Even Sort</option>
-                                    <option value="quick">Quick Sort</option>
-                                    <option value="radix">Radix Sort</option>
-                                    <option value="selection">Selection Sort</option>
-                                    <option value="shell">Shell Sort</option>
-                                    <option value="stooge">Stooge Sort</option>
-                                    <option value="tim">Tim Sort</option>
-                                    <option value="binary">Binary Search</option>
-                                    <option value="interpolation">Interpolation Search</option>
-                                    <option value="exponential">Exponential Search</option>
-                                    <option value="fibonacci">Fibonacci Search</option>
-                                    <option value="ternary">Ternary Search</option>
-                                    <option value="meta">Meta Binary Search</option>
-                                    <option value="jump">Jump Search</option>
-                                    <option value="linear">Linear Search</option>
-                                </select>
+                                <div>
+                                    <span class="exp-tag mb-0">Live Visualization</span>
+                                    <h5 class="mb-0 d-flex align-items-center gap-2">
+                                        <span id="algo-title">Bubble Sort</span>
+                                        <span id="algo-complexity" class="badge"
+                                            style="background: rgba(139, 92, 246, 0.2); color: #8b5cf6; font-size: 0.7em; border: 1px solid rgba(139, 92, 246, 0.3); cursor: help;"
+                                            data-tooltip="Quadratic time - compares all pairs of elements.">O(n²)</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Algorithm Selector -->
+                            <div class="d-flex align-items-center gap-2">
+                                <label for="algo-search"
+                                    style="color: var(--text-secondary); font-size: 0.9rem;">Algorithm:</label>
+
+                                <!-- Custom Searchable Dropdown -->
+                                <div class="algo-dropdown" id="algo-dropdown">
+                                    <input type="text" id="algo-search" class="algo-search-input"
+                                        placeholder="Search algorithms..." autocomplete="off"
+                                        style="width: 200px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px;">
+                                    <div class="algo-dropdown-list" id="algo-dropdown-list">
+                                        <div class="algo-group-label">Sorting</div>
+                                        <div class="algo-option" data-value="bogo" data-group="sorting">Bogo Sort</div>
+                                        <div class="algo-option selected" data-value="bubble" data-group="sorting">
+                                            Bubble
+                                            Sort</div>
+                                        <div class="algo-option" data-value="bucket" data-group="sorting">Bucket Sort
+                                        </div>
+                                        <div class="algo-option" data-value="cocktail" data-group="sorting">Cocktail
+                                            Shaker
+                                            Sort</div>
+                                        <div class="algo-option" data-value="comb" data-group="sorting">Comb Sort</div>
+                                        <div class="algo-option" data-value="counting" data-group="sorting">Counting
+                                            Sort
+                                        </div>
+                                        <div class="algo-option" data-value="cycle" data-group="sorting">Cycle Sort
+                                        </div>
+                                        <div class="algo-option" data-value="gnome" data-group="sorting">Gnome Sort
+                                        </div>
+                                        <div class="algo-option" data-value="heap" data-group="sorting">Heap Sort</div>
+                                        <div class="algo-option" data-value="insertion" data-group="sorting">Insertion
+                                            Sort
+                                        </div>
+                                        <div class="algo-option" data-value="merge" data-group="sorting">Merge Sort
+                                        </div>
+                                        <div class="algo-option" data-value="odd-even" data-group="sorting">Odd-Even
+                                            Sort
+                                        </div>
+                                        <div class="algo-option" data-value="pancake" data-group="sorting">Pancake Sort
+                                        </div>
+                                        <div class="algo-option" data-value="quick" data-group="sorting">Quick Sort
+                                        </div>
+                                        <div class="algo-option" data-value="radix" data-group="sorting">Radix Sort
+                                        </div>
+                                        <div class="algo-option" data-value="selection" data-group="sorting">Selection
+                                            Sort
+                                        </div>
+                                        <div class="algo-option" data-value="shell" data-group="sorting">Shell Sort
+                                        </div>
+                                        <div class="algo-option" data-value="stooge" data-group="sorting">Stooge Sort
+                                        </div>
+                                        <div class="algo-option" data-value="tim" data-group="sorting">Tim Sort</div>
+                                        <div class="algo-group-label">Searching</div>
+                                        <div class="algo-option" data-value="binary" data-group="searching">Binary
+                                            Search
+                                        </div>
+                                        <div class="algo-option" data-value="interpolation" data-group="searching">
+                                            Interpolation Search</div>
+                                        <div class="algo-option" data-value="exponential" data-group="searching">
+                                            Exponential
+                                            Search</div>
+                                        <div class="algo-option" data-value="fibonacci" data-group="searching">Fibonacci
+                                            Search</div>
+                                        <div class="algo-option" data-value="ternary" data-group="searching">Ternary
+                                            Search
+                                        </div>
+                                        <div class="algo-option" data-value="meta" data-group="searching">Meta Binary
+                                            Search
+                                        </div>
+                                        <div class="algo-option" data-value="jump" data-group="searching">Jump Search
+                                        </div>
+                                        <div class="algo-option" data-value="linear" data-group="searching">Linear
+                                            Search
+                                        </div>
+                                    </div>
+                                    <!-- Hidden select for compatibility -->
+                                    <select id="algo-select" style="display: none;">
+                                        <option value="bogo">Bogo Sort</option>
+                                        <option value="bubble" selected>Bubble Sort</option>
+                                        <option value="bucket">Bucket Sort</option>
+                                        <option value="cocktail">Cocktail Shaker Sort</option>
+                                        <option value="comb">Comb Sort</option>
+                                        <option value="counting">Counting Sort</option>
+                                        <option value="cycle">Cycle Sort</option>
+                                        <option value="gnome">Gnome Sort</option>
+                                        <option value="heap">Heap Sort</option>
+                                        <option value="insertion">Insertion Sort</option>
+                                        <option value="merge">Merge Sort</option>
+                                        <option value="odd-even">Odd-Even Sort</option>
+                                        <option value="pancake">Pancake Sort</option>
+                                        <option value="quick">Quick Sort</option>
+                                        <option value="radix">Radix Sort</option>
+                                        <option value="selection">Selection Sort</option>
+                                        <option value="shell">Shell Sort</option>
+                                        <option value="stooge">Stooge Sort</option>
+                                        <option value="tim">Tim Sort</option>
+                                        <option value="binary">Binary Search</option>
+                                        <option value="interpolation">Interpolation Search</option>
+                                        <option value="exponential">Exponential Search</option>
+                                        <option value="fibonacci">Fibonacci Search</option>
+                                        <option value="ternary">Ternary Search</option>
+                                        <option value="meta">Meta Binary Search</option>
+                                        <option value="jump">Jump Search</option>
+                                        <option value="linear">Linear Search</option>
+                                    </select>
+                                </div>
+
+                                <button id="btn-show-code" class="btn btn-primary-custom"
+                                    style="padding: 8px 12px; border-radius: 8px; background: var(--accent-color);"
+                                    title="View Algorithm Code">
+                                    <i class="fas fa-code"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p id="algo-description">Watch the Bubble Sort algorithm in action. Repeatedly compares adjacent
+                            elements and swaps them if they are in the wrong order.</p>
+
+
+
+                        <!-- Visualizer Wrapper -->
+                        <div style="position: relative; margin-bottom: 20px;">
+                            <!-- Pseudo Code Overlay -->
+                            <div id="pseudo-code-display" class="pseudo-code-box" style="display: none;">
+                                <!-- Code will be injected here -->
                             </div>
 
-                            <button id="btn-show-code" class="btn btn-primary-custom"
-                                style="padding: 8px 12px; border-radius: 8px; background: var(--accent-color);"
-                                title="View Algorithm Code">
-                                <i class="fas fa-code"></i>
+                            <!-- Visualizer Container -->
+                            <div id="visualizer-container" class="visualizer-bg"
+                                style="border-radius: 12px; padding: 20px; min-height: 300px; display: flex; align-items: flex-end; justify-content: center; gap: 4px; border: 1px solid var(--border-color);">
+                            </div>
+                        </div>
+
+                        <!-- Controls (Sorting/Searching) -->
+                        <div id="main-controls"
+                            class="d-flex flex-wrap align-items-center gap-3 justify-content-center">
+                            <button id="btn-shuffle" class="btn btn-primary-custom"
+                                style="border-radius: 50px; padding: 10px 25px;" aria-label="Shuffle Elements">
+                                <i class="fas fa-random me-2" aria-hidden="true"></i>Shuffle
                             </button>
-                        </div>
-                    </div>
+                            <button id="btn-run" class="btn btn-primary-custom"
+                                style="border-radius: 50px; padding: 10px 25px; background: #10b981;"
+                                aria-label="Start Algorithm">
+                                <i id="btn-run-icon" class="fas fa-play me-2" aria-hidden="true"></i><span
+                                    id="btn-run-text">Start</span>
+                            </button>
+                            <div class="d-flex align-items-center gap-2">
+                                <label for="speed-slider"
+                                    style="color: var(--text-secondary); font-size: 0.9rem;">Speed:</label>
+                                <input type="range" id="speed-slider" min="1" max="100" value="50"
+                                    style="width: 120px; accent-color: var(--accent-color);">
+                            </div>
 
-                    <p id="algo-description">Watch the Bubble Sort algorithm in action. Repeatedly compares adjacent
-                        elements and swaps them if they are in the wrong order.</p>
-
-
-
-                    <!-- Visualizer Wrapper -->
-                    <div style="position: relative; margin-bottom: 20px;">
-                        <!-- Pseudo Code Overlay -->
-                        <div id="pseudo-code-display" class="pseudo-code-box" style="display: none;">
-                            <!-- Code will be injected here -->
-                        </div>
-
-                        <!-- Visualizer Container -->
-                        <div id="visualizer-container" class="visualizer-bg"
-                            style="border-radius: 12px; padding: 20px; min-height: 300px; display: flex; align-items: flex-end; justify-content: center; gap: 4px; border: 1px solid var(--border-color);">
-                        </div>
-                    </div>
-
-                    <!-- Controls (Sorting/Searching) -->
-                    <div id="main-controls" class="d-flex flex-wrap align-items-center gap-3 justify-content-center">
-                        <button id="btn-shuffle" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px;">
-                            <i class="fas fa-random me-2"></i>Shuffle
-                        </button>
-                        <button id="btn-run" class="btn btn-primary-custom"
-                            style="border-radius: 50px; padding: 10px 25px; background: #10b981;">
-                            <i id="btn-run-icon" class="fas fa-play me-2"></i><span id="btn-run-text">Start</span>
-                        </button>
-                        <div class="d-flex align-items-center gap-2">
-                            <label for="speed-slider"
-                                style="color: var(--text-secondary); font-size: 0.9rem;">Speed:</label>
-                            <input type="range" id="speed-slider" min="1" max="100" value="50"
-                                style="width: 120px; accent-color: var(--accent-color);">
                         </div>
 
-                    </div>
 
+                        <!-- Binary Search Target Input (hidden by default) -->
+                        <!-- Binary Search Target Input (hidden by default) -->
+                        <!-- Binary Search Target Input (hidden by default) -->
+                        <div id="search-controls" class="flex-wrap align-items-center gap-3 justify-content-center mt-3"
+                            style="display: none;">
+                            <label for="search-target" style="color: var(--text-secondary); font-size: 0.9rem;">Find
+                                Value:</label>
+                            <input type="number" id="search-target" value="50" min="1" max="200"
+                                style="width: 80px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
+                        </div>
 
-                    <!-- Binary Search Target Input (hidden by default) -->
-                    <!-- Binary Search Target Input (hidden by default) -->
-                    <!-- Binary Search Target Input (hidden by default) -->
-                    <div id="search-controls" class="flex-wrap align-items-center gap-3 justify-content-center mt-3"
-                        style="display: none;">
-                        <label for="search-target" style="color: var(--text-secondary); font-size: 0.9rem;">Find
-                            Value:</label>
-                        <input type="number" id="search-target" value="50" min="1" max="200"
-                            style="width: 80px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
-                    </div>
-
-                    <!-- Legend -->
-                    <div id="algo-legend" class="d-flex flex-wrap gap-3 justify-content-center mt-3"
-                        style="font-size: 0.8rem; color: var(--text-secondary);">
-                        <span><span
-                                style="display: inline-block; width: 12px; height: 12px; background: var(--accent-color); border-radius: 2px; margin-right: 5px;"></span>Default</span>
-                        <span><span
-                                style="display: inline-block; width: 12px; height: 12px; background: #f59e0b; border-radius: 2px; margin-right: 5px;"></span>Comparing</span>
-                        <span><span
-                                style="display: inline-block; width: 12px; height: 12px; background: #ef4444; border-radius: 2px; margin-right: 5px;"></span>Swapping</span>
-                        <span><span
-                                style="display: inline-block; width: 12px; height: 12px; background: #10b981; border-radius: 2px; margin-right: 5px;"></span>Sorted</span>
+                        <!-- Legend -->
+                        <div id="algo-legend" class="d-flex flex-wrap gap-3 justify-content-center mt-3"
+                            style="font-size: 0.8rem; color: var(--text-secondary);">
+                            <span><span
+                                    style="display: inline-block; width: 12px; height: 12px; background: var(--accent-color); border-radius: 2px; margin-right: 5px;"></span>Default</span>
+                            <span><span
+                                    style="display: inline-block; width: 12px; height: 12px; background: #f59e0b; border-radius: 2px; margin-right: 5px;"></span>Comparing</span>
+                            <span><span
+                                    style="display: inline-block; width: 12px; height: 12px; background: #ef4444; border-radius: 2px; margin-right: 5px;"></span>Swapping</span>
+                            <span><span
+                                    style="display: inline-block; width: 12px; height: 12px; background: #10b981; border-radius: 2px; margin-right: 5px;"></span>Sorted</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <p>2018 - 2022 &copy; All Rights Reserved | Designed and Developed by <a href="https://github.com/Amey-Thakur"
                 rel="noopener noreferrer">Amey
                 Thakur</a></p>
@@ -484,7 +619,7 @@
 
     <!-- Back to Top Button -->
     <button type="button" class="btn" id="btn-back-to-top" aria-label="Back to Top">
-        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script src="script.js"></script>
@@ -506,7 +641,8 @@
             </div>
             <div class="modal-footer p-3 d-flex justify-content-end"
                 style="border-top: 1px solid var(--border-color); background: rgba(255,255,255,0.05);">
-                <a id="modal-github-link" href="#" target="_blank" class="btn btn-sm btn-primary-custom">View on GitHub
+                <a id="modal-github-link" href="#" target="_blank" class="btn btn-sm btn-primary-custom">View on
+                    GitHub
                     <i class="fas fa-external-link-alt ms-1"></i></a>
             </div>
         </div>
