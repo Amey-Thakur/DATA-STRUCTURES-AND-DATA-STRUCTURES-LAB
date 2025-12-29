@@ -1049,7 +1049,8 @@ function initApp() {
                 if (isSearch) {
                     // ATOMIC SHOW: Restore classes and flex display
                     searchControlsEl.className = 'd-flex flex-wrap align-items-center gap-3 justify-content-center mt-3';
-                    searchControlsEl.style.display = 'flex';
+                    // Use setAttribute to wipe any 'none' and force flex
+                    searchControlsEl.setAttribute('style', 'display: flex !important;');
 
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
@@ -1057,7 +1058,7 @@ function initApp() {
                 } else {
                     // ATOMIC HIDE: Wipe classes and force hide
                     searchControlsEl.className = '';
-                    searchControlsEl.style.display = 'none';
+                    searchControlsEl.setAttribute('style', 'display: none !important;');
 
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
