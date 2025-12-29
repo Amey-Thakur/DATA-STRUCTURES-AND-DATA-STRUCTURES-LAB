@@ -298,6 +298,32 @@ const algoPseudoCode = {
         "    if arr[pos] == target: return pos",
         "    if arr[pos] < target: low = pos + 1",
         "    else: high = pos - 1"
+    ],
+    cycle: [
+        "for (start = 0; start < n - 1; start++) {",
+        "    item = arr[start]; pos = start;",
+        "    for (i = start + 1; i < n; i++) if (arr[i] < item) pos++;",
+        "    if (pos == start) continue;",
+        "    while (item == arr[pos]) pos++;",
+        "    if (pos != start) swap(item, arr[pos]);",
+        "    while (pos != start) {",
+        "        pos = start; ...find new pos...",
+        "        while (item == arr[pos]) pos++;",
+        "        swap(item, arr[pos]);",
+        "    }",
+        "}"
+    ],
+    tim: [
+        "const RUN = 32;",
+        "for (i = 0; i < n; i+=RUN)",
+        "    insertionSort(arr, i, min((i+RUN-1), (n-1)));",
+        "for (size = RUN; size < n; size = 2*size) {",
+        "    for (left = 0; left < n; left += 2*size) {",
+        "        mid = left + size - 1;",
+        "        right = min((left + 2*size - 1), (n-1));",
+        "        merge(arr, left, mid, right);",
+        "    }",
+        "}"
     ]
 };
 
@@ -407,6 +433,8 @@ const algoInfo = {
     stooge: { title: 'Stooge Sort', desc: 'Recursive sorting algorithm that divides the array into thirds and sorts the first two-thirds, last two-thirds, and first two-thirds again.', complexity: 'O(n^2.7095)', complexityTooltip: 'Worse than quadratic - very inefficient recursion.' },
     jump: { title: 'Jump Search', desc: 'Finds an element in a sorted array by jumping ahead by fixed steps and then performing a linear search backward.', complexity: 'O(√n)', complexityTooltip: 'Square root time - better than linear, worse than binary.' },
     interpolation: { title: 'Interpolation Search', desc: 'An improvement over binary search for uniformly distributed sorted arrays, calculating the probable position of the target.', complexity: 'O(log log n)', complexityTooltip: 'Double logarithmic time - extremely fast for uniform data.' },
+    cycle: { title: 'Cycle Sort', desc: 'A sorting algorithm that is optimal in terms of the total number of writes to the memory. It minimizes memory writes.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - specifically minimizes writes.' },
+    tim: { title: 'Tim Sort', desc: 'A hybrid stable sorting algorithm, derived from merge sort and insertion sort, designed to perform well on many kinds of real-world data.', complexity: 'O(n log n)', complexityTooltip: 'Linearithmic - standard sort in Python and Java.' }
 };
 
 
@@ -1439,6 +1467,153 @@ function finishRun() {
     renderPseudoCode(null); // Hide pseudo-code overlay when done
 }
 
+// Cycle Sort
+async function cycleSort() {
+    renderPseudoCode(algoPseudoCode.cycle);
+    const n = array.length;
+    const sortedIndices = [];
+
+    await highlightLine(0); // for loop start
+    for (let cycleStart = 0; cycleStart <= n - 2; cycleStart++) {
+        if (!isRunning) return;
+
+        await highlightLine(1); // item = arr[start]; pos = start;
+        let item = array[cycleStart];
+        let pos = cycleStart;
+
+        await highlightLine(2); // for i = start + 1 ...
+        for (let i = cycleStart + 1; i < n; i++) {
+            if (!isRunning) return;
+            renderBars([cycleStart, i, pos], [], sortedIndices);
+            await sleep(getDelay());
+
+            if (array[i] < item) {
+                pos++;
+            }
+        }
+
+        // If item is already in correct position
+        await highlightLine(3); // if pos == start
+        if (pos === cycleStart) {
+            sortedIndices.push(cycleStart);
+            continue;
+        }
+
+        // Ignore duplicates
+        await highlightLine(4); // while item == arr[pos]
+        while (item === array[pos]) {
+            if (!isRunning) return;
+            pos++;
+            await sleep(getDelay() / 2);
+        }
+
+        // Put the item to its right position
+        await highlightLine(5); // swap(item, arr[pos])
+        if (pos !== cycleStart) {
+            renderBars([], [pos], sortedIndices);
+            await sleep(getDelay());
+            let temp = item;
+            item = array[pos];
+            array[pos] = temp;
+        }
+
+        // Rotate rest of the cycle
+        await highlightLine(6); // while pos != start
+        while (pos !== cycleStart) {
+            if (!isRunning) return;
+            pos = cycleStart;
+
+            await highlightLine(7); // Find pos again (summarized)
+            for (let i = cycleStart + 1; i < n; i++) {
+                if (array[i] < item) {
+                    pos++;
+                }
+            }
+
+            await highlightLine(8); // duplicate check
+            while (item === array[pos]) {
+                pos++;
+            }
+
+            await highlightLine(9); // swap(item, arr[pos])
+            if (item !== array[pos]) {
+                renderBars([], [pos], sortedIndices);
+                await sleep(getDelay());
+                let temp = item;
+                item = array[pos];
+                array[pos] = temp;
+            }
+        }
+        sortedIndices.push(cycleStart);
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Tim Sort
+async function timSort() {
+    renderPseudoCode(algoPseudoCode.tim);
+    const n = array.length;
+    const RUN = 8; // Small RUN for visualization
+
+    await highlightLine(0); // const RUN
+
+    // Sort individual subarrays of size RUN
+    await highlightLine(1); // for i = 0 to n step RUN
+    for (let i = 0; i < n; i += RUN) {
+        if (!isRunning) return;
+        await highlightLine(2); // insertionSort
+        await insertionSortRange(i, Math.min(i + RUN - 1, n - 1));
+    }
+
+    // Merge runs
+    await highlightLine(3); // for size = RUN
+    for (let size = RUN; size < n; size = 2 * size) {
+        if (!isRunning) return;
+        await highlightLine(4); // for left = 0
+        for (let left = 0; left < n; left += 2 * size) {
+            if (!isRunning) return;
+
+            let mid = left + size - 1;
+            let right = Math.min((left + 2 * size - 1), (n - 1));
+
+            if (mid < right) {
+                await highlightLine(7); // merge
+                await merge(left, mid, right);
+            }
+        }
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Helper for Tim Sort
+async function insertionSortRange(left, right) {
+    for (let i = left + 1; i <= right; i++) {
+        if (!isRunning) return;
+        let key = array[i];
+        let j = i - 1;
+
+        renderBars([i], [], []);
+        await sleep(getDelay());
+
+        while (j >= left && array[j] > key) {
+            if (!isRunning) return;
+            renderBars([j], [j, j + 1], []);
+            await sleep(getDelay());
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = key;
+        renderBars([], [], []);
+        await sleep(getDelay());
+    }
+}
+
 // Run selected algorithm
 function runAlgorithm() {
     if (!algoSelect) return;
@@ -1464,6 +1639,8 @@ function runAlgorithm() {
         case 'stooge': stoogeSort(); break;
         case 'jump': jumpSearch(); break;
         case 'interpolation': interpolationSearch(); break;
+        case 'cycle': cycleSort(); break;
+        case 'tim': timSort(); break;
     }
 }
 
@@ -1688,6 +1865,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'stooge': return stoogeSort;
             case 'jump': return jumpSearch;
             case 'interpolation': return interpolationSearch;
+            case 'cycle': return cycleSort;
+            case 'tim': return timSort;
             default: return null;
         }
     }
