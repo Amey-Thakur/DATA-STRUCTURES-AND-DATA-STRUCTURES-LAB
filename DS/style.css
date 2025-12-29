@@ -681,6 +681,13 @@ h5 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Complexity Badge Glow on Card Hover */
+.card-custom:hover #algo-complexity {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+
 .btn-secondary-custom {
     background: var(--card-bg) !important;
     color: var(--text-primary) !important;
