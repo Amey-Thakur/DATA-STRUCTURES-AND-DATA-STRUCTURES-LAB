@@ -341,6 +341,7 @@
                                     style="width: 200px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px;">
                                 <div class="algo-dropdown-list" id="algo-dropdown-list">
                                     <div class="algo-group-label">Sorting</div>
+                                    <div class="algo-option" data-value="bogo" data-group="sorting">Bogo Sort</div>
                                     <div class="algo-option selected" data-value="bubble" data-group="sorting">Bubble
                                         Sort</div>
                                     <div class="algo-option" data-value="bucket" data-group="sorting">Bucket Sort</div>
@@ -354,19 +355,26 @@
                                     <div class="algo-option" data-value="insertion" data-group="sorting">Insertion Sort
                                     </div>
                                     <div class="algo-option" data-value="merge" data-group="sorting">Merge Sort</div>
+                                    <div class="algo-option" data-value="odd-even" data-group="sorting">Odd-Even Sort
+                                    </div>
                                     <div class="algo-option" data-value="quick" data-group="sorting">Quick Sort</div>
                                     <div class="algo-option" data-value="radix" data-group="sorting">Radix Sort</div>
                                     <div class="algo-option" data-value="selection" data-group="sorting">Selection Sort
                                     </div>
                                     <div class="algo-option" data-value="shell" data-group="sorting">Shell Sort</div>
+                                    <div class="algo-option" data-value="stooge" data-group="sorting">Stooge Sort</div>
                                     <div class="algo-group-label">Searching</div>
                                     <div class="algo-option" data-value="binary" data-group="searching">Binary Search
                                     </div>
+                                    <div class="algo-option" data-value="interpolation" data-group="searching">
+                                        Interpolation Search</div>
+                                    <div class="algo-option" data-value="jump" data-group="searching">Jump Search</div>
                                     <div class="algo-option" data-value="linear" data-group="searching">Linear Search
                                     </div>
                                 </div>
                                 <!-- Hidden select for compatibility -->
                                 <select id="algo-select" style="display: none;">
+                                    <option value="bogo">Bogo Sort</option>
                                     <option value="bubble" selected>Bubble Sort</option>
                                     <option value="bucket">Bucket Sort</option>
                                     <option value="cocktail">Cocktail Shaker Sort</option>
@@ -376,11 +384,15 @@
                                     <option value="heap">Heap Sort</option>
                                     <option value="insertion">Insertion Sort</option>
                                     <option value="merge">Merge Sort</option>
+                                    <option value="odd-even">Odd-Even Sort</option>
                                     <option value="quick">Quick Sort</option>
                                     <option value="radix">Radix Sort</option>
                                     <option value="selection">Selection Sort</option>
                                     <option value="shell">Shell Sort</option>
+                                    <option value="stooge">Stooge Sort</option>
                                     <option value="binary">Binary Search</option>
+                                    <option value="interpolation">Interpolation Search</option>
+                                    <option value="jump">Jump Search</option>
                                     <option value="linear">Linear Search</option>
                                 </select>
                             </div>

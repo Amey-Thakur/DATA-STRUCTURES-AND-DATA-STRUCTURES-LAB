@@ -106,7 +106,7 @@ const pseudoCodeEl = document.getElementById('pseudo-code-display');
 
 // Helper function to update Run button state (text and icon)
 function updateRunButton(isPaused) {
-    const isSearch = algoSelect && (algoSelect.value === 'binary' || algoSelect.value === 'linear');
+    const isSearch = algoSelect && ['binary', 'linear', 'jump', 'interpolation'].includes(algoSelect.value);
     if (isPaused) {
         if (btnRunText) btnRunText.textContent = 'Pause';
         if (btnRunIcon) {
@@ -259,6 +259,45 @@ const algoPseudoCode = {
         "    else:",
         "        swap(arr[pos], arr[pos-1])",
         "        pos--"
+    ],
+    bogo: [
+        "while not sorted(arr):",
+        "    shuffle(arr)"
+    ],
+    'odd-even': [
+        "bool sorted = false;",
+        "while !sorted:",
+        "    sorted = true;",
+        "    for i = 1 to n-2 step 2: // Odd",
+        "        if arr[i] > arr[i+1]: swap, sorted=false",
+        "    for i = 0 to n-2 step 2: // Even",
+        "        if arr[i] > arr[i+1]: swap, sorted=false"
+    ],
+    stooge: [
+        "stoogeSort(arr, i, j):",
+        "    if arr[i] > arr[j]: swap(i, j)",
+        "    if (j - i + 1) > 2:",
+        "        t = (j - i + 1) / 3",
+        "        stoogeSort(arr, i, j-t)",
+        "        stoogeSort(arr, i+t, j)",
+        "        stoogeSort(arr, i, j-t)"
+    ],
+    jump: [
+        "m = sqrt(n)",
+        "while arr[min(m, n)-1] < target:",
+        "    prev = m, m += sqrt(n)",
+        "    if prev >= n: return -1",
+        "for i = prev to min(m, n)-1:",
+        "    if arr[i] == target: return i",
+        "return -1"
+    ],
+    interpolation: [
+        "low = 0, high = n-1",
+        "while low <= high and target >= arr[low] and target <= arr[high]:",
+        "    pos = low + ((target-arr[low])*(high-low)/(arr[high]-arr[low]))",
+        "    if arr[pos] == target: return pos",
+        "    if arr[pos] < target: low = pos + 1",
+        "    else: high = pos - 1"
     ]
 };
 
@@ -363,6 +402,11 @@ const algoInfo = {
     bucket: { title: 'Bucket Sort', desc: 'Distributes elements into buckets, sorts each bucket individually, then concatenates the results.', complexity: 'O(n+k)', complexityTooltip: 'Linear time on average - k is the number of buckets.' },
     comb: { title: 'Comb Sort', desc: 'Improves on Bubble Sort by using a gap larger than 1 to eliminate small values at the end (turtles).', complexity: 'O(n²)', complexityTooltip: 'Quadratic worst case - but much faster than bubble sort in practice.' },
     gnome: { title: 'Gnome Sort', desc: 'Similar to insertion sort but moves elements to their proper place by swapping backwards like a garden gnome sorting flower pots.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - simple but efficient for small or nearly sorted data.' },
+    bogo: { title: 'Bogo Sort', desc: 'Permutes the array randomly until it is sorted. Highly inefficient but fascinating to watch.', complexity: 'O((n+1)!)', complexityTooltip: 'Factorial time - practically infinite for larger arrays.' },
+    'odd-even': { title: 'Odd-Even Sort', desc: 'Compares all odd/even indexed adjacent pairs in two phases (odd phase and even phase) until sorted.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - also known as Brick Sort.' },
+    stooge: { title: 'Stooge Sort', desc: 'Recursive sorting algorithm that divides the array into thirds and sorts the first two-thirds, last two-thirds, and first two-thirds again.', complexity: 'O(n^2.7095)', complexityTooltip: 'Worse than quadratic - very inefficient recursion.' },
+    jump: { title: 'Jump Search', desc: 'Finds an element in a sorted array by jumping ahead by fixed steps and then performing a linear search backward.', complexity: 'O(√n)', complexityTooltip: 'Square root time - better than linear, worse than binary.' },
+    interpolation: { title: 'Interpolation Search', desc: 'An improvement over binary search for uniformly distributed sorted arrays, calculating the probable position of the target.', complexity: 'O(log log n)', complexityTooltip: 'Double logarithmic time - extremely fast for uniform data.' },
 };
 
 
@@ -1085,10 +1129,126 @@ async function gnomeSort() {
         }
     }
 
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Bogo Sort
+async function bogoSort() {
+    renderPseudoCode(algoPseudoCode.bogo);
+    const n = array.length;
+    while (!isSorted()) {
+        if (!isRunning) return;
+        await highlightLine(0); // while not sorted
+        for (let i = n - 1; i > 0; i--) {
+            if (!isRunning) return;
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        await highlightLine(1); // shuffle
+        renderBars([], [], Array.from({ length: n }, (_, i) => i));
+        await sleep(getDelay());
+    }
     await highlightLine(-1);
     renderBars([], [], Array.from({ length: n }, (_, i) => i));
     finishRun();
 }
+
+function isSorted() {
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] > array[i + 1]) return false;
+    }
+    return true;
+}
+
+// Odd-Even Sort
+async function oddEvenSort() {
+    renderPseudoCode(algoPseudoCode['odd-even']);
+    const n = array.length;
+    let sorted = false;
+    await highlightLine(0); // bool sorted = false
+    while (!sorted) {
+        if (!isRunning) return;
+        await highlightLine(1); // while !sorted
+        sorted = true;
+        await highlightLine(2); // sorted = true
+
+        // Odd phase
+        await highlightLine(3); // for i = 1 to n-2 step 2
+        for (let i = 1; i < n - 1; i += 2) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], []);
+            await sleep(getDelay());
+            if (array[i] > array[i + 1]) {
+                await highlightLine(4); // if swap
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                sorted = false;
+                renderBars([], [i, i + 1], []);
+                await sleep(getDelay());
+            }
+        }
+
+        // Even phase
+        await highlightLine(5); // for i = 0 to n-2 step 2
+        for (let i = 0; i < n - 1; i += 2) {
+            if (!isRunning) return;
+            renderBars([i, i + 1], [], []);
+            await sleep(getDelay());
+            if (array[i] > array[i + 1]) {
+                await highlightLine(6); // if swap
+                [array[i], array[i + 1]] = [array[i + 1], array[i]];
+                sorted = false;
+                renderBars([], [i, i + 1], []);
+                await sleep(getDelay());
+            }
+        }
+    }
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Stooge Sort
+async function stoogeSort() {
+    renderPseudoCode(algoPseudoCode.stooge);
+    const n = array.length;
+    await stoogeSortRecursive(0, n - 1);
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+async function stoogeSortRecursive(l, h) {
+    if (!isRunning) return;
+    if (l >= h) return;
+
+    await highlightLine(0); // recursion call info
+    renderBars([l, h], [], []);
+    await sleep(getDelay());
+
+    await highlightLine(1); // if arr[i] > arr[j]: swap
+    if (array[l] > array[h]) {
+        [array[l], array[h]] = [array[h], array[l]];
+        renderBars([], [l, h], []);
+        await sleep(getDelay());
+    }
+
+    await highlightLine(2); // if (j - i + 1) > 2
+    if (h - l + 1 > 2) {
+        await highlightLine(3); // t = (j - i + 1) / 3
+        const t = Math.floor((h - l + 1) / 3);
+
+        await highlightLine(4); // first 2/3
+        await stoogeSortRecursive(l, h - t);
+
+        await highlightLine(5); // last 2/3
+        await stoogeSortRecursive(l + t, h);
+
+        await highlightLine(6); // first 2/3 again
+        await stoogeSortRecursive(l, h - t);
+    }
+}
+
 
 // ========== SEARCHING ALGORITHMS ==========
 
@@ -1165,6 +1325,114 @@ async function binarySearch() {
     await highlightLine(-1);
 }
 
+// Jump Search
+async function jumpSearch() {
+    renderPseudoCode(algoPseudoCode.jump);
+    if (!searchTarget) return;
+    const target = parseInt(searchTarget.value);
+    const n = array.length;
+
+    await highlightLine(0); // m = sqrt(n)
+    let step = Math.floor(Math.sqrt(n));
+    let prev = 0;
+    let m = step;
+
+    await highlightLine(1); // while loop
+    while (array[Math.min(m, n) - 1] < target) {
+        if (!isRunning) return;
+        await highlightLine(2); // jumping
+        renderBars([Math.min(m, n) - 1], [], []);
+        await sleep(getDelay());
+        prev = m;
+        m += step;
+        if (prev >= n) {
+            await highlightLine(3); // failed
+            finishRun();
+            return;
+        }
+    }
+
+    await highlightLine(4); // linear phase
+    for (let i = prev; i < Math.min(m, n); i++) {
+        if (!isRunning) return;
+        renderBars([i], [], []);
+        await sleep(getDelay());
+        await highlightLine(5); // equality check
+        if (array[i] === target) {
+            renderBars([], [], [], [i]);
+            await sleep(1000);
+            finishRun();
+            await highlightLine(-1);
+            return;
+        }
+    }
+
+    await highlightLine(6); // return -1
+    renderBars([], Array.from({ length: n }, (_, i) => i), [], []);
+    await sleep(500);
+    renderBars();
+    finishRun();
+    await highlightLine(-1);
+}
+
+// Interpolation Search
+async function interpolationSearch() {
+    renderPseudoCode(algoPseudoCode.interpolation);
+    if (!searchTarget) return;
+    const target = parseInt(searchTarget.value);
+    const n = array.length;
+
+    await highlightLine(0); // initialization
+    let low = 0;
+    let high = n - 1;
+
+    await highlightLine(1); // loop condition
+    while (low <= high && target >= array[low] && target <= array[high]) {
+        if (!isRunning) return;
+        renderBars([low, high], [], []);
+        await sleep(getDelay());
+
+        if (low === high) {
+            if (array[low] === target) {
+                renderBars([], [], [], [low]);
+                await sleep(1000);
+            }
+            finishRun();
+            await highlightLine(-1);
+            return;
+        }
+
+        await highlightLine(2); // calculation
+        let pos = low + Math.floor(((target - array[low]) * (high - low)) / (array[high] - array[low]));
+        renderBars([pos], [], []);
+        await sleep(getDelay());
+
+        await highlightLine(3); // found?
+        if (array[pos] === target) {
+            renderBars([], [], [], [pos]);
+            await sleep(1000);
+            finishRun();
+            await highlightLine(-1);
+            return;
+        }
+
+        if (array[pos] < target) {
+            await highlightLine(4); // target is higher
+            low = pos + 1;
+        } else {
+            await highlightLine(5); // target is lower
+            high = pos - 1;
+        }
+    }
+
+    // Not found
+    renderBars([], Array.from({ length: n }, (_, i) => i), [], []);
+    await sleep(500);
+    renderBars();
+    finishRun();
+    await highlightLine(-1);
+}
+
 function finishRun() {
     isRunning = false;
     updateRunButton(false);
@@ -1191,6 +1459,11 @@ function runAlgorithm() {
         case 'bucket': bucketSort(); break;
         case 'comb': combSort(); break;
         case 'gnome': gnomeSort(); break;
+        case 'bogo': bogoSort(); break;
+        case 'odd-even': oddEvenSort(); break;
+        case 'stooge': stoogeSort(); break;
+        case 'jump': jumpSearch(); break;
+        case 'interpolation': interpolationSearch(); break;
     }
 }
 
@@ -1410,6 +1683,11 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'bucket': return bucketSort;
             case 'comb': return combSort;
             case 'gnome': return gnomeSort;
+            case 'bogo': return bogoSort;
+            case 'odd-even': return oddEvenSort;
+            case 'stooge': return stoogeSort;
+            case 'jump': return jumpSearch;
+            case 'interpolation': return interpolationSearch;
             default: return null;
         }
     }
@@ -1504,12 +1782,12 @@ function initApp() {
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
             const searchControlsEl = document.getElementById('search-controls');
-            const isSearch = (algo === 'binary' || algo === 'linear');
+            const isSearch = ['binary', 'linear', 'jump', 'interpolation'].includes(algo);
 
             if (searchControlsEl) {
                 if (isSearch) {
                     searchControlsEl.style.display = 'flex';
-                    if (algo === 'binary') initSortedArray();
+                    if (['binary', 'jump', 'interpolation'].includes(algo)) initSortedArray();
                     else initArray();
                 } else {
                     searchControlsEl.style.display = 'none';
@@ -1521,7 +1799,7 @@ function initApp() {
             updateRunButton(false);
 
             // Initialize Array
-            if (algo === 'binary') initSortedArray();
+            if (['binary', 'jump', 'interpolation'].includes(algo)) initSortedArray();
             else initArray();
 
             // Hide pseudo code when switching algorithms (will show again on Start)
