@@ -299,6 +299,41 @@ const algoPseudoCode = {
         "    if arr[pos] < target: low = pos + 1",
         "    else: high = pos - 1"
     ],
+    exponential: [
+        "if arr[0] == x: return 0",
+        "i = 1",
+        "while i < n and arr[i] <= x:",
+        "    i = i * 2",
+        "return binarySearch(arr, i/2, min(i, n-1), x)"
+    ],
+    ternary: [
+        "while l <= r:",
+        "    m1 = l + (r-l)/3, m2 = r - (r-l)/3",
+        "    if arr[m1] == x: return m1",
+        "    if arr[m2] == x: return m2",
+        "    if x < arr[m1]: r = m1 - 1",
+        "    else if x > arr[m2]: l = m2 + 1",
+        "    else: l = m1 + 1, r = m2 - 1"
+    ],
+    fibonacci: [
+        "fib2 = 0, fib1 = 1, fibM = 1",
+        "while fibM < n: fibM = fib1 + fib2, fib2 = fib1, fib1 = fibM",
+        "offset = -1",
+        "while fibM > 1:",
+        "    i = min(offset + fib2, n-1)",
+        "    if arr[i] < x: fibM = fib1, fib1 = fib2, fib2 = fibM - fib1, offset = i",
+        "    else if arr[i] > x: fibM = fib2, fib1 = fib1 - fib2, fib2 = fibM - fib1",
+        "    else: return i"
+    ],
+    meta: [
+        "n = len(arr), lg = log2(n)",
+        "pos = 0",
+        "for (i = lg; i >= 0; i--):",
+        "    new_pos = pos | (1 << i)",
+        "    if new_pos < n and arr[new_pos] <= x:",
+        "        pos = new_pos",
+        "return pos if arr[pos] == x else -1"
+    ],
     cycle: [
         "for (start = 0; start < n - 1; start++) {",
         "    item = arr[start]; pos = start;",
@@ -433,6 +468,10 @@ const algoInfo = {
     stooge: { title: 'Stooge Sort', desc: 'Recursive sorting algorithm that divides the array into thirds and sorts the first two-thirds, last two-thirds, and first two-thirds again.', complexity: 'O(n^2.7095)', complexityTooltip: 'Worse than quadratic - very inefficient recursion.' },
     jump: { title: 'Jump Search', desc: 'Finds an element in a sorted array by jumping ahead by fixed steps and then performing a linear search backward.', complexity: 'O(√n)', complexityTooltip: 'Square root time - better than linear, worse than binary.' },
     interpolation: { title: 'Interpolation Search', desc: 'An improvement over binary search for uniformly distributed sorted arrays, calculating the probable position of the target.', complexity: 'O(log log n)', complexityTooltip: 'Double logarithmic time - extremely fast for uniform data.' },
+    exponential: { title: 'Exponential Search', desc: 'Finds an element in a sorted array by identifying a range where the element could be, then performing a binary search within that range.', complexity: 'O(log i)', complexityTooltip: 'Binary search complexity - dependent on target position.' },
+    ternary: { title: 'Ternary Search', desc: 'Divides the search space into three parts using two midpoints and determines which third the target resides in.', complexity: 'O(log3 n)', complexityTooltip: 'Logarithmic time - base 3.' },
+    fibonacci: { title: 'Fibonacci Search', desc: 'A comparison-based search algorithm that uses Fibonacci numbers to narrow down the search range in a sorted array.', complexity: 'O(log n)', complexityTooltip: 'Logarithmic time - similar to binary search.' },
+    meta: { title: 'Meta Binary Search', desc: 'Also known as One-Sided Binary Search, this algorithm uses bit manipulation to find the target element.', complexity: 'O(log n)', complexityTooltip: 'Logarithmic time - bitwise approach.' },
     cycle: { title: 'Cycle Sort', desc: 'A sorting algorithm that is optimal in terms of the total number of writes to the memory. It minimizes memory writes.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - specifically minimizes writes.' },
     tim: { title: 'Tim Sort', desc: 'A hybrid stable sorting algorithm, derived from merge sort and insertion sort, designed to perform well on many kinds of real-world data.', complexity: 'O(n log n)', complexityTooltip: 'Linearithmic - standard sort in Python and Java.' }
 };
@@ -1614,6 +1653,217 @@ async function insertionSortRange(left, right) {
     }
 }
 
+// Exponential Search
+async function exponentialSearch() {
+    renderPseudoCode(algoPseudoCode.exponential);
+    const n = array.length;
+    const target = parseInt(searchTarget.value);
+
+    await highlightLine(0); // if arr[0] == x
+    renderBars([0], [], []);
+    await sleep(getDelay());
+    if (array[0] === target) {
+        renderBars([], [], [0]);
+        finishRun();
+        return;
+    }
+
+    await highlightLine(1); // i = 1
+    let i = 1;
+
+    await highlightLine(2); // while i < n and arr[i] <= x
+    while (i < n && array[i] <= target) {
+        if (!isRunning) return;
+        renderBars([i], [], []);
+        await highlightLine(3); // i = i * 2
+        await sleep(getDelay());
+        i = i * 2;
+        await highlightLine(2);
+    }
+
+    await highlightLine(4); // binarySearch(...)
+    const low = Math.floor(i / 2);
+    const high = Math.min(i, n - 1);
+
+    // Call binary search range helper
+    await binarySearchRange(low, high, target);
+}
+
+// Helper for algorithms that need binary search in a specific range
+async function binarySearchRange(low, high, target) {
+    let l = low;
+    let r = high;
+
+    // We reuse the binary search logic but for a sub-range
+    while (l <= r) {
+        if (!isRunning) return;
+        let mid = Math.floor(l + (r - l) / 2);
+        renderBars([mid], [l, r], []);
+        await sleep(getDelay());
+
+        if (array[mid] === target) {
+            renderBars([], [], [mid]);
+            finishRun();
+            return;
+        }
+
+        if (array[mid] < target) {
+            l = mid + 1;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    finishRun();
+}
+
+// Ternary Search
+async function ternarySearch() {
+    renderPseudoCode(algoPseudoCode.ternary);
+    const n = array.length;
+    const target = parseInt(searchTarget.value);
+    let l = 0;
+    let r = n - 1;
+
+    await highlightLine(0); // while l <= r
+    while (l <= r) {
+        if (!isRunning) return;
+
+        await highlightLine(1); // m1 = l + (r-l)/3, m2 = r - (r-l)/3
+        let m1 = Math.floor(l + (r - l) / 3);
+        let m2 = Math.floor(r - (r - l) / 3);
+
+        renderBars([m1, m2], [l, r], []);
+        await sleep(getDelay());
+
+        await highlightLine(2); // if arr[m1] == x
+        if (array[m1] === target) {
+            renderBars([], [], [m1]);
+            finishRun();
+            return;
+        }
+
+        await highlightLine(3); // if arr[m2] == x
+        if (array[m2] === target) {
+            renderBars([], [], [m2]);
+            finishRun();
+            return;
+        }
+
+        await highlightLine(4); // if x < arr[m1]
+        if (target < array[m1]) {
+            r = m1 - 1;
+        } else if (target > array[m2]) {
+            await highlightLine(5); // else if x > arr[m2]
+            l = m2 + 1;
+        } else {
+            await highlightLine(6); // else (mid third)
+            l = m1 + 1;
+            r = m2 - 1;
+        }
+        await highlightLine(0);
+    }
+
+    finishRun();
+}
+
+// Fibonacci Search
+async function fibonacciSearch() {
+    renderPseudoCode(algoPseudoCode.fibonacci);
+    const n = array.length;
+    const target = parseInt(searchTarget.value);
+
+    await highlightLine(0); // fib2 = 0...
+    let fib2 = 0;
+    let fib1 = 1;
+    let fibM = fib2 + fib1;
+
+    await highlightLine(1); // while fibM < n
+    while (fibM < n) {
+        fib2 = fib1;
+        fib1 = fibM;
+        fibM = fib2 + fib1;
+    }
+
+    await highlightLine(2); // offset = -1
+    let offset = -1;
+
+    await highlightLine(3); // while fibM > 1
+    while (fibM > 1) {
+        if (!isRunning) return;
+
+        await highlightLine(4); // i = min(offset + fib2, n-1)
+        let i = Math.min(offset + fib2, n - 1);
+        renderBars([i], [offset + 1, n - 1], []);
+        await sleep(getDelay());
+
+        await highlightLine(5); // if arr[i] < x
+        if (array[i] < target) {
+            fibM = fib1;
+            fib1 = fib2;
+            fib2 = fibM - fib1;
+            offset = i;
+        } else if (array[i] > target) {
+            await highlightLine(6); // else if arr[i] > x
+            fibM = fib2;
+            fib1 = fib1 - fib2;
+            fib2 = fibM - fib1;
+        } else {
+            await highlightLine(7); // else return i
+            renderBars([], [], [i]);
+            finishRun();
+            return;
+        }
+    }
+
+    if (fib1 && array[offset + 1] === target) {
+        renderBars([], [], [offset + 1]);
+        finishRun();
+        return;
+    }
+
+    finishRun();
+}
+
+// Meta Binary Search (One-Sided Binary Search)
+async function metaBinarySearch() {
+    renderPseudoCode(algoPseudoCode.meta);
+    const n = array.length;
+    const target = parseInt(searchTarget.value);
+
+    await highlightLine(0); // n, lg
+    let lg = Math.floor(Math.log2(n));
+
+    await highlightLine(1); // pos = 0
+    let pos = 0;
+
+    await highlightLine(2); // for i = lg...
+    for (let i = lg; i >= 0; i--) {
+        if (!isRunning) return;
+
+        await highlightLine(3); // new_pos = pos | (1 << i)
+        let new_pos = pos | (1 << i);
+
+        renderBars([new_pos], [], []);
+        await sleep(getDelay());
+
+        await highlightLine(4); // if new_pos < n and arr[new_pos] <= x
+        if (new_pos < n && array[new_pos] <= target) {
+            await highlightLine(5); // pos = new_pos
+            pos = new_pos;
+            renderBars([pos], [], []);
+            await sleep(getDelay());
+        }
+    }
+
+    await highlightLine(6); // return pos if...
+    if (array[pos] === target) {
+        renderBars([], [], [pos]);
+    }
+
+    finishRun();
+}
+
 // Run selected algorithm
 function runAlgorithm() {
     if (!algoSelect) return;
@@ -1639,6 +1889,10 @@ function runAlgorithm() {
         case 'stooge': stoogeSort(); break;
         case 'jump': jumpSearch(); break;
         case 'interpolation': interpolationSearch(); break;
+        case 'exponential': exponentialSearch(); break;
+        case 'ternary': ternarySearch(); break;
+        case 'fibonacci': fibonacciSearch(); break;
+        case 'meta': metaBinarySearch(); break;
         case 'cycle': cycleSort(); break;
         case 'tim': timSort(); break;
     }
@@ -1865,6 +2119,10 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'stooge': return stoogeSort;
             case 'jump': return jumpSearch;
             case 'interpolation': return interpolationSearch;
+            case 'exponential': return exponentialSearch;
+            case 'ternary': return ternarySearch;
+            case 'fibonacci': return fibonacciSearch;
+            case 'meta': return metaBinarySearch;
             case 'cycle': return cycleSort;
             case 'tim': return timSort;
             default: return null;
