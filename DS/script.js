@@ -2360,4 +2360,167 @@ function initApp() {
             e.preventDefault();
         }
     });
+
+    // =========================================
+    //   COMMAND PALETTE LOGIC
+    // =========================================
+    initCommandPalette();
+}
+
+function initCommandPalette() {
+    const overlay = document.getElementById('cmd-overlay');
+    const input = document.getElementById('cmd-input');
+    const resultsContainer = document.getElementById('cmd-results');
+    const modal = document.querySelector('.cmd-modal');
+    if (!overlay || !input || !resultsContainer) return;
+
+    let selectedIndex = 0;
+    let results = [];
+    const commands = [
+        { type: 'Command', name: 'Toggle Theme', icon: 'fa-adjust', action: () => document.getElementById('theme-toggle').click() },
+        { type: 'Command', name: 'Scroll to Top', icon: 'fa-arrow-up', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
+        { type: 'Command', name: 'Go to Algorithms', icon: 'fa-code-branch', action: () => document.getElementById('visualizer-section').scrollIntoView({ behavior: 'smooth' }) },
+        { type: 'Command', name: 'Go to Experiments', icon: 'fa-flask', action: () => document.querySelector('.experiments-grid').scrollIntoView({ behavior: 'smooth' }) },
+    ];
+
+    // Scrape Content for Search Index
+    const algorithms = Object.values(algoInfo).map(algo => ({
+        type: 'Algorithm',
+        name: algo.title,
+        icon: 'fa-chart-bar',
+        action: () => {
+            const select = document.getElementById('algo-select');
+            const key = Object.keys(algoInfo).find(k => algoInfo[k].title === algo.title);
+            if (select && key) {
+                select.value = key;
+                select.dispatchEvent(new Event('change'));
+                document.getElementById('visualizer-section').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }));
+
+    const experiments = Array.from(document.querySelectorAll('.experiment-card h3')).map(h3 => ({
+        type: 'Experiment',
+        name: h3.textContent.trim(),
+        icon: 'fa-flask',
+        action: () => {
+            h3.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            h3.closest('.experiment-card').style.border = '2px solid var(--accent-color)';
+            setTimeout(() => h3.closest('.experiment-card').style.border = 'none', 1500);
+        }
+    }));
+
+    const searchIndex = [...commands, ...algorithms, ...experiments];
+
+    // Open/Close Logic
+    function openPalette() {
+        overlay.classList.add('active');
+        input.value = '';
+        input.focus();
+        filterResults('');
+    }
+
+    function closePalette() {
+        overlay.classList.remove('active');
+    }
+
+    // Filter Logic
+    function filterResults(query) {
+        const q = query.toLowerCase();
+        results = searchIndex.filter(item =>
+            item.name.toLowerCase().includes(q)
+        ).slice(0, 10); // Limit to 10 results
+
+        // Always show commands if query is empty
+        if (q === '') {
+            results = commands;
+        }
+
+        renderResults();
+    }
+
+    // Render Logic
+    function renderResults() {
+        resultsContainer.innerHTML = '';
+        if (results.length === 0) {
+            resultsContainer.innerHTML = '<div class="algo-no-results">No matching commands or algorithms found.</div>';
+            return;
+        }
+
+        results.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = `cmd-item ${index === selectedIndex ? 'selected' : ''}`;
+            div.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <div class="cmd-item-icon"><i class="fas ${item.icon}"></i></div>
+                    <span class="cmd-item-text">${item.name}</span>
+                </div>
+                <span class="cmd-item-type">${item.type}</span>
+            `;
+            div.addEventListener('click', () => {
+                item.action();
+                closePalette();
+            });
+            div.addEventListener('mouseenter', () => {
+                selectedIndex = index;
+                renderResults(); // Re-render to update selection style
+            });
+            resultsContainer.appendChild(div);
+        });
+
+        // Ensure selected item is in view
+        const selectedEl = resultsContainer.children[selectedIndex];
+        if (selectedEl) {
+            selectedEl.scrollIntoView({ block: 'nearest' });
+        }
+    }
+
+    // Event Listeners
+    document.addEventListener('keydown', (e) => {
+        // Toggle Palette (Ctrl+K or Cmd+K)
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            if (overlay.classList.contains('active')) closePalette();
+            else openPalette();
+        }
+
+        // Palette Navigation
+        if (overlay.classList.contains('active')) {
+            if (e.key === 'Escape') closePalette();
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex + 1) % results.length;
+                renderResults();
+            }
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex - 1 + results.length) % results.length;
+                renderResults();
+            }
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (results[selectedIndex]) {
+                    results[selectedIndex].action();
+                    closePalette();
+                }
+            }
+        } else {
+            // Global Shortcuts (when palette is closed)
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                if (e.key === 't' || e.key === 'T') {
+                    // Prevent conflict if user is typing text
+                    document.getElementById('theme-toggle').click();
+                }
+            }
+        }
+    });
+
+    input.addEventListener('input', (e) => {
+        selectedIndex = 0;
+        filterResults(e.target.value);
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closePalette();
+    });
 }
