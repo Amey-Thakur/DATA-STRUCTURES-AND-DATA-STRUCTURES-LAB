@@ -1045,12 +1045,12 @@ function initApp() {
 
             if (searchControlsEl) {
                 if (algo === 'binary' || algo === 'linear') {
-                    searchControlsEl.style.display = 'flex';
+                    searchControlsEl.style.setProperty('display', 'flex', 'important');
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControlsEl.style.display = 'none';
+                    searchControlsEl.style.setProperty('display', 'none', 'important');
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
