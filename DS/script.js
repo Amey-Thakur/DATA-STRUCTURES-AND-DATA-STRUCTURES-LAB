@@ -1027,22 +1027,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Stats Counter Animation
     const counters = document.querySelectorAll('.stat-number');
+    const animationDuration = 2000; // 2 seconds for all counters
+
     counters.forEach(counter => {
-        const updateCount = () => {
-            const target = +counter.getAttribute('data-target');
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const count = +counter.innerText.replace(suffix, '');
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const startTime = performance.now();
 
-            const inc = Math.max(1, target / 100);
+        const updateCount = (currentTime) => {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / animationDuration, 1);
 
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc) + suffix;
-                setTimeout(updateCount, 15);
+            // Ease-out effect (optional, makes it smoother)
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+
+            const currentCount = Math.floor(easeOut * target);
+            counter.innerText = currentCount + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
             } else {
                 counter.innerText = target + suffix;
             }
         };
-        updateCount();
+
+        requestAnimationFrame(updateCount);
     });
 });
 
