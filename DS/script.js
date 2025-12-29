@@ -97,7 +97,7 @@ const speedSlider = document.getElementById('speed-slider');
 const algoSelect = document.getElementById('algo-select');
 const algoTitle = document.getElementById('algo-title');
 const algoDescription = document.getElementById('algo-description');
-const searchControls = document.getElementById('search-input-container');
+const searchControls = document.getElementById('search-controls');
 const searchTarget = document.getElementById('search-target');
 const algoLegend = document.getElementById('algo-legend');
 const algoComplexity = document.getElementById('algo-complexity');
@@ -1042,14 +1042,19 @@ function initApp() {
             if (dsControls) dsControls.style.display = 'none';
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
-            const searchContainer = document.getElementById('search-input-container');
+            const searchControlsEl = document.getElementById('search-controls');
             const isSearch = (algo === 'binary' || algo === 'linear');
 
-            if (searchContainer) {
+            if (searchControlsEl) {
                 if (isSearch) {
-                    searchContainer.style.setProperty('display', 'flex', 'important');
+                    searchControlsEl.classList.remove('force-hidden');
+                    searchControlsEl.classList.add('force-visible');
+                    // Ensure flex layout for the container
+                    searchControlsEl.classList.add('d-flex');
                 } else {
-                    searchContainer.style.setProperty('display', 'none', 'important');
+                    searchControlsEl.classList.remove('force-visible');
+                    searchControlsEl.classList.add('force-hidden');
+                    searchControlsEl.classList.remove('d-flex');
                 }
             }
 
