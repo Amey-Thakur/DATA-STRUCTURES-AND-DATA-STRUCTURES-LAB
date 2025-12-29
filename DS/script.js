@@ -11,6 +11,26 @@
  * ================================================================
  */
 
+// PWA Install Prompt
+let deferredPrompt;
+const pwaInstallBtn = document.getElementById('pwa-install-btn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (pwaInstallBtn) {
+        pwaInstallBtn.style.display = 'inline-flex';
+        pwaInstallBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                pwaInstallBtn.style.display = 'none';
+            }
+        });
+    }
+});
+
 /**
  * =========================================
  *   CORE FUNCTIONALITY
