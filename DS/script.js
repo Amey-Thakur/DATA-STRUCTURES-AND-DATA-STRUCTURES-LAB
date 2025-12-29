@@ -216,6 +216,14 @@ const algoPseudoCode = {
         "    swapped = false;",
         "    for (i = end; i > 0; i--) { ... } // Backward",
         "} while (swapped);"
+    ],
+    radix: [
+        "int max = getMax(arr, n);",
+        "for (int exp = 1; max/exp > 0; exp *= 10) {",
+        "    countSort(arr, n, exp);",
+        "}",
+        "// countSort: place elements in buckets",
+        "// based on current digit (exp)"
     ]
 };
 
@@ -315,6 +323,7 @@ const algoInfo = {
     linear: { title: 'Linear Search', desc: 'Sequentially checks each element of the list until a match is found or the whole list has been searched.', complexity: 'O(n)', complexityTooltip: 'Linear time - checks each element once.' },
     binary: { title: 'Binary Search', desc: 'Efficiently finds a target value in a sorted array by repeatedly dividing the search interval in half.', complexity: 'O(log n)', complexityTooltip: 'Logarithmic time - halves search space each step.' },
     cocktail: { title: 'Cocktail Shaker Sort', desc: 'Bidirectional Bubble Sort that traverses the list in both directions, alternatively bubbling large elements to end and small elements to beginning.', complexity: 'O(n²)', complexityTooltip: 'Quadratic time - slightly better than bubble sort.' },
+    radix: { title: 'Radix Sort', desc: 'Non-comparative sorting algorithm that sorts integers by processing individual digits, from least significant to most significant.', complexity: 'O(nk)', complexityTooltip: 'Linear time - k is the number of digits in the largest number.' },
 };
 
 
@@ -791,6 +800,74 @@ async function shellSort() {
     finishRun();
 }
 
+// Radix Sort
+async function radixSort() {
+    renderPseudoCode(algoPseudoCode.radix);
+    const n = array.length;
+
+    // Find maximum number to determine number of digits
+    await highlightLine(0); // int max = getMax(arr, n)
+    let max = Math.max(...array);
+    await sleep(getDelay());
+
+    // Process each digit position (units, tens, hundreds, etc.)
+    await highlightLine(1); // for (int exp = 1; max/exp > 0; exp *= 10)
+    for (let exp = 1; Math.floor(max / exp) > 0; exp *= 10) {
+        if (!isRunning) return;
+
+        await highlightLine(2); // countSort(arr, n, exp)
+        await countingSortByDigit(exp);
+        await sleep(getDelay());
+    }
+
+    await highlightLine(-1);
+    renderBars([], [], Array.from({ length: n }, (_, i) => i));
+    finishRun();
+}
+
+// Helper function for Radix Sort - Counting Sort by digit
+async function countingSortByDigit(exp) {
+    const n = array.length;
+    const output = new Array(n).fill(0);
+    const count = new Array(10).fill(0);
+
+    await highlightLine(4); // countSort: place elements in buckets
+
+    // Count occurrences of each digit
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+        const digit = Math.floor(array[i] / exp) % 10;
+        count[digit]++;
+        renderBars([i], [], []);
+        await sleep(getDelay() / 2);
+    }
+
+    // Build cumulative count
+    for (let i = 1; i < 10; i++) {
+        count[i] += count[i - 1];
+    }
+
+    await highlightLine(5); // based on current digit (exp)
+
+    // Build output array (process from right to left for stability)
+    for (let i = n - 1; i >= 0; i--) {
+        if (!isRunning) return;
+        const digit = Math.floor(array[i] / exp) % 10;
+        output[count[digit] - 1] = array[i];
+        count[digit]--;
+        renderBars([], [i], []);
+        await sleep(getDelay() / 2);
+    }
+
+    // Copy output to array
+    for (let i = 0; i < n; i++) {
+        if (!isRunning) return;
+        array[i] = output[i];
+        renderBars([], [], [i]);
+        await sleep(getDelay() / 2);
+    }
+}
+
 // ========== SEARCHING ALGORITHMS ==========
 
 // Linear Search
@@ -887,6 +964,7 @@ function runAlgorithm() {
         case 'linear': linearSearch(); break;
         case 'binary': binarySearch(); break;
         case 'cocktail': cocktailSort(); break;
+        case 'radix': radixSort(); break;
     }
 }
 
