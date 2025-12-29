@@ -859,7 +859,6 @@ function runAlgorithm() {
     const algo = algoSelect.value;
     switch (algo) {
         case 'bubble': bubbleSort(); break;
-        case 'cocktail': cocktailSort(); break;
         case 'insertion': insertionSort(); break;
         case 'selection': selectionSort(); break;
         case 'quick': quickSort(); break;
@@ -939,7 +938,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function getAlgoFunction(algo) {
         switch (algo) {
             case 'bubble': return bubbleSort;
-            case 'cocktail': return cocktailSort;
             case 'insertion': return insertionSort;
             case 'selection': return selectionSort;
             case 'quick': return quickSort;
@@ -1049,13 +1047,13 @@ function initApp() {
 
             if (searchControlsEl) {
                 if (isSearch) {
-                    searchControlsEl.style.display = 'flex';
+                    searchControlsEl.style.setProperty('display', 'flex', 'important');
                     if (btnRunText) btnRunText.textContent = 'Search';
                     // Re-initialize array for binary search specific needs
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControlsEl.style.display = 'none';
+                    searchControlsEl.style.setProperty('display', 'none', 'important');
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
