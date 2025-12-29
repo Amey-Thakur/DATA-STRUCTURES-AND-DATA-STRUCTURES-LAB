@@ -11,25 +11,51 @@
  * ================================================================
  */
 
-// PWA Install Prompt
+// PWA Install Logic
 let deferredPrompt;
 const pwaInstallBtn = document.getElementById('pwa-install-btn');
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (pwaInstallBtn) {
-        pwaInstallBtn.style.display = 'inline-flex';
-        pwaInstallBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                deferredPrompt = null;
-                pwaInstallBtn.style.display = 'none';
-            }
-        });
+    pwaInstallBtn.style.display = 'flex';
+});
+
+pwaInstallBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            pwaInstallBtn.style.display = 'none';
+        }
+        deferredPrompt = null;
     }
 });
+
+// Share Functionality
+const shareBtn = document.getElementById('share-btn');
+if (shareBtn) {
+    shareBtn.addEventListener('click', async () => {
+        const shareData = {
+            title: 'Data Structures Lab Portfolio — Amey Thakur',
+            text: 'Data Structures Lab Portfolio — Amey Thakur',
+            url: window.location.href
+        };
+
+        try {
+            await navigator.share(shareData);
+        } catch (err) {
+            // Fallback: Copy to clipboard
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('Portfolio link copied to clipboard!');
+        }
+    });
+}
 
 /**
  * =========================================
