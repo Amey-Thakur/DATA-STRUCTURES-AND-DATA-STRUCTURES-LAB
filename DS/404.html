@@ -12,56 +12,251 @@
     ================================================================
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
+    <title>404 | Node Not Found</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="404 | Node Not Found">
+    <meta name="description"
+        content="The pointer you are following is NULL. It seems this node does not exist in our Linked List.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
+        :root {
+            /* Light Mode Variables matching style.css */
+            --bg-color: #f4f6f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --card-bg: #ffffff;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border-color: #e2e8f0;
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --header-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode Variables matching style.css */
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #60a5fa;
+            --border-color: #334155;
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --header-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.8s ease, color 0.8s ease;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0;
+            text-align: center;
+            overflow: hidden;
         }
 
-        h1 {
-            font-size: 6rem;
-            margin: 0;
-            color: #dc3545;
+        .error-container {
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
         }
 
-        h2 {
-            margin: 0 0 20px;
-            color: #6c757d;
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(120deg, var(--accent-color), #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            animation: pulse 3s infinite ease-in-out;
         }
 
-        a {
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #007bff;
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-home {
+            background: var(--accent-color);
             color: white;
-            border-radius: 5px;
-            transition: background-color 0.2s;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-md);
+            border: none;
         }
 
-        a:hover {
-            background-color: #0056b3;
+        .btn-home:hover {
+            transform: translateY(-3px);
+            background: var(--accent-hover);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+            color: white;
+        }
+
+        /* Abstract Node Background Animation */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            z-index: 1;
+            animation: float 20s infinite alternate;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-color);
+            top: -50px;
+            left: -50px;
+        }
+
+        .shape-2 {
+            width: 250px;
+            height: 250px;
+            background: #8b5cf6;
+            bottom: -20px;
+            right: -20px;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.9;
+                transform: scale(0.98);
+            }
+        }
+
+        /* Footer for 404 */
+        .footer-simple {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .footer-simple .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>404</h1>
-    <h2>Page Not Found</h2>
-    <p>The requested resource could not be found.</p>
-    <a href="index.html">Return Home</a>
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-title">Node Not Found</div>
+        <p class="error-message">
+            The pointer you are following is <strong>NULL</strong>. It seems this node does not exist in our Linked List
+            or has been garbage collected.
+            <br><br>
+            Please traverse back to the head node to access our experiments and algorithms.
+        </p>
+        <a href="index.html" class="btn-home">
+            <i class="fas fa-home"></i> Return to Dashboard
+        </a>
+
+        <div class="footer-simple">
+            <p>&copy; <span id="year"></span> Data Structures Lab</p>
+            <p>Designed & Developed by <a href="https://github.com/Amey-Thakur" target="_blank" class="highlight"
+                    rel="noopener noreferrer">Amey Thakur</a></p>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * =========================================
+         *   PAGE LOGIC
+         * =========================================
+         */
+
+        // Theme Persistence Logic
+        const htmlElement = document.documentElement;
+        try {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', savedTheme);
+        } catch (e) {
+            console.log('Access to LocalStorage denied');
+        }
+
+        // Dynamic Year
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = '2018 - 2022';
+        }
+    </script>
 </body>
 
 </html>
