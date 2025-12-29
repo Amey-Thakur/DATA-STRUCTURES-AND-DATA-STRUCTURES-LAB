@@ -869,6 +869,7 @@ async function binarySearch() {
 function finishRun() {
     isRunning = false;
     updateRunButton(false);
+    renderPseudoCode(null); // Hide pseudo-code overlay when done
 }
 
 // Run selected algorithm
@@ -1076,12 +1077,8 @@ function initApp() {
             if (algo === 'binary') initSortedArray();
             else initArray();
 
-            // Show pseudo code if available
-            if (typeof algoPseudoCode !== 'undefined' && algoPseudoCode[algo]) {
-                renderPseudoCode(algoPseudoCode[algo]);
-            } else {
-                renderPseudoCode(null);
-            }
+            // Hide pseudo code when switching algorithms (will show again on Start)
+            renderPseudoCode(null);
         });
     }
 
