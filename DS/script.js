@@ -97,7 +97,7 @@ const speedSlider = document.getElementById('speed-slider');
 const algoSelect = document.getElementById('algo-select');
 const algoTitle = document.getElementById('algo-title');
 const algoDescription = document.getElementById('algo-description');
-const searchControls = document.getElementById('search-controls');
+const searchControls = document.getElementById('find-value-reset');
 const searchTarget = document.getElementById('search-target');
 const algoLegend = document.getElementById('algo-legend');
 const algoComplexity = document.getElementById('algo-complexity');
@@ -1042,19 +1042,23 @@ function initApp() {
             if (dsControls) dsControls.style.display = 'none';
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
-            const searchControlsEl = document.getElementById('search-controls');
+            const searchControlsEl = document.getElementById('find-value-reset');
             const isSearch = (algo === 'binary' || algo === 'linear');
 
             if (searchControlsEl) {
                 if (isSearch) {
-                    searchControlsEl.classList.add('d-flex');
+                    // ATOMIC SHOW: Restore classes and flex display
+                    searchControlsEl.className = 'd-flex flex-wrap align-items-center gap-3 justify-content-center mt-3';
                     searchControlsEl.style.display = 'flex';
+
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControlsEl.classList.remove('d-flex');
+                    // ATOMIC HIDE: Wipe classes and force hide
+                    searchControlsEl.className = '';
                     searchControlsEl.style.display = 'none';
+
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
