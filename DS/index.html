@@ -392,17 +392,14 @@
                             <input type="range" id="speed-slider" min="1" max="100" value="50"
                                 style="width: 120px; accent-color: var(--accent-color);">
                         </div>
-                    </div>
 
-
-
-                    <!-- Binary Search Target Input (hidden by default) -->
-                    <div id="search-controls" class="flex-wrap align-items-center gap-3 justify-content-center mt-3"
-                        style="display: none;">
-                        <label for="search-target" style="color: var(--text-secondary); font-size: 0.9rem;">Find
-                            Value:</label>
-                        <input type="number" id="search-target" value="50" min="1" max="200"
-                            style="width: 80px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 12px; text-align: center;">
+                        <!-- NEW: Search Input inside Main Controls -->
+                        <div id="search-input-container" class="align-items-center gap-2" style="display: none;">
+                            <label for="search-target"
+                                style="color: var(--text-secondary); font-size: 0.9rem;">Find:</label>
+                            <input type="number" id="search-target" value="50" min="1" max="200"
+                                style="width: 70px; background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px; text-align: center;">
+                        </div>
                     </div>
 
                     <!-- Legend -->
