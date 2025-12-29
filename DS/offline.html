@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline | DS Lab Portfolio</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Offline | DS Lab Portfolio">
+    <meta name="description"
+        content="ConnectionLostException: The network is unreachable. Please check your internet connection and try again.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --card-bg: #ffffff;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #60a5fa;
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.8s ease, color 0.8s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .error-container {
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(120deg, var(--accent-color), #f97316);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-home {
+            background: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            background: var(--accent-hover);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3);
+            color: white;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(0.95);
+                opacity: 0.9;
+            }
+        }
+
+        .footer-simple {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-simple .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <div class="error-code"><i class="fas fa-wifi"></i></div>
+        <div class="error-title">No Internet Connection</div>
+        <p class="error-message">
+            <strong>java.net.ConnectException</strong>: The network is unreachable.
+            <br>
+            It seems your device is offline. Algorithm visualizations require an active link or cached assets.
+            <br><br>
+            Please check your connection and hit <span style="color: var(--accent-color);">Retry</span>.
+        </p>
+        <button onclick="window.location.reload()" class="btn-home">
+            <i class="fas fa-redo"></i> Retry Connection
+        </button>
+
+        <div class="footer-simple">
+            <p>2018 - 2022 &copy; All Rights Reserved | Designed and Developed by <a
+                    href="https://github.com/Amey-Thakur" target="_blank" class="highlight"
+                    rel="noopener noreferrer">Amey Thakur</a></p>
+        </div>
+    </div>
+
+    <script>
+        const htmlElement = document.documentElement;
+        try {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            htmlElement.setAttribute('data-theme', savedTheme);
+        } catch (e) { }
+
+        window.addEventListener('online', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+
+</html>
