@@ -1047,19 +1047,12 @@ function initApp() {
 
             if (searchControlsEl) {
                 if (isSearch) {
-                    // ATOMIC SHOW: Restore classes and flex display
-                    searchControlsEl.className = 'd-flex flex-wrap align-items-center gap-3 justify-content-center mt-3';
-                    // Use setAttribute to wipe any 'none' and force flex
-                    searchControlsEl.setAttribute('style', 'display: flex !important;');
-
+                    searchControlsEl.style.display = 'flex';
                     if (btnRunText) btnRunText.textContent = 'Search';
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    // ATOMIC HIDE: Wipe classes and force hide
-                    searchControlsEl.className = '';
-                    searchControlsEl.setAttribute('style', 'display: none !important;');
-
+                    searchControlsEl.style.display = 'none';
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
