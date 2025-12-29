@@ -623,8 +623,11 @@ h5 {
     padding: 4px 10px;
     border-radius: 4px;
     margin-right: 5px;
+    margin-bottom: 5px;
     border: 1px solid var(--border-color);
     display: inline-block;
+    white-space: normal;
+    word-break: break-all;
     transition: all 0.2s;
 }
 
@@ -807,13 +810,175 @@ h5 {
     padding: 2px 5px;
     border-radius: 4px;
     transition: background 0.2s;
-    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .highlight-line {
     background: var(--accent-color);
     color: white;
     font-weight: bold;
+}
+
+/* 
+ * =========================================
+ *   RESPONSIVE DESIGN (MOBILE FIRST)
+ * =========================================
+ */
+
+/* Medium Devices (Tablets, 768px and up) */
+@media (max-width: 992px) {
+    .main-container {
+        padding: 20px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Small Devices (Landscape Phones, 576px and up) */
+@media (max-width: 768px) {
+    .top-controls {
+        top: 10px;
+        right: 10px;
+        gap: 8px;
+    }
+
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 40px 20px;
+        border-radius: 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .stats-container {
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    /* Featured Card Stacking */
+    .featured-card {
+        padding: 30px 15px !important;
+        border-radius: 20px !important;
+    }
+
+    .laptop-column {
+        width: 100% !important;
+        margin-bottom: 30px;
+    }
+
+    .laptop-base {
+        width: 110% !important;
+        margin-left: -5% !important;
+    }
+
+    .project-title {
+        font-size: 2rem !important;
+    }
+
+    /* Cards Grid */
+    .col-md-6 {
+        width: 100% !important;
+        /* Ensure columns stack */
+        margin-bottom: 20px;
+    }
+
+    /* Pseudo Code Positioning */
+    .pseudo-code-box {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        max-width: 100% !important;
+        margin-bottom: 20px;
+        width: 100% !important;
+        box-sizing: border-box;
+        /* Include padding and border in the element's total width */
+    }
+
+    #visualizer-container {
+        min-height: 250px !important;
+        overflow-x: auto;
+        /* Allow horizontal scroll within the visualizer if content is too wide */
+    }
+}
+
+/* Extra Small Devices (Portrait Phones, less than 576px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .info-badges {
+        gap: 8px;
+    }
+
+    .badge-pill {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-buttons .btn {
+        margin: 0;
+        width: 100%;
+    }
+
+    .stat-item {
+        flex: 0 0 45%;
+    }
+
+    .project-title {
+        font-size: 1.5rem !important;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .card-custom {
+        padding: 20px;
+    }
+
+    .card-custom h5 {
+        font-size: 1.2rem;
+    }
+
+    .footer {
+        padding: 20px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Fix for horizontal scroll issues */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /* 
