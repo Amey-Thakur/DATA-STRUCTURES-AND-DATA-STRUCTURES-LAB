@@ -2379,8 +2379,8 @@ function initCommandPalette() {
     const commands = [
         { type: 'Command', name: 'Toggle Theme', icon: 'fa-adjust', action: () => document.getElementById('theme-toggle').click() },
         { type: 'Command', name: 'Scroll to Top', icon: 'fa-arrow-up', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
-        { type: 'Command', name: 'Go to Algorithms', icon: 'fa-code-branch', action: () => document.getElementById('visualizer-section').scrollIntoView({ behavior: 'smooth' }) },
-        { type: 'Command', name: 'Go to Experiments', icon: 'fa-flask', action: () => document.querySelector('.experiments-grid').scrollIntoView({ behavior: 'smooth' }) },
+        { type: 'Command', name: 'Go to Algorithms', icon: 'fa-code-branch', action: () => document.getElementById('interactive-demo').scrollIntoView({ behavior: 'smooth' }) },
+        { type: 'Command', name: 'Go to Experiments', icon: 'fa-flask', action: () => document.getElementById('foundations').scrollIntoView({ behavior: 'smooth' }) },
     ];
 
     // Scrape Content for Search Index
@@ -2391,29 +2391,39 @@ function initCommandPalette() {
         action: () => {
             const select = document.getElementById('algo-select');
             const key = Object.keys(algoInfo).find(k => algoInfo[k].title === algo.title);
-            if (select && key) {
+
+            // Sync UI by simulating a user click on the dropdown option
+            // This ensures internal state (selectedText/selectedValue) in the dropdown logic is updated
+            const algoOptions = document.querySelectorAll('.algo-option');
+            const targetOption = Array.from(algoOptions).find(opt => opt.dataset.value === key);
+
+            if (targetOption) {
+                targetOption.click();
+            } else if (select && key) {
+                // Fallback if option not found (should not happen)
                 select.value = key;
                 select.dispatchEvent(new Event('change'));
-                const vizSection = document.getElementById('visualizer-section');
-                if (vizSection) {
-                    vizSection.scrollIntoView({ behavior: 'smooth' });
-                    // Auto-Run after scroll (800ms delay)
-                    setTimeout(() => {
-                        const btnRun = document.getElementById('btn-run');
-                        if (btnRun && !isRunning) btnRun.click();
-                    }, 800);
-                }
+            }
+
+            const vizSection = document.getElementById('interactive-demo');
+            if (vizSection) {
+                vizSection.scrollIntoView({ behavior: 'smooth' });
+                // Auto-Run after scroll (800ms delay)
+                setTimeout(() => {
+                    const btnRun = document.getElementById('btn-run');
+                    if (btnRun && !isRunning) btnRun.click();
+                }, 800);
             }
         }
     }));
 
-    const experiments = Array.from(document.querySelectorAll('.experiment-card h3')).map(h3 => ({
+    const experiments = Array.from(document.querySelectorAll('.card-custom h5')).map(h5 => ({
         type: 'Experiment',
-        name: h3.textContent.trim(),
+        name: h5.textContent.trim(),
         icon: 'fa-flask',
         action: () => {
-            h3.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            const card = h3.closest('.experiment-card');
+            h5.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const card = h5.closest('.card-custom');
             if (card) {
                 card.style.transition = 'all 0.3s ease';
                 card.style.transform = 'scale(1.05)';
