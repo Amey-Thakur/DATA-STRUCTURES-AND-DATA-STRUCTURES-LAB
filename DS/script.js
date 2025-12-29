@@ -1047,13 +1047,14 @@ function initApp() {
 
             if (searchControlsEl) {
                 if (isSearch) {
-                    searchControlsEl.style.setProperty('display', 'flex', 'important');
+                    searchControlsEl.classList.add('d-flex');
+                    searchControlsEl.style.display = 'flex';
                     if (btnRunText) btnRunText.textContent = 'Search';
-                    // Re-initialize array for binary search specific needs
                     if (algo === 'binary') initSortedArray();
                     else initArray();
                 } else {
-                    searchControlsEl.style.setProperty('display', 'none', 'important');
+                    searchControlsEl.classList.remove('d-flex');
+                    searchControlsEl.style.display = 'none';
                     if (btnRunText) btnRunText.textContent = 'Start';
                     initArray();
                 }
