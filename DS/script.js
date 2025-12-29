@@ -1035,11 +1035,6 @@ function initApp() {
 
             // Reset state
             isRunning = false;
-            if (dsInput) dsInput.value = '';
-
-            // Ensure controls visibility
-            if (mainControls) mainControls.style.display = 'flex';
-            if (dsControls) dsControls.style.display = 'none';
 
             // VISIBILITY LOGIC: Force "Find Value" for Search Algos
             const searchControlsEl = document.getElementById('search-controls');
