@@ -393,7 +393,16 @@ async function highlightLine(lineIdx) {
     lines.forEach((line, idx) => {
         if (idx === lineIdx) {
             line.classList.add('highlight-line');
-            line.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            // Manual safe scroll to keep line in view
+            const containerHeight = pseudoCodeEl.clientHeight;
+            const lineTop = line.offsetTop;
+            const lineHeight = line.clientHeight;
+
+            // Scroll to center the line
+            const scrollPos = lineTop - (containerHeight / 2) + (lineHeight / 2);
+
+            pseudoCodeEl.scrollTo({ top: scrollPos, behavior: 'smooth' });
         } else {
             line.classList.remove('highlight-line');
         }
