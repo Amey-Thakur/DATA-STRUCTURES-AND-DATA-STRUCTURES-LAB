@@ -497,8 +497,9 @@ h5 {
 /* Responsive Media Queries */
 @media (max-width: 768px) {
     .top-controls {
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
+        gap: 8px;
     }
 
     .hero h1 {
@@ -519,15 +520,6 @@ h5 {
 }
 
 @media (max-width: 480px) {
-    .top-controls {
-        position: relative;
-        top: 0;
-        right: 0;
-        justify-content: center;
-        margin-bottom: 20px;
-        width: 100%;
-    }
-
     .hero {
         padding: 40px 15px;
     }
