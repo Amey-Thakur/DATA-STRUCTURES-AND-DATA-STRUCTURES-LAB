@@ -15,7 +15,7 @@
  * ================================================================
  */
 
-const CACHE_NAME = 'ds-portfolio-v1';
+const CACHE_NAME = 'ds-portfolio-v2';
 const OFFLINE_URL = 'offline.html';
 
 // Core assets to cache immediately
@@ -25,7 +25,10 @@ const CORE_ASSETS = [
     'style.css',
     'script.js',
     'manifest.json',
-    OFFLINE_URL
+    OFFLINE_URL,
+    'assets/icon-192.png',
+    'assets/icon-512.png',
+    'assets/og-image.png'
 ];
 
 // External resources to cache
