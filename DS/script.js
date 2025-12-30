@@ -11,6 +11,26 @@
  * ================================================================
  */
 
+// =========================================
+//   CONSOLE EASTER EGG 🥚
+// =========================================
+console.log(
+    "%c📊 DS Lab Portfolio",
+    "font-size: 28px; font-weight: bold; color: #2563eb; text-shadow: 2px 2px 0 #0f172a;"
+);
+console.log(
+    "%c👋 Hey developer! Curious about the code?",
+    "font-size: 14px; color: #64748b;"
+);
+console.log(
+    "%c🔗 https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB",
+    "font-size: 12px; color: #2563eb;"
+);
+console.log(
+    "%c⚠️ This portfolio is protected. Please respect the author's work!",
+    "font-size: 12px; color: #f59e0b; font-weight: bold;"
+);
+
 // PWA Install Logic
 let deferredPrompt;
 const pwaInstallBtn = document.getElementById('pwa-install-btn');
@@ -2501,27 +2521,35 @@ function initCommandPalette() {
         }
     }
 
-    // Event Listeners
+    // Single, unified keydown handler
     document.addEventListener('keydown', (e) => {
-        // Toggle Palette (Ctrl+K or Cmd+K)
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        // --- CTRL+K: Toggle Command Palette ---
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
+            e.stopPropagation();
             if (overlay.classList.contains('active')) closePalette();
             else openPalette();
+            return; // CRITICAL: Exit here to prevent global shortcuts from firing
         }
 
-        // Palette Navigation
+        // --- Palette-Specific Navigation (only when visible) ---
         if (overlay.classList.contains('active')) {
-            if (e.key === 'Escape') closePalette();
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closePalette();
+                return;
+            }
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 selectedIndex = (selectedIndex + 1) % results.length;
                 renderResults();
+                return;
             }
             if (e.key === 'ArrowUp') {
                 e.preventDefault();
                 selectedIndex = (selectedIndex - 1 + results.length) % results.length;
                 renderResults();
+                return;
             }
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -2529,15 +2557,30 @@ function initCommandPalette() {
                     results[selectedIndex].action();
                     closePalette();
                 }
+                return;
             }
-        } else {
-            // Global Shortcuts (when palette is closed)
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                if (e.key === 't' || e.key === 'T') {
-                    // Prevent conflict if user is typing text
-                    document.getElementById('theme-toggle').click();
-                }
-            }
+            // Allow typing in the input
+            return; // Don't process global shortcuts while palette is open
+        }
+
+        // --- Global Shortcuts (only when palette is CLOSED and no modifier keys) ---
+        // Skip if any modifier key is pressed (to avoid Ctrl+T conflicts)
+        if (e.ctrlKey || e.metaKey || e.altKey) {
+            return;
+        }
+
+        // Skip if typing in an input field
+        const activeTag = document.activeElement ? document.activeElement.tagName : '';
+        if (activeTag === 'INPUT' || activeTag === 'TEXTAREA') {
+            return;
+        }
+
+        // T = Toggle Theme
+        if (e.key.toLowerCase() === 't') {
+            e.preventDefault();
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) toggle.click();
+            return;
         }
     });
 
