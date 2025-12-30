@@ -1358,3 +1358,62 @@ body {
     background: var(--border-color);
     border-radius: 3px;
 }
+
+/* =========================================
+   KEYBOARD HINT BADGE
+   ========================================= */
+.kbd-hint {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    animation: kbdSlideIn 0.5s ease forwards;
+}
+
+.kbd-hint.hidden {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.kbd-hint kbd {
+    padding: 4px 8px;
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@keyframes kbdSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .kbd-hint {
+        display: none;
+    }
+}

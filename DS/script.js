@@ -2464,6 +2464,9 @@ function initCommandPalette() {
         input.value = '';
         input.focus();
         filterResults('');
+        // Hide keyboard hint permanently
+        const kbdHint = document.getElementById('kbd-hint');
+        if (kbdHint) kbdHint.classList.add('hidden');
     }
 
     function closePalette() {
@@ -2593,3 +2596,11 @@ function initCommandPalette() {
         if (e.target === overlay) closePalette();
     });
 }
+
+// Auto-hide keyboard hint after 8 seconds
+document.addEventListener('DOMContentLoaded', () => {
+    const kbdHint = document.getElementById('kbd-hint');
+    if (kbdHint) {
+        setTimeout(() => kbdHint.classList.add('hidden'), 8000);
+    }
+});
