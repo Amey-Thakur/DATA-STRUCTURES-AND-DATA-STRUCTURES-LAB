@@ -1,34 +1,30 @@
-# ALL REPOSITORIES
-# ----------------
-# General
+# Data Structures - Academic Repository
+# Specialized .gitignore for C/C++ and scholarly archiving
+
+# OS-generated files
+[Tt]humbs.db
+[Dd]esktop.ini
 .DS_Store
-Thumbs.db
-*.swp
-*.log
-*.tmp
-*.bak
-*~
+.AppleDouble
+.LSOverride
 
-# Windows
-desktop.ini
-$RECYCLE.BIN/
-
-# VS Code
+# Editor and IDE configuration
 .vscode/
-*.code-workspace
-
-# JetBrains
 .idea/
+*.swp
+*.swo
+*~
 *.iml
+*.code-workspace
+.vs/
 
-# Visual Studio
+# Visual Studio / MSVC artifacts
 *.suo
 *.sln
 *.user
 *.pdb
 *.idb
 *.tlog
-*.vs/
 Debug/
 Release/
 x64/
@@ -48,5 +44,14 @@ x86/
 bin/
 obj/
 
-# Git
+# Temporary and Cache files
+*.tmp
+*.log
+.cache/
+node_modules/
+
+# Academic build/output artifacts
+*.bak
+*.sav
+*.old
 *.orig
