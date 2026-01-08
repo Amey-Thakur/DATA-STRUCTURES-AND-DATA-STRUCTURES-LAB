@@ -197,7 +197,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 | `priority_queue.c` | Priority-based queue using linked list | [View](Data%20Structures%20Lab/Source%20Code/Queues/priority_queue.c) |
 | `double_ended_queue.c` | Deque with sentinel nodes | [View](Data%20Structures%20Lab/Source%20Code/Queues/double_ended_queue.c) |
 | `deque_both_ends.c` | Array-based deque operations | [View](Data%20Structures%20Lab/Source%20Code/Queues/deque_both_ends.c) |
-| `reverse_queue.c" | Reverses queue using stack | [View](Data%20Structures%20Lab/Source%20Code/Queues/reverse_queue.c) |
+| `reverse_queue.c` | Reverses queue using stack | [View](Data%20Structures%20Lab/Source%20Code/Queues/reverse_queue.c) |
 
 </details>
 
@@ -294,7 +294,7 @@ This repository and all linked academic content are made available under the **C
 
 This repository represents a comprehensive collection of study materials, reference books, question papers, and personal preparation notes curated during my academic journey. All content has been carefully organized and documented to serve as a valuable resource for students pursuing Data Structures & Data Structures Lab.
 
-**Connect**: [GitHub](https://github.com/Amey-Thakur) · [LinkedIn](https://www.linkedin.com/in/amey-thakur)
+**Connect**: [GitHub](https://github.com/Amey-Thakur) · [LinkedIn](https://www.linkedin.com/in/amey-thakur) · [ORCID](https://orcid.org/0000-0001-5644-1575)
 
 ### Acknowledgments
 
