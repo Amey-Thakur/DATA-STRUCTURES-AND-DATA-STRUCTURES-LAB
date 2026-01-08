@@ -298,9 +298,9 @@ This repository represents a comprehensive collection of study materials, refere
 
 ### Acknowledgments
 
-Grateful acknowledgment to the faculty members of the Department of Computer Engineering at Terna Engineering College for their guidance. Their instruction was fundamental to the completion of this coursework.
+Grateful acknowledgment to the faculty members of the Department of Computer Engineering at Terna Engineering College for their guidance and instruction in Data Structures and Data Structures Lab. Their clear teaching and continued support helped me develop a strong understanding of fundamental data structures and algorithmic theory.
 
-Special thanks to the mentors and peers whose collaboration, feedback, and support were instrumental during the development of these projects.
+Special thanks to the mentors and peers whose encouragement, discussions, and support contributed meaningfully to this learning experience.
 
 ---
 
