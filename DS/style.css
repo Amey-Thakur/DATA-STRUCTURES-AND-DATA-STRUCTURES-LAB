@@ -1420,15 +1420,17 @@ body {
         margin-bottom: 20px;
         width: 100%;
     }
-} 
- 
+}
+
+   
+
 /* 
  * =========================================
  *   SCROLL HINT HOVER EFFECT
  * =========================================
  */
 .scroll-link {
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: 500;
@@ -1440,11 +1442,11 @@ body {
 }
 
 .scroll-link:hover {
-    color: var(--accent-color);
+    color: var(--accent-color) !important;
     letter-spacing: 0.5px;
 }
 
-.scroll-link i {
+.scroll-link .fa-chevron-down {
     font-size: 0.8rem;
     animation: bounce 2s infinite;
 }
