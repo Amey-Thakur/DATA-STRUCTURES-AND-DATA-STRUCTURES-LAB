@@ -755,6 +755,7 @@ h5 {
     font-size: 2.5rem;
     font-weight: 800;
     background: linear-gradient(120deg, var(--accent-color), #8b5cf6);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: block;
