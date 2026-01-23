@@ -114,12 +114,12 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
   [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Data%20Structures%20Lab/Source%20Code/)
   [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
 
-  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/)
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
 
 </div>
 
 > [!TIP]
-> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/). For the complete source code and detailed documentation, visit the [Data Structures Lab](Data%20Structures%20Lab/) directory. Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
+> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/). For the complete source code and detailed documentation, visit the [Data Structures Lab](Data%20Structures%20Lab/) directory. Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
 
 ### Laboratory Experiments
 
@@ -220,7 +220,7 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 | # | Resource | Description |
 |:-:|:---|:---|
-| 1 | [Interactive Lab Portfolio](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/) | Interactive dashboard with source code descriptions and visualizations |
+| 1 | [Interactive Lab Portfolio](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/) | Interactive dashboard with source code descriptions and visualizations |
 | 2 | [Laboratory Journal](Data%20Structures%20Lab/DSL%20Experiments.pdf) | Complete record of experiments with code, outputs, and analysis |
 | 3 | [Lab README](Data%20Structures%20Lab/) | Detailed navigation guide with source code descriptions |
 
@@ -316,7 +316,7 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
 
   <br>
 
-  **🔬 [Data Structures Laboratory](Data%20Structures%20Lab/)**
+  **🔬 [Data Structures Laboratory](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)**
 
   ---
 
@@ -327,4 +327,3 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
   *Semester-wise curriculum, laboratories, projects, and academic notes.*
 
 </div>
-

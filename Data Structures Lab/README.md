@@ -29,7 +29,7 @@
 
 <div align="center">
 
-  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/DS/)
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
 
 </div>
 
