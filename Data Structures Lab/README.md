@@ -10,13 +10,13 @@
   ### CSL303 · Semester III · Computer Engineering
 
   <!-- Badges -->
-  [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
+  [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-0969DA.svg)](https://github.com/Amey-Thakur)
   [![Source Code](https://img.shields.io/badge/Source%20Code-34-yellowgreen.svg)](#quick-navigation)
-  [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Source%20Code/)
-  [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](DSL%20Experiments.pdf)
+  [![Language](https://img.shields.io/badge/Language-C-8250DF.svg)](Source%20Code/)
+  [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-5D4037.svg)](DSL%20Experiments.pdf)
 
   <!-- Short Description -->
-  **A comprehensive collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
+  **A complete collection of 34 C programs covering fundamental data structures and algorithms with detailed comments, proper documentation, and industry-standard coding practices.**
 
   ---
 
@@ -29,12 +29,12 @@
 
 <div align="center">
 
-  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-00B8D9?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
 
 </div>
 
 > [!TIP]
-> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/). Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
+> **Live Implementation**: For a complete visual present, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/). Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
 
 > [!WARNING]
 > **Memory Management**: Improper handling of pointers and dynamic memory allocation (`malloc`, `free`) in C can lead to **Segmentation Faults** or **Memory Leaks**. Always ensure pointers are initialized and correctly freed when no longer in use.

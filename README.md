@@ -13,13 +13,13 @@
   ### CSC305 & CSL303 · Semester III · Computer Engineering
 
   <!-- Badges -->
-  [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](LICENSE)
-  [![University](https://img.shields.io/badge/University-Mumbai-%23A6192E.svg)](https://mu.ac.in/)
-  [![Institution](https://img.shields.io/badge/Institution-Terna%20Engineering%20College-orange.svg)](https://ternaengg.ac.in/)
-  [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-blue.svg)](https://github.com/Amey-Thakur)
+  [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-9E9E9E.svg)](LICENSE)
+  [![University](https://img.shields.io/badge/University-Mumbai-A6192E.svg)](https://mu.ac.in/)
+  [![Institution](https://img.shields.io/badge/Institution-Terna%20Engineering%20College-E8710A.svg)](https://ternaengg.ac.in/)
+  [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-0969DA.svg)](https://github.com/Amey-Thakur)
 
   <!-- Short Description -->
-  **A comprehensive academic resource for Data Structures (DS) and Data Structures Laboratory (DS Lab), covering fundamental data types, algorithms, analysis, and implementation techniques essential for computer engineering foundations.**
+  **A complete academic archive for Data Structures (DS) and Data Structures Laboratory (DS Lab), covering fundamental data types, algorithms, analysis, and implementation techniques essential for computer engineering foundations.**
 
   ---
 
@@ -35,11 +35,11 @@
      ========================================================================================= -->
 ## Overview
 
-Data Structures (CSC305) and Data Structures Lab (CSL303) are core subjects in the Second Year (Semester III) of the Computer Engineering curriculum at the University of Mumbai. These courses establish the foundational understanding of organizing and managing data efficiently, which is crucial for developing high-performance algorithms and robust software systems.
+Data Structures (CSC305) and Data Structures Lab (CSL303) are core subjects in the Second Year (Semester III) of the Computer Engineering curriculum at the University of Mumbai. These courses establish the foundational understanding of organizing and managing data efficiently, which is essential to developing high-performance algorithms and robust software systems.
 
 ### Course Topics
 
-The curriculum encompasses several key domains in data structure theory and application:
+The curriculum comprises several key domains in data structure theory and application:
 
 - **Introduction to Data Structures**: Concept of ADT, types of data structures (linear and non-linear), and algorithm complexity analysis.
 - **Arrays**: Representation, operations (insertion, deletion, traversal), and multi-dimensional arrays.
@@ -52,13 +52,13 @@ The curriculum encompasses several key domains in data structure theory and appl
 
 ### Repository Purpose
 
-This repository represents a curated collection of study materials, reference books, question papers, and personal preparation notes compiled during my academic journey. The primary motivation for creating and maintaining this archive is simple yet profound: **to preserve knowledge for continuous learning and future reference**.
+This repository is a curated collection of study materials, reference books, question papers, and personal preparation notes compiled during my academic journey. The primary motivation for creating and maintaining this archive is straightforward: **to preserve knowledge for continuous learning and future reference**.
 
-As I progress in my career, I recognize that data structure fundamentals remain essential for software engineering, system design, and technical interviews. This repository serves as my intellectual reference point: a resource I can return to for relearning concepts, reviewing methodologies, and strengthening understanding when needed.
+As I progress in my career, I recognize that data structure fundamentals remain essential for software engineering, system design, and technical interviews. This repository remains my principal reference: a resource I can return to for relearning concepts, reviewing methodologies, and strengthening understanding when needed.
 
 **Why this repository exists:**
 
-- **Knowledge Preservation**: To maintain organized access to comprehensive study materials beyond the classroom.
+- **Knowledge Preservation**: To maintain organized access to complete study materials beyond the classroom.
 - **Continuous Learning**: To support lifelong learning by enabling easy revisitation of fundamental data structure concepts.
 - **Academic Documentation**: To authentically document my learning journey through DS and DS Lab.
 - **Community Contribution**: To share these resources with students and learners who may benefit from them.
@@ -75,7 +75,7 @@ As I progress in my career, I recognize that data structure fundamentals remain 
 
 ### Reference Books
 
-This collection includes **comprehensive reference materials** covering all major topics:
+This collection includes **authoritative reference materials** covering all major topics:
 
 | # | Resource | Focus Area |
 |:-:|:---|:---|
@@ -111,16 +111,16 @@ The laboratory component (CSL303) focuses on hands-on implementation of various 
 
 <div align="center">
 
-  [![Total Programs](https://img.shields.io/badge/Total%20Programs-34-yellowgreen.svg)](Data%20Structures%20Lab/)
-  [![Language](https://img.shields.io/badge/Language-C-blueviolet.svg)](Data%20Structures%20Lab/Source%20Code/)
-  [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-brightgreen.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
+  [![Total Programs](https://img.shields.io/badge/Total%20Programs-34-827717.svg)](Data%20Structures%20Lab/)
+  [![Language](https://img.shields.io/badge/Language-C-8250DF.svg)](Data%20Structures%20Lab/Source%20Code/)
+  [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-5D4037.svg)](Data%20Structures%20Lab/DSL%20Experiments.pdf)
 
-  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-007bff?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
+  [![Live Demo DS Lab Portfolio](https://img.shields.io/badge/Live_Demo-DS_Lab_Portfolio-00B8D9?style=flat&logo=github&logoColor=lightgray)](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/)
 
 </div>
 
 > [!TIP]
-> **Live Implementation**: For a comprehensive visual showcase, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/). For the complete source code and detailed documentation, visit the [Data Structures Lab](Data%20Structures%20Lab/) directory. Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
+> **Live Implementation**: For a complete visual present, visit the [DS Lab Portfolio Dashboard](https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/). For the complete source code and detailed documentation, visit the [Data Structures Lab](Data%20Structures%20Lab/) directory. Visualization is key. Always draw the state of your data structure (nodes, pointers, indices) on paper before and during code implementation.
 
 ### Laboratory Experiments
 
@@ -264,7 +264,7 @@ This repository is openly shared to support learning and knowledge exchange acro
 Use these resources as reference materials for understanding concepts, reviewing problem-solving techniques, and preparing for examinations. All content is organized for self-paced learning.
 
 **For Educators**  
-These materials may serve as curriculum references, assignment examples, or supplementary teaching resources. Attribution is appreciated when utilizing content.
+These materials may serve as curriculum references, assignment examples, or supplementary teaching resources. Attribution is appreciated when using content.
 
 **For Researchers**  
 The documentation and organization may provide insights into academic resource curation and educational content structuring.
@@ -293,7 +293,7 @@ This repository and all linked academic content are made available under the **C
 **Institution**: [Terna Engineering College](https://ternaengg.ac.in/), Navi Mumbai  
 **University**: [University of Mumbai](https://mu.ac.in/)
 
-This repository represents a comprehensive collection of study materials, reference books, question papers, and personal preparation notes curated during my academic journey. All content has been carefully organized and documented to serve as a valuable resource for students pursuing Data Structures & Data Structures Lab.
+This repository is a complete collection of study materials, reference books, question papers, and personal preparation notes curated during my academic journey. All content has been carefully organized and documented to remain a dependable reference for students pursuing Data Structures & Data Structures Lab.
 
 **Connect**: [GitHub](https://github.com/Amey-Thakur) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/amey-thakur) &nbsp;·&nbsp; [ORCID](https://orcid.org/0000-0001-5644-1575)
 
