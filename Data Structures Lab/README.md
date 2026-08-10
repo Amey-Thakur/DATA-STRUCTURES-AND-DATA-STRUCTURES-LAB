@@ -12,7 +12,7 @@
   <!-- Badges -->
   [![Curated by](https://img.shields.io/badge/Curated%20by-Amey%20Thakur-0969DA.svg)](https://github.com/Amey-Thakur)
   [![Source Code](https://img.shields.io/badge/Source%20Code-34-yellowgreen.svg)](#quick-navigation)
-  [![Language](https://img.shields.io/badge/Language-C-8250DF.svg)](Source%20Code/)
+  [![Language](https://img.shields.io/badge/Language-C-A8B9CC.svg)](Source%20Code/)
   [![Lab Manual](https://img.shields.io/badge/Lab%20Manual-Available-39FF14.svg)](DSL%20Experiments.pdf)
 
   <!-- Short Description -->
