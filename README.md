@@ -97,7 +97,7 @@ Study materials and planning resources for effective exam preparation:
 |:-:|:---|:---|
 | 1 | [Syllabus Breakdown](My%20Preparation/Note_2019-09-26_13_54_38_159.png) | Detailed module-wise syllabus notes |
 | 2 | [Module Planning](My%20Preparation/Note_2019-09-26_14_10_59_854.png) | Topic organization and study schedule |
-| 3 | [Semester Timetable](My%20Preparation/Note_2019-09-26_14_17_40_056.png) | Class schedule and planning |
+| 3 | [Examination Timetable](My%20Preparation/Sem%203%20TT.jpg) | Winter 2019 Semester III examination schedule &middot; also as [PDF](My%20Preparation/SEMESTER%203%20Timetable.pdf) and [annotated note](My%20Preparation/Note_2019-09-26_14_17_40_056.png) |
 | 4 | [Examination Blueprint](Blueprint%20(DS).png) | Question paper pattern and marking scheme |
 
 ---
@@ -328,3 +328,4 @@ Special thanks to the mentors and peers whose encouragement, discussions, and su
   *Semester-wise curriculum, laboratories, projects, and academic notes.*
 
 </div>
+
