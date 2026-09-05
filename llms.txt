@@ -1,0 +1,39 @@
+# Data Structures and Data Structures Lab
+
+> CSC305: Data Structures [DS] & CSL303: Data Structures Lab [DS Lab] | SE
+> Semester III | Computer Engineering
+
+Author: Amey Thakur, ORCID 0000-0001-5644-1575
+Co-author: Mega Satish, ORCID 0000-0002-1844-9557
+Institution: Terna Engineering College, University of Mumbai
+Programme: B.E. Computer Engineering, Second Year, Semester III
+Course codes: CSC305, CSL303
+Licence: CC BY 4.0, attribution required
+Repository created: 6 February 2022
+Work dated: 17 January 2020
+
+## What is in this repository
+
+- DS, 12 files
+- Data Structures Lab, 36 files
+- My Preparation, 5 files
+- Question Papers, 8 files
+- Reference Books, 7 files
+- Blueprint (DS).png
+- SE-Comps_CBCGS_Syllabus.pdf
+- temp_old_script.js
+
+## Subject terms
+
+algorithms, c-programming, computer-engineering, computer-science,
+data-structures, data-structures-and-algorithms, data-structures-c,
+data-structures-lab, engineering, linked-list, queue, reference-books,
+sorting-algorithms, stack, university-of-mumbai
+
+## Where this sits
+
+- This repository: https://github.com/Amey-Thakur/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB
+- Degree index, every subject and project: https://github.com/Amey-Thakur/COMPUTER-ENGINEERING
+- Project page: https://amey-thakur.github.io/DATA-STRUCTURES-AND-DATA-STRUCTURES-LAB/
+- Author: https://github.com/Amey-Thakur
+- Research notes and reflections: https://amey-thakur.github.io/
